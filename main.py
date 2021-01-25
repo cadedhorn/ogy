@@ -5,10 +5,17 @@ import random
 
 wn = trtl.Screen()
 wn.setup(width=1.0, height=1.0)
+wn.addshape('beetlehand.gif')
+
+enemy = trtl.Turtle()
+enemy.shape('beetlehand.gif')
+enemy.pu()
+enemy.goto(200,145)
 
 drawer = trtl.Turtle()
 drawer.pensize(5)
 drawer.speed(0)
+drawer.hideturtle()
 
 #--------Functions--------
 
@@ -59,7 +66,7 @@ def make_shop():
     drawer.goto(350,-200)
     drawer.goto(350,-400)
 #--------loop--------
-make_shop()
+make_home()
 
 wn.listen()
 wn.mainloop()
