@@ -1,6 +1,6 @@
 import turtle as trtl
 import random
-# ur gay
+# ur gay lol
 #--------Setup--------
 
 wn = trtl.Screen()
