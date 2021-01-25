@@ -10,7 +10,7 @@ wn.addshape('beetlehand.gif')
 enemy = trtl.Turtle()
 enemy.shape('beetlehand.gif')
 enemy.pu()
-enemy.goto(350,50)
+enemy.goto(200,145)
 
 drawer = trtl.Turtle()
 drawer.pensize(5)
