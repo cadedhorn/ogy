@@ -1,6 +1,6 @@
 import turtle as trtl
 import random
-
+# funny
 
 shaq_hp = 200
 beet_attacks = ["nae nae", "whip", "flex", "heal"]
