@@ -1,7 +1,7 @@
 import turtle as trtl
 import random
 
-
+#gay
 shaq_hp = 200
 beet_attacks = ["nae nae", "whip", "flex", "heal"]
 i_beet = random.randint(0,3)
