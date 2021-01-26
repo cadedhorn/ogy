@@ -54,16 +54,6 @@ box_2.hideturtle()
 box_3.hideturtle()
 box_4.hideturtle()
 
-box_1.goto(-668,-330)
-box_2.goto(-285,-330)
-box_3.goto(100,-330)
-box_4.goto(390,-330)
-
-# box_1.hideturtle()
-# box_2.hideturtle()
-# box_3.hideturtle()
-# box_4.hideturtle()
-
 global menu_status
 menu_status = 'placeholder'
 
@@ -128,6 +118,10 @@ def make_home():
         drawer.goto(650,-50)
         drawer.goto(-250,-50)
         drawer.goto(-250,0)
+        box_1.goto(-668,-330)
+        box_2.goto(-285,-330)
+        box_3.goto(100,-330)
+        box_4.goto(390,-330)
         bottom_text()
         menu_status = 'home'
 
@@ -137,6 +131,10 @@ def make_shop():
     if (menu_status != 'shop'):
         button_list = ["Gatorade", "Basquetbol", "Uni-Forme", "シャキール"]
         drawer.clear()
+        box_1.goto(-635,-330)
+        box_2.goto(-315,-330)
+        box_3.goto(43,-330)
+        box_4.goto(390,-330)
         bottom_text()
         enemy.hideturtle()
         neutralshaq.hideturtle()
@@ -159,7 +157,6 @@ def make_shop():
     
 
 #--------loop--------
-
 make_home()
 
 wn.onkeypress(make_home, 'a')
