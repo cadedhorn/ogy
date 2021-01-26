@@ -59,6 +59,13 @@ def make_home():
     drawer.goto(-350,-200)
     drawer.goto(350,-200)
     drawer.goto(350,-400)
+    drawer.pu()
+    drawer.goto(-700,-75)
+    drawer.pendown()
+    drawer.goto(700,-75)
+    drawer.goto(700,-175)
+    drawer.goto(-700,-175)
+    drawer.goto(-700,-75)
     y = 0
     for i in range(3):
         drawer.pu()
