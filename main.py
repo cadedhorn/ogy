@@ -7,21 +7,33 @@ wn = trtl.Screen()
 wn.setup(width=1.0, height=1.0)
 wn.addshape('beetlehand.gif')
 wn.addshape('neutralshaq.gif')
+wn.addshape('fancyshaq.gif')
 
+wn.tracer(False)
 enemy = trtl.Turtle()
+enemy.hideturtle()
 enemy.shape('beetlehand.gif')
 enemy.pu()
 enemy.goto(200,245)
 
-goodguy = trtl.Turtle()
-goodguy.shape('neutralshaq.gif')
-goodguy.pu()
-goodguy.goto(-500,375)
+neutralshaq = trtl.Turtle()
+neutralshaq.hideturtle()
+neutralshaq.shape('neutralshaq.gif')
+neutralshaq.pu()
+neutralshaq.goto(-500,375)
+
 
 drawer = trtl.Turtle()
 drawer.pensize(5)
 drawer.speed(0)
 drawer.hideturtle()
+
+fancyshaq = trtl.Turtle()
+fancyshaq.hideturtle()
+fancyshaq.pu()
+fancyshaq.shape('fancyshaq.gif')
+fancyshaq.goto(0,195)
+wn.tracer(True)
 
 box_1 = trtl.Turtle()
 box_2 = trtl.Turtle()
@@ -46,6 +58,8 @@ box_4.hideturtle()
 #--------Functions--------
 
 def make_home():
+    neutralshaq.hideturtle()
+    enemy.hideturtle()
     drawer.pu()
     drawer.goto(-700,-200)
     drawer.pendown()
@@ -85,6 +99,9 @@ def make_home():
     drawer.goto(-250,0)
 
 def make_shop():
+    enemy.hideturtle()
+    neutralshaq.hideturtle()
+    fancyshaq.showturtle()
     drawer.clear()
     drawer.pu()
     drawer.goto(-700,-200)
@@ -108,7 +125,7 @@ def bottom_text():
 
 #--------loop--------
 
-make_home()
+make_shop()
 bottom_text()
 
 wn.listen()
