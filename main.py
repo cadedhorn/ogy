@@ -7,7 +7,6 @@ wn = trtl.Screen()
 wn.setup(width=1.0, height=1.0)
 wn.addshape('beetlehand.gif')
 wn.addshape('neutralshaq.gif')
-wn.addshape('madface.gif')
 
 enemy = trtl.Turtle()
 enemy.shape('beetlehand.gif')
@@ -28,6 +27,21 @@ box_1 = trtl.Turtle()
 box_2 = trtl.Turtle()
 box_3 = trtl.Turtle()
 box_4 = trtl.Turtle()
+
+box_1.pu()
+box_2.pu()
+box_3.pu()
+box_4.pu()
+
+box_1.speed(0)
+box_2.speed(0)
+box_3.speed(0)
+box_4.speed(0)
+
+box_1.hideturtle()
+box_2.hideturtle()
+box_3.hideturtle()
+box_4.hideturtle()
 #--------Functions--------
 
 def make_home():
@@ -63,6 +77,7 @@ def make_home():
     drawer.goto(-300,-100)
 
 def make_shop():
+    drawer.clear()
     drawer.pu()
     drawer.goto(-700,-200)
     drawer.pendown()
@@ -76,8 +91,16 @@ def make_shop():
     drawer.goto(-350,-200)
     drawer.goto(350,-200)
     drawer.goto(350,-400)
+    
+def bottom_text():
+    box_1.goto(-700,-200)
+    box_2.goto(-350,-200)
+    box_3.goto(0,-200)
+    box_4.goto(350,-200)
+
 #--------loop--------
 make_home()
+bottom_text()
 
 wn.listen()
 wn.mainloop()
