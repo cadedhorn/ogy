@@ -55,11 +55,14 @@ box_2.hideturtle()
 box_3.hideturtle()
 box_4.hideturtle()
 
+menu_status = 'home'
 #--------Functions--------
 
 def make_home():
-    neutralshaq.hideturtle()
-    enemy.hideturtle()
+    drawer.clear()
+    fancyshaq.hideturtle()
+    neutralshaq.showturtle()
+    enemy.showturtle()
     drawer.pu()
     drawer.goto(-700,-200)
     drawer.pendown()
@@ -97,8 +100,10 @@ def make_home():
     drawer.goto(650,-50)
     drawer.goto(-250,-50)
     drawer.goto(-250,0)
+    menu_status = 'home'
 
 def make_shop():
+    drawer.clear()
     enemy.hideturtle()
     neutralshaq.hideturtle()
     fancyshaq.showturtle()
@@ -116,6 +121,7 @@ def make_shop():
     drawer.goto(-350,-200)
     drawer.goto(350,-200)
     drawer.goto(350,-400)
+    menu_status = 'shop'
     
 def bottom_text():
     box_1.goto(-700,-200)
@@ -125,8 +131,11 @@ def bottom_text():
 
 #--------loop--------
 
-make_shop()
+make_home()
 bottom_text()
+
+wn.onkeypress(make_home, 'a')
+wn.onkeypress(make_shop, 'b')
 
 wn.listen()
 wn.mainloop()
