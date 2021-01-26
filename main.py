@@ -19,11 +19,6 @@ goodguy.shape('neutralshaq.gif')
 goodguy.pu()
 goodguy.goto(-500,375)
 
-bossface = trtl.Turtle()
-bossface.shape('madface.gif')
-bossface.pu()
-bossface.goto(-275,-122.5)
-
 drawer = trtl.Turtle()
 drawer.pensize(5)
 drawer.speed(0)
