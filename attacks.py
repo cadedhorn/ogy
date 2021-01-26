@@ -7,8 +7,8 @@ shaq_hp = 200
 shaq_speed = 100
 beet_hp = 200
 beet_speed = 200
-shaq_attacks = ["","free throw", "drink up", "shmoney dance", "final dunk"]
-beet_attacks = ["nae nae", "whip", "flex", "heal"]
+shaq_attacks = ["","Free Throw", "Drink Up", "Shmoney Dance", "Final Dunk"]
+beet_attacks = ["Nae Nae", "Whip", "Flex", "Heal"]
 
 #functions
 def shaqattack():
