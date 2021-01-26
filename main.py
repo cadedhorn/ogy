@@ -134,8 +134,6 @@ def bottom_text():
     box_4.write(button_list[3], font=("Arial", 40, "bold"))
     label_number()
     
-
-
 def make_home():
     global menu_status
     global button_list
