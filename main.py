@@ -61,6 +61,28 @@ global button_list
 button_list = []
 #--------Functions--------
 
+def label_number():
+    a = box_1.xcor()
+    b = box_2.ycor()
+    c = box_2.xcor()
+    d = box_2.ycor()
+    e = box_3.xcor()
+    f = box_3.ycor()
+    g = box_4.xcor()
+    h = box_4.ycor()
+    box_1.goto(-530,-390)
+    box_2.goto(-180,-390)
+    box_3.goto(170,-390)
+    box_4.goto(520,-390)
+    box_1.write("1", font=("Arial", 40, "bold"))
+    box_2.write("2", font=("Arial", 40, "bold"))
+    box_3.write("3", font=("Arial", 40, "bold"))
+    box_4.write("4", font=("Arial", 40, "bold"))
+    box_1.goto(a,b)
+    box_2.goto(c,d)
+    box_3.goto(e,f)
+    box_4.goto(g,h)
+
 def bottom_text():
     box_1.clear()
     box_2.clear()
@@ -70,6 +92,7 @@ def bottom_text():
     box_2.write(button_list[1], font=("Arial", 40, "bold"))
     box_3.write(button_list[2], font=("Arial", 40, "bold"))
     box_4.write(button_list[3], font=("Arial", 40, "bold"))
+    label_number()
 
 
 def make_home():
@@ -159,7 +182,6 @@ def make_shop():
         menu_status = 'shop'
         wn.tracer(True)
     
-
 #--------loop--------
 make_home()
 
