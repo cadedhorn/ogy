@@ -24,6 +24,10 @@ drawer.pensize(5)
 drawer.speed(0)
 drawer.hideturtle()
 
+box_1 = trtl.Turtle()
+box_2 = trtl.Turtle()
+box_3 = trtl.Turtle()
+box_4 = trtl.Turtle()
 #--------Functions--------
 
 def make_home():
