@@ -94,7 +94,6 @@ def speedcheck():
         beetattack()
         shaqattack()
 
-def game():
-    while beet_hp > 0:
-        speedcheck()
-        hpcheck()
+while beet_hp > 0:
+    speedcheck()
+    hpcheck()

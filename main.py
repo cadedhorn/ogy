@@ -1,5 +1,6 @@
 import turtle as trtl
 import random
+import time
 import attacks
 #--------Setup--------
 
@@ -88,7 +89,6 @@ bobux_counter.goto(-700,-475)
 commentator = trtl.Turtle()
 commentator.pu()
 commentator.goto(-690,-142)
-#commentator.write(fight_text, font=("Arial", 20, "bold"))
 
 wn.tracer(True)
 
@@ -108,7 +108,10 @@ global fight_text
 fight_text = 'placeholder'
 #--------Functions--------
 def main_text(fight_text):
-    pass
+    commentator.clear()
+    commentator.write(fight_text, font=("Arial", 20, "bold"))
+    time.sleep(.5)
+    
 #updates the currency of the game, and displays it in the bottom left part of the screen
 def update_bobux():
     global menu_status
@@ -257,8 +260,6 @@ def make_shop():
     
 #--------loop--------
 make_home()
-
-attacks.game()
 
 wn.onkeypress(make_home, 'a')
 wn.onkeypress(make_shop, 'b')
