@@ -79,12 +79,23 @@ gatorade_text.goto(-700,100)
 ultimate_text.goto(-700,0)
 enemy_hp.goto(-250,0)
 
+bobux_counter = trtl.Turtle()
+bobux_counter.pu()
+bobux_counter.hideturtle()
+bobux_counter.goto(-700,-475)
+
+bobux = 0
+
 global menu_status
 menu_status = 'placeholder'
 
 global button_list
 button_list = []
 #--------Functions--------
+
+def update_bobux():
+    bobux_counter.clear()
+    bobux_counter.write(bobux, font=("Arial", 40, "bold"))
 
 def label_number():
     a = box_1.xcor()
@@ -181,6 +192,7 @@ def make_home():
         gatorade_text.write("GATORADE", font=("Arial", 20, "bold"))
         ultimate_text.write("DUNK CITY", font=("Arial", 20, "bold"))
         enemy_hp.write("ENEMY HP", font=("Arial", 20, "bold"))
+        update_bobux()
         menu_status = 'home'
         wn.tracer(True)
 
@@ -213,6 +225,7 @@ def make_shop():
         drawer.goto(-350,-200)
         drawer.goto(350,-200)
         drawer.goto(350,-400)
+        update_bobux()
         menu_status = 'shop'
         wn.tracer(True)
     
