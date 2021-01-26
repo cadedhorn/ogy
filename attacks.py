@@ -1,29 +1,32 @@
 import turtle as trtl
 import random
-# funny ogy 2
+# funny ogy 3
 
 #Stats declaration (in the future read a stats.txt)
 shaq_hp = 200
 shaq_speed = 100
+shaq_power = 50
 beet_hp = 200
 beet_speed = 200
+beet_power = 50
 shaq_attacks = ["","Free Throw", "Drink Up", "Shmoney Dance", "Final Dunk"]
 beet_attacks = ["Nae Nae", "Whip", "Flex", "Heal"]
+random.seed(9812345761982873654786124534647152)
 
 #functions
 def shaqattack():
-    global shaq_attacks, shaq_hp, shaq_speed, beet_hp, beet_attacks, beet_speed
+    global shaq_attacks, shaq_hp, shaq_speed, shaq_power, beet_hp, beet_attacks, beet_speed, beet_power
     print("")
     i = int(input("WTF ATTACK YOU WANNA DO HOMIE: "))
     if i not in range (1,5):
         print("Invalid number, defaulting to first attack")
         i = 1
     tempshaq = shaq_attacks[i]
-    if tempshaq == "free throw":
+    if tempshaq == "Free Throw":
         print("You shot a free throw!")
-        print("Beet took 50 damage!")
-        beet_hp -= 50
-    elif tempshaq == "drink up":
+        print("Beet took", shaq_power, "damage!")
+        beet_hp -= shaq_power
+    elif tempshaq == "Drink Up":
         print("You drank dat gatorade!")
         if shaq_hp == 200:
             print("But it failed!")
@@ -33,10 +36,10 @@ def shaqattack():
         elif shaq_hp + 50 <= 200:
             print("You restored 50 hp!")
             shaq_hp += 50
-    elif tempshaq == "shmoney dance":
+    elif tempshaq == "Shmoney Dance":
         print("Shaq's speed doubled from the shmoney dance!")
         shaq_speed = 2 * shaq_speed
-    elif tempshaq == "final dunk":
+    elif tempshaq == "Final Dunk":
         print("Shaq leaps into the air!")
         print("Shaq slam dunked on beet!")
         beet_hp = 0
@@ -50,26 +53,27 @@ def hpcheck():
         print("Beet fainted!")
 
 def beetattack():
-    global shaq_attacks, shaq_hp, shaq_speed, beet_hp, beet_attacks, beet_speed
+    global shaq_attacks, shaq_hp, shaq_speed, shaq_power, beet_hp, beet_attacks, beet_speed, beet_power
     if beet_hp > 160:
         i_beet = random.randint(0,2)
     else:
         i_beet = random.randint(0,3)
     j = beet_attacks[i_beet]
-    if j == "heal":
+    if j == "Heal":
         print("Beet restored a cuppa hp")
         beet_hp += 50
-    elif j == "nae nae":
+    elif j == "Nae Nae":
         print("Beet nae nae'd on you!")
         print("Your speed dropped by 20!")
         shaq_speed -= 20
-    elif j == "whip":
+    elif j == "Whip":
         print("Shaq got whipped!")
-        print("Shaq lost 50 hp!")
-        shaq_hp -= 50
-    elif j == "flex":
+        print("Shaq lost", beet_power, "hp!")
+        shaq_hp -= beet_power
+    elif j == "Flex":
         print("Beet flexed!")
         print("Beet's attacks do twice as much damage!")
+        beet_power = 2 * beet_power
 
 def speedcheck():
     global shaq_speed
