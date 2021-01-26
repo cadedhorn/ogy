@@ -13,7 +13,7 @@ beet_attacks = ["nae nae", "whip", "flex", "heal"]
 #functions
 def shaqattack():
     global shaq_attacks, shaq_hp, shaq_speed, beet_hp, beet_attacks, beet_speed
-    i = int(input("WTF ATTACK YOU WANNA DO HOMIE "))
+    i = int(input("WTF ATTACK YOU WANNA DO HOMIE: "))
     tempshaq = shaq_attacks[i]
     if tempshaq == "free throw":
         print("You shot a free throw!")
