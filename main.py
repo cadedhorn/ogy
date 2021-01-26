@@ -32,7 +32,6 @@ fancyshaq.hideturtle()
 fancyshaq.pu()
 fancyshaq.shape('fancyshaq.gif')
 fancyshaq.goto(0,195)
-wn.tracer(True)
 
 box_1 = trtl.Turtle()
 box_2 = trtl.Turtle()
@@ -85,6 +84,7 @@ bobux_counter.hideturtle()
 bobux_counter.goto(-700,-475)
 
 bobux = 0
+wn.tracer(True)
 
 global menu_status
 menu_status = 'placeholder'
