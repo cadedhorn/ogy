@@ -1,19 +1,23 @@
 import turtle as trtl
 import random
-# funny ogy
+# funny ogy 2
 
 #Stats declaration (in the future read a stats.txt)
 shaq_hp = 200
 shaq_speed = 100
 beet_hp = 200
 beet_speed = 200
-shaq_attacks = ["free throw", "drink up", "shmoney dance", "final dunk"]
-beet_attacks = ["nae nae", "whip", "flex", "heal"]
+shaq_attacks = ["","Free Throw", "Drink Up", "Shmoney Dance", "Final Dunk"]
+beet_attacks = ["Nae Nae", "Whip", "Flex", "Heal"]
 
 #functions
 def shaqattack():
     global shaq_attacks, shaq_hp, shaq_speed, beet_hp, beet_attacks, beet_speed
-    i = int(input("WTF ATTACK YOU WANNA DO HOMIE"))
+    print("")
+    i = int(input("WTF ATTACK YOU WANNA DO HOMIE: "))
+    if i not in range (1,5):
+        print("Invalid number, defaulting to first attack")
+        i = 1
     tempshaq = shaq_attacks[i]
     if tempshaq == "free throw":
         print("You shot a free throw!")
