@@ -1,7 +1,6 @@
 import turtle as trtl
 import random
 import time
-import attacks
 #--------Setup--------
 
 wn = trtl.Screen()
@@ -87,6 +86,7 @@ bobux_counter.hideturtle()
 bobux_counter.goto(-700,-475)
 
 commentator = trtl.Turtle()
+commentator.hideturtle()
 commentator.pu()
 commentator.goto(-690,-142)
 
@@ -107,7 +107,7 @@ button_list = []
 global fight_text
 fight_text = 'placeholder'
 #--------Functions--------
-def main_text(fight_text):
+def type_fight(fight_text):
     commentator.clear()
     commentator.write(fight_text, font=("Arial", 20, "bold"))
     time.sleep(.5)
@@ -132,10 +132,10 @@ def label_number():
     f = box_3.ycor()
     g = box_4.xcor()
     h = box_4.ycor()
-    box_1.goto(-530,-390)
-    box_2.goto(-180,-390)
-    box_3.goto(170,-390)
-    box_4.goto(520,-390)
+    box_1.goto(-690,-390)
+    box_2.goto(-340,-390)
+    box_3.goto(10,-390)
+    box_4.goto(360,-390)
     box_1.write("1", font=("Arial", 40, "bold"))
     box_2.write("2", font=("Arial", 40, "bold"))
     box_3.write("3", font=("Arial", 40, "bold"))
@@ -210,10 +210,10 @@ def make_home():
         drawer.goto(650,-50)
         drawer.goto(-250,-50)
         drawer.goto(-250,0)
-        box_1.goto(-668,-330)
-        box_2.goto(-285,-330)
-        box_3.goto(100,-330)
-        box_4.goto(390,-330)
+        box_1.goto(-690,-330)
+        box_2.goto(-340,-330)
+        box_3.goto(10,-330)
+        box_4.goto(360,-330)
         bottom_text()
         shaq_hp.write("HP", font=("Arial", 20, "bold"))
         gatorade_text.write("GATORADE", font=("Arial", 20, "bold"))
@@ -232,10 +232,6 @@ def make_shop():
         wn.tracer(False)
         button_list = ["Gatorade", "Basquetbol", "Uni-Forme", "シャキール"]
         drawer.clear()
-        box_1.goto(-635,-330)
-        box_2.goto(-315,-330)
-        box_3.goto(43,-330)
-        box_4.goto(390,-330)
         bottom_text()
         enemy.hideturtle()
         neutralshaq.hideturtle()
