@@ -1,6 +1,6 @@
 import turtle as trtl
 import random
-# funny ogy 2
+# funny ogy 3
 
 #Stats declaration (in the future read a stats.txt)
 shaq_hp = 200
