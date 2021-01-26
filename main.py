@@ -6,11 +6,23 @@ import random
 wn = trtl.Screen()
 wn.setup(width=1.0, height=1.0)
 wn.addshape('beetlehand.gif')
+wn.addshape('neutralshaq.gif')
+wn.addshape('madface.gif')
 
 enemy = trtl.Turtle()
 enemy.shape('beetlehand.gif')
 enemy.pu()
 enemy.goto(200,145)
+
+goodguy = trtl.Turtle()
+goodguy.shape('neutralshaq.gif')
+goodguy.pu()
+goodguy.goto(-500,375)
+
+bossface = trtl.Turtle()
+bossface.shape('madface.gif')
+bossface.pu()
+bossface.goto(-275,-122.5)
 
 drawer = trtl.Turtle()
 drawer.pensize(5)
