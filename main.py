@@ -1,6 +1,6 @@
 import turtle as trtl
 import random
-# ur gay lol
+
 #--------Setup--------
 
 wn = trtl.Screen()
@@ -11,7 +11,7 @@ wn.addshape('neutralshaq.gif')
 enemy = trtl.Turtle()
 enemy.shape('beetlehand.gif')
 enemy.pu()
-enemy.goto(200,145)
+enemy.goto(200,245)
 
 goodguy = trtl.Turtle()
 goodguy.shape('neutralshaq.gif')
@@ -42,6 +42,7 @@ box_1.hideturtle()
 box_2.hideturtle()
 box_3.hideturtle()
 box_4.hideturtle()
+
 #--------Functions--------
 
 def make_home():
@@ -69,12 +70,12 @@ def make_home():
         drawer.goto(-700,(200-y))
         y = y + 100
     drawer.pu()
-    drawer.goto(-300,-100)
+    drawer.goto(-250,0)
     drawer.pendown()
-    drawer.goto(700,-100)
-    drawer.goto(700,-150)
-    drawer.goto(-300,-150)
-    drawer.goto(-300,-100)
+    drawer.goto(650,0)
+    drawer.goto(650,-50)
+    drawer.goto(-250,-50)
+    drawer.goto(-250,0)
 
 def make_shop():
     drawer.clear()
@@ -99,6 +100,7 @@ def bottom_text():
     box_4.goto(350,-200)
 
 #--------loop--------
+
 make_home()
 bottom_text()
 
