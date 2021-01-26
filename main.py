@@ -10,6 +10,7 @@ wn.addshape('neutralshaq.gif')
 wn.addshape('fancyshaq.gif')
 
 wn.tracer(False)
+
 enemy = trtl.Turtle()
 enemy.hideturtle()
 enemy.shape('beetlehand.gif')
@@ -83,8 +84,10 @@ bobux_counter.pu()
 bobux_counter.hideturtle()
 bobux_counter.goto(-700,-475)
 
-bobux = 0
 wn.tracer(True)
+
+global bobux
+bobux = 0
 
 global menu_status
 menu_status = 'placeholder'
@@ -94,8 +97,13 @@ button_list = []
 #--------Functions--------
 
 def update_bobux():
+    global menu_status
+    global bobux
     bobux_counter.clear()
-    bobux_counter.write(bobux, font=("Arial", 40, "bold"))
+    if (menu_status == 'home'):
+        bobux_counter.write(str(bobux) + " bobux (press b to go to the shop)", font=("Arial", 40, "bold"))
+    elif(menu_status == 'shop'):
+        bobux_counter.write(str(bobux) + " bobux (press a to go to the main screen)", font=("Arial", 40, "bold"))
 
 def label_number():
     a = box_1.xcor()
@@ -137,6 +145,7 @@ def bottom_text():
 def make_home():
     global menu_status
     global button_list
+    global bobux
     if (menu_status != 'home'):
         wn.tracer(False)
         button_list = ["Free Throw", "Drink Up", "Dance", "Final Dunk"]
@@ -190,13 +199,14 @@ def make_home():
         gatorade_text.write("GATORADE", font=("Arial", 20, "bold"))
         ultimate_text.write("DUNK CITY", font=("Arial", 20, "bold"))
         enemy_hp.write("ENEMY HP", font=("Arial", 20, "bold"))
-        update_bobux()
         menu_status = 'home'
+        update_bobux()
         wn.tracer(True)
 
 def make_shop():
     global menu_status
     global button_list
+    global bobux
     if (menu_status != 'shop'):
         wn.tracer(False)
         button_list = ["Gatorade", "Basquetbol", "Uni-Forme", "シャキール"]
@@ -223,8 +233,8 @@ def make_shop():
         drawer.goto(-350,-200)
         drawer.goto(350,-200)
         drawer.goto(350,-400)
-        update_bobux()
         menu_status = 'shop'
+        update_bobux()
         wn.tracer(True)
     
 #--------loop--------
