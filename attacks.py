@@ -15,7 +15,7 @@ def shaqattack():
     global shaq_attacks, shaq_hp, shaq_speed, beet_hp, beet_attacks, beet_speed
     print("")
     i = int(input("WTF ATTACK YOU WANNA DO HOMIE: "))
-    if i not in range (1,4):
+    if i not in range (1,5):
         print("Invalid number, defaulting to first attack")
         i = 1
     tempshaq = shaq_attacks[i]
