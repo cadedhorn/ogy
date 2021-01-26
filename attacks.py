@@ -1,5 +1,6 @@
 import turtle as trtl
 import random
+import secrets
 # funny ogy 3
 
 #Stats declaration (in the future read a stats.txt)
@@ -11,13 +12,18 @@ beet_speed = 200
 beet_power = 50
 shaq_attacks = ["","Free Throw", "Drink Up", "Shmoney Dance", "Final Dunk"]
 beet_attacks = ["Nae Nae", "Whip", "Flex", "Heal"]
-random.seed(9812345761982873654786124534647152)
+r = secrets.token_hex(64)
+random.seed(r)
 
 #functions
 def shaqattack():
     global shaq_attacks, shaq_hp, shaq_speed, shaq_power, beet_hp, beet_attacks, beet_speed, beet_power
     print("")
     i = int(input("WTF ATTACK YOU WANNA DO HOMIE: "))
+    crit = random.randint(0,100)
+    if crit == 87:
+        print("A critical hit!")
+        shaq_power *= 2
     if i not in range (1,5):
         print("Invalid number, defaulting to first attack")
         i = 1
@@ -43,6 +49,8 @@ def shaqattack():
         print("Shaq leaps into the air!")
         print("Shaq slam dunked on beet!")
         beet_hp = 0
+    if crit == 87:
+        shaq_power /= 2
 
 def hpcheck():
     global shaq_hp, beet_hp
@@ -58,6 +66,10 @@ def beetattack():
         i_beet = random.randint(0,2)
     else:
         i_beet = random.randint(0,3)
+    crit = random.randint(0,100)
+    if crit == 13:
+        print("A critical hit!")
+        beet_power *= 2
     j = beet_attacks[i_beet]
     if j == "Heal":
         print("Beet restored a cuppa hp")
@@ -74,6 +86,8 @@ def beetattack():
         print("Beet flexed!")
         print("Beet's attacks do twice as much damage!")
         beet_power = 2 * beet_power
+    if crit == 13:
+        beet_power /= 2
 
 def speedcheck():
     global shaq_speed
