@@ -1,5 +1,6 @@
 import turtle as trtl
 import random
+import main
 # funny ogy 3
 
 #Stats declaration (in the future read a stats.txt)
@@ -93,6 +94,7 @@ def speedcheck():
         beetattack()
         shaqattack()
 
-while beet_hp > 0:
-    speedcheck()
-    hpcheck()
+def game():
+    while beet_hp > 0:
+        speedcheck()
+        hpcheck()

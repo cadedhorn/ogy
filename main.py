@@ -1,6 +1,6 @@
 import turtle as trtl
 import random
-
+import attacks
 #--------Setup--------
 
 wn = trtl.Screen()
@@ -11,6 +11,7 @@ wn.addshape('fancyshaq.gif')
 
 wn.tracer(False)
 
+#makes all turtles used in the program
 enemy = trtl.Turtle()
 enemy.hideturtle()
 enemy.shape('beetlehand.gif')
@@ -84,18 +85,31 @@ bobux_counter.pu()
 bobux_counter.hideturtle()
 bobux_counter.goto(-700,-475)
 
+commentator = trtl.Turtle()
+commentator.pu()
+commentator.goto(-690,-142)
+#commentator.write(fight_text, font=("Arial", 20, "bold"))
+
 wn.tracer(True)
 
+#sets up global variables that are used throughout the game
 global bobux
 bobux = 0
 
+#very important status value to check when certain functions can or can not happen
 global menu_status
 menu_status = 'placeholder'
 
+#used to customize bottom text 
 global button_list
 button_list = []
-#--------Functions--------
 
+global fight_text
+fight_text = 'placeholder'
+#--------Functions--------
+def main_text(fight_text):
+    pass
+#updates the currency of the game, and displays it in the bottom left part of the screen
 def update_bobux():
     global menu_status
     global bobux
@@ -105,6 +119,7 @@ def update_bobux():
     elif(menu_status == 'shop'):
         bobux_counter.write(str(bobux) + " bobux (press a to go to the main screen)", font=("Arial", 40, "bold"))
 
+#adds a number in each box to show the user what buttons correspond to what actions
 def label_number():
     a = box_1.xcor()
     b = box_2.ycor()
@@ -127,6 +142,7 @@ def label_number():
     box_3.goto(e,f)
     box_4.goto(g,h)
 
+#makes the text for the bottom of the screen, using button list to allow easy changing of the bottom option texts
 def bottom_text():
     box_1.clear()
     box_2.clear()
@@ -141,7 +157,8 @@ def bottom_text():
     box_3.write(button_list[2], font=("Arial", 40, "bold"))
     box_4.write(button_list[3], font=("Arial", 40, "bold"))
     label_number()
-    
+
+#makes the entire menu screen and can be used to delete/make the menu
 def make_home():
     global menu_status
     global button_list
@@ -203,6 +220,7 @@ def make_home():
         update_bobux()
         wn.tracer(True)
 
+#makes the entire shop screen and can be used to delete/make the menu
 def make_shop():
     global menu_status
     global button_list
@@ -239,6 +257,8 @@ def make_shop():
     
 #--------loop--------
 make_home()
+
+attacks.game()
 
 wn.onkeypress(make_home, 'a')
 wn.onkeypress(make_shop, 'b')
