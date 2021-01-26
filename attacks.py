@@ -83,13 +83,13 @@ def speedcheck():
         if tempr == 1:
             shaqattack()
             beetattack()
-        if tempr == 0:
+        elif tempr == 0:
             beetattack()
             shaqattack()
-    if shaq_speed - beet_speed > 0:
+    elif shaq_speed - beet_speed > 0:
         shaqattack()
         beetattack()
-    if shaq_speed - beet_speed < 0:
+    elif shaq_speed - beet_speed < 0:
         beetattack()
         shaqattack()
 
