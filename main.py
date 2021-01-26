@@ -129,10 +129,14 @@ def make_shop():
         menu_status = 'shop'
     
 def bottom_text():
-    box_1.goto(-700,-300)
-    box_2.goto(-350,-300)
-    box_3.goto(0,-300)
-    box_4.goto(350,-300)
+    box_1.goto(-700,-320)
+    box_2.goto(-350,-320)
+    box_3.goto(0,-320)
+    box_4.goto(350,-320)
+    box_1.write("Free Throw", font=("Arial", 40, "bold"))
+    box_2.write("Drink Up", font=("Arial", 40, "bold"))
+    box_3.write("Shmoney Dance", font=("Arial", 40, "bold"))
+    box_4.write("Final Dunk", font=("Arial", 40, "bold"))
 
 #--------loop--------
 
