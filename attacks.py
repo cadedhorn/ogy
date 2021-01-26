@@ -7,7 +7,7 @@ shaq_hp = 200
 shaq_speed = 100
 beet_hp = 200
 beet_speed = 200
-shaq_attacks = ["free throw", "drink up", "shmoney dance", "final dunk"]
+shaq_attacks = ["","free throw", "drink up", "shmoney dance", "final dunk"]
 beet_attacks = ["nae nae", "whip", "flex", "heal"]
 
 #functions
