@@ -76,6 +76,7 @@ def make_home():
     global menu_status
     global button_list
     if (menu_status != 'home'):
+        wn.tracer(False)
         button_list = ["Free Throw", "Drink Up", "Dance", "Final Dunk"]
         drawer.clear()
         fancyshaq.hideturtle()
@@ -124,11 +125,13 @@ def make_home():
         box_4.goto(390,-330)
         bottom_text()
         menu_status = 'home'
+        wn.tracer(True)
 
 def make_shop():
     global menu_status
     global button_list
     if (menu_status != 'shop'):
+        wn.tracer(False)
         button_list = ["Gatorade", "Basquetbol", "Uni-Forme", "シャキール"]
         drawer.clear()
         box_1.goto(-635,-330)
@@ -154,6 +157,7 @@ def make_shop():
         drawer.goto(350,-200)
         drawer.goto(350,-400)
         menu_status = 'shop'
+        wn.tracer(True)
     
 
 #--------loop--------
