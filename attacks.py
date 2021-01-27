@@ -25,34 +25,43 @@ def shaqchoose():
     if menu_status == "home":
         if(shaq_constant == 0):
             type_fight("WTF ATTACK YOU WANNA DO HOMIE: ")
+            wn.onkey(choice_one,"q")
+            wn.onkey(choice_two,"w")
+            wn.onkey(choice_three,"e")
+            wn.onkey(choice_four,"r")
+            wn.listen()
             shaq_constant = 1   
         else:
             useless.forward(1)
 def choice_one():
     global shaq_constant
+    global shaq_choice
     if (menu_status == "home"):
-        shaq_choice = "Free Throw"
+        shaq_choice = 1
         speedcheck()
         hpcheck()
         shaq_constant = 0
 def choice_two():
     global shaq_constant
+    global shaq_choice
     if (menu_status == "home"):
-        shaq_choice = "Drink Up"
+        shaq_choice = 2
         speedcheck()
         hpcheck()
         shaq_constant = 0
 def choice_three():
     global shaq_constant
+    global shaq_choice
     if (menu_status == "home"):
-        shaq_choice = "Shmoney Dance"
+        shaq_choice = 3
         speedcheck()
         hpcheck()
         shaq_constant = 0
 def choice_four():
     global shaq_constant
+    global shaq_choice
     if (menu_status == "home"):
-        shaq_choice = "Final Dunk"
+        shaq_choice = 4
         speedcheck()
         hpcheck()
         shaq_constant = 0
@@ -60,7 +69,6 @@ def choice_four():
 def shaqattack():
     global shaq_choice, shaq_attacks, shaq_hp, shaq_speed, shaq_power, beet_hp, beet_attacks, beet_speed, beet_power
     tempshaq = shaq_attacks[shaq_choice]
-    crit = random.randint(0,100)
     if tempshaq == "Free Throw":
         type_fight("You shot a free throw!")
         type_fight("Beet took", shaq_power, "damage!")
@@ -82,8 +90,6 @@ def shaqattack():
         type_fight("Shaq leaps into the air!")
         type_fight("Shaq slam dunked on beet!")
         beet_hp = 0
-    if crit == 87:
-        shaq_power /= 2
 
 def hpcheck():
     global shaq_hp, beet_hp

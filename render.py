@@ -121,7 +121,7 @@ def type_fight(fight_text):
     current_text = fight_text
     commentator.clear()
     commentator.write(fight_text, font=("Arial", 20, "bold"))
-    time.sleep(.5)
+    time.sleep(1)
     
 def save_text():
     commentator.clear()
