@@ -14,7 +14,7 @@ beet_attacks = ["Nae Nae", "Whip", "Flex", "Heal"]
 shaq_choice = 0
 global shaq_constant
 shaq_constant = 0
-
+# LOL FART
 commentator = trtl.Turtle()
 commentator.hideturtle()
 commentator.pu()
