@@ -91,7 +91,7 @@ commentator.hideturtle()
 commentator.pu()
 commentator.goto(-690,-140)
 
-useless = trtl.Turtle()
+useless = trtl.Turtle() # SUPER BAD NAME THIS IS LITERALLY THE MOST INTEGRAL PART OF THE WHOLE PROGRAM IT DOESNT WORK WITHOUT IT
 useless.up()
 useless.hideturtle()
 
