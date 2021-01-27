@@ -1,7 +1,18 @@
 import turtle as trtl
 import random
 import time
+import attacks
 #--------Setup--------
+
+shaq_hp = 200
+shaq_speed = 100
+shaq_power = 50
+beet_hp = 200
+beet_speed = 200
+beet_power = 50
+shaq_attacks = ["","Free Throw", "Drink Up", "Shmoney Dance", "Final Dunk"]
+beet_attacks = ["Nae Nae", "Whip", "Flex", "Heal"]
+shaq_choice = 0
 
 wn = trtl.Screen()
 wn.setup(width=1.0, height=1.0)
@@ -257,8 +268,15 @@ def make_shop():
 #--------loop--------
 make_home()
 
+while (beet_hp > 0) and (shaq_hp > 0):
+    attacks.shaqchoose()
+
 wn.onkeypress(make_home, 'a')
 wn.onkeypress(make_shop, 'b')
+wn.onkeypress(attacks.choice_one, 'q')
+wn.onkeypress(attacks.choice_two, 'w')
+wn.onkeypress(attacks.choice_three, 'e')
+wn.onkeypress(attacks.choice_four, 'r')
 
 wn.listen()
 wn.mainloop()
