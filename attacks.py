@@ -25,6 +25,7 @@ def shaqchoose():
 def shaqattack():
     global shaq_choice, shaq_attacks, shaq_hp, shaq_speed, shaq_power, beet_hp, beet_attacks, beet_speed, beet_power
     tempshaq = shaq_attacks[shaq_choice]
+    crit = random.randint(0,100)
     if tempshaq == "Free Throw":
         print("You shot a free throw!")
         print("Beet took", shaq_power, "damage!")
