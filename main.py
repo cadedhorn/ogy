@@ -1,6 +1,6 @@
 import turtle as trtl
 import random
-
+import time
 #--------Setup--------
 
 wn = trtl.Screen()
@@ -10,6 +10,8 @@ wn.addshape('neutralshaq.gif')
 wn.addshape('fancyshaq.gif')
 
 wn.tracer(False)
+
+#makes all turtles used in the program
 enemy = trtl.Turtle()
 enemy.hideturtle()
 enemy.shape('beetlehand.gif')
@@ -83,20 +85,44 @@ bobux_counter.pu()
 bobux_counter.hideturtle()
 bobux_counter.goto(-700,-475)
 
-bobux = 0
+commentator = trtl.Turtle()
+commentator.hideturtle()
+commentator.pu()
+commentator.goto(-690,-142)
+
 wn.tracer(True)
 
+#sets up global variables that are used throughout the game
+global bobux
+bobux = 0
+
+#very important status value to check when certain functions can or can not happen
 global menu_status
 menu_status = 'placeholder'
 
+#used to customize bottom text 
 global button_list
 button_list = []
+
+global fight_text
+fight_text = 'placeholder'
 #--------Functions--------
-
+def type_fight(fight_text):
+    commentator.clear()
+    commentator.write(fight_text, font=("Arial", 20, "bold"))
+    time.sleep(.5)
+    
+#updates the currency of the game, and displays it in the bottom left part of the screen
 def update_bobux():
+    global menu_status
+    global bobux
     bobux_counter.clear()
-    bobux_counter.write(bobux, font=("Arial", 40, "bold"))
+    if (menu_status == 'home'):
+        bobux_counter.write(str(bobux) + " bobux (press b to go to the shop)", font=("Arial", 40, "bold"))
+    elif(menu_status == 'shop'):
+        bobux_counter.write(str(bobux) + " bobux (press a to go to the main screen)", font=("Arial", 40, "bold"))
 
+#adds a number in each box to show the user what buttons correspond to what actions
 def label_number():
     a = box_1.xcor()
     b = box_2.ycor()
@@ -106,10 +132,10 @@ def label_number():
     f = box_3.ycor()
     g = box_4.xcor()
     h = box_4.ycor()
-    box_1.goto(-530,-390)
-    box_2.goto(-180,-390)
-    box_3.goto(170,-390)
-    box_4.goto(520,-390)
+    box_1.goto(-690,-390)
+    box_2.goto(-340,-390)
+    box_3.goto(10,-390)
+    box_4.goto(360,-390)
     box_1.write("1", font=("Arial", 40, "bold"))
     box_2.write("2", font=("Arial", 40, "bold"))
     box_3.write("3", font=("Arial", 40, "bold"))
@@ -119,6 +145,7 @@ def label_number():
     box_3.goto(e,f)
     box_4.goto(g,h)
 
+#makes the text for the bottom of the screen, using button list to allow easy changing of the bottom option texts
 def bottom_text():
     box_1.clear()
     box_2.clear()
@@ -133,12 +160,12 @@ def bottom_text():
     box_3.write(button_list[2], font=("Arial", 40, "bold"))
     box_4.write(button_list[3], font=("Arial", 40, "bold"))
     label_number()
-    
 
-
+#makes the entire menu screen and can be used to delete/make the menu
 def make_home():
     global menu_status
     global button_list
+    global bobux
     if (menu_status != 'home'):
         wn.tracer(False)
         button_list = ["Free Throw", "Drink Up", "Dance", "Final Dunk"]
@@ -183,30 +210,28 @@ def make_home():
         drawer.goto(650,-50)
         drawer.goto(-250,-50)
         drawer.goto(-250,0)
-        box_1.goto(-668,-330)
-        box_2.goto(-285,-330)
-        box_3.goto(100,-330)
-        box_4.goto(390,-330)
+        box_1.goto(-690,-330)
+        box_2.goto(-340,-330)
+        box_3.goto(10,-330)
+        box_4.goto(360,-330)
         bottom_text()
         shaq_hp.write("HP", font=("Arial", 20, "bold"))
         gatorade_text.write("GATORADE", font=("Arial", 20, "bold"))
         ultimate_text.write("DUNK CITY", font=("Arial", 20, "bold"))
         enemy_hp.write("ENEMY HP", font=("Arial", 20, "bold"))
-        update_bobux()
         menu_status = 'home'
+        update_bobux()
         wn.tracer(True)
 
+#makes the entire shop screen and can be used to delete/make the menu
 def make_shop():
     global menu_status
     global button_list
+    global bobux
     if (menu_status != 'shop'):
         wn.tracer(False)
         button_list = ["Gatorade", "Basquetbol", "Uni-Forme", "シャキール"]
         drawer.clear()
-        box_1.goto(-635,-330)
-        box_2.goto(-315,-330)
-        box_3.goto(43,-330)
-        box_4.goto(390,-330)
         bottom_text()
         enemy.hideturtle()
         neutralshaq.hideturtle()
@@ -225,8 +250,8 @@ def make_shop():
         drawer.goto(-350,-200)
         drawer.goto(350,-200)
         drawer.goto(350,-400)
-        update_bobux()
         menu_status = 'shop'
+        update_bobux()
         wn.tracer(True)
     
 #--------loop--------
