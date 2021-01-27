@@ -25,7 +25,7 @@ def shaqchoose():
     if (menu_status == "home") and ((beet_hp > 0) and (shaq_hp > 0)):
         if(shaq_constant == 0):
             hp_update()
-            type_fight("WTF ATTACK YOU WANNA DO HOMIE: ")
+            type_fight("Select Your Attack: ")
             wn.onkey(choice_one,"1")
             wn.onkey(choice_two,"2")
             wn.onkey(choice_three,"3")
