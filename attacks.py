@@ -39,6 +39,7 @@ def shaqchoose():
         else:
             useless.forward(1)
     else:
+        wn.onkey(flag_state_home, "a")
         useless.forward(1)
 def choice_one():
     global shaq_constant
@@ -229,3 +230,6 @@ def speedcheck():
 def flag_state_shop():
     global menu_status
     menu_status = 'shop'
+def flag_state_home():
+    global menu_status
+    menu_status = 'home'
