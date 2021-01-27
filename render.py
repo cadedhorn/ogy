@@ -95,6 +95,11 @@ useless = trtl.Turtle()
 useless.up()
 useless.hideturtle()
 
+loader = trtl.Turtle()
+loader.up()
+loader.pensize(60)
+loader.speed(0)
+
 wn.tracer(True)
 
 #sets up global variables that are used throughout the game
@@ -115,6 +120,23 @@ fight_text = "placeholder"
 global current_text
 current_text = 'placeholder'
 #--------Functions--------    
+
+def load_screen():
+    wn.tracer(False)
+    global menu_status
+    menu_staus_hold = menu_status
+    menu_status = 'loading'
+    loader.goto(1920,1080)
+    loader.pendown()
+    x = loader.xcor()
+    y = loader.ycor()
+    wn.tracer(True)
+    while (x >= -1920):
+        loader.goto(x,(-1 * y))
+        x = x - 60
+        loader.goto(x,(-1 * y))
+        loader.goto(x,y)
+    menu_status = menu_staus_hold
 # pain
 def type_fight(fight_text):
     global current_text
@@ -182,7 +204,8 @@ def make_home():
     global menu_status
     global button_list
     global bobux
-    if (menu_status != 'home'):
+    if (menu_status != 'home') and (menu_status != 'loading'):
+        load_screen()
         wn.tracer(False)
         button_list = ["Free Throw", "Drink Up", "Dance", "Final Dunk"]
         drawer.clear()
@@ -235,6 +258,7 @@ def make_home():
         gatorade_text.write("GATORADE", font=("Arial", 20, "bold"))
         ultimate_text.write("DUNK CITY", font=("Arial", 20, "bold"))
         enemy_hptxt.write("ENEMY HP", font=("Arial", 20, "bold"))
+        loader.clear()
         menu_status = 'home'
         save_text()
         update_bobux()
@@ -245,7 +269,8 @@ def make_shop():
     global menu_status
     global button_list
     global bobux
-    if (menu_status != 'shop'):
+    if (menu_status != 'shop') and (menu_status != 'loading'):
+        load_screen()
         wn.tracer(False)
         button_list = ["Gatorade", "Basquetbol", "Uni-Forme", "シャキール"]
         drawer.clear()
@@ -267,6 +292,7 @@ def make_shop():
         drawer.goto(-350,-200)
         drawer.goto(350,-200)
         drawer.goto(350,-400)
+        loader.clear()
         menu_status = 'shop'
         save_text()
         update_bobux()
