@@ -1,6 +1,7 @@
 import turtle as trtl
 import random
 import render
+import time
 #Stats declaration (in the future read a stats.txt)
 shaq_hp = 200
 shaq_speed = 100
@@ -13,9 +14,20 @@ beet_attacks = ["Nae Nae", "Whip", "Flex", "Heal"]
 shaq_choice = 0
 global shaq_constant
 shaq_constant = 0
-#random.seed(9812345761982873654786124534647152)
+
+commentator = trtl.Turtle()
+commentator.hideturtle()
+commentator.pu()
+commentator.goto(-690,-142)
+
 
 #functions
+#types the ACTION
+def type_fight(fight_text):
+    commentator.clear()
+    commentator.write(fight_text, font=("Arial", 20, "bold"))
+    time.sleep(.5)
+    
 def shaqchoose():
     global shaq_constant
     if shaq_constant == 0:

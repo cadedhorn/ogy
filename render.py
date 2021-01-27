@@ -1,6 +1,5 @@
 import turtle as trtl
 import random
-import time
 #--------Setup--------
 
 wn = trtl.Screen()
@@ -85,11 +84,6 @@ bobux_counter.pu()
 bobux_counter.hideturtle()
 bobux_counter.goto(-700,-475)
 
-commentator = trtl.Turtle()
-commentator.hideturtle()
-commentator.pu()
-commentator.goto(-690,-142)
-
 wn.tracer(True)
 
 #sets up global variables that are used throughout the game
@@ -107,12 +101,7 @@ button_list = []
 global fight_text
 fight_text = 'placeholder'
 #--------Functions--------
-#types the ACTION
-def type_fight(fight_text):
-    commentator.clear()
-    commentator.write(fight_text, font=("Arial", 20, "bold"))
-    time.sleep(.5)
-    
+
 #updates the currency of the game, and displays it in the bottom left part of the screen
 def update_bobux():
     global menu_status
