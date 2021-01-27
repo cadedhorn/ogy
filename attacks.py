@@ -15,7 +15,7 @@ shaq_choice = 0
 shaq_constant = 0
 # LOL FART
 
-
+# LOL POOP
 #functions
 #types the ACTION
 def shaqchoose():
