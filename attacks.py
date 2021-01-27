@@ -32,7 +32,6 @@ def shaqchoose():
             wn.onkey(choice_two,"2")
             wn.onkey(choice_three,"3")
             wn.onkey(choice_four,"4")
-            wn.onkey(hp_hold,"a")
             wn.listen()
             shaq_constant = 1   
         else:
@@ -138,11 +137,6 @@ def hp_update():
     shaq_hptxt.write("HP: " + str(shaq_hp) + "/" + str(shaq_maxhp), font=("Arial", 20, "bold"))
     enemy_hptxt.write("ENEMY HP: " + str(beet_hp) + "/" + str(beet_maxhp), font=("Arial", 20, "bold"))
     wn.tracer(True)
-
-def hp_hold():
-    if (menu_status == 'home'):
-        shaq_hptxt.write("HP: " + str(shaq_hp) + "/" + str(shaq_maxhp), font=("Arial", 20, "bold"))
-        enemy_hptxt.write("ENEMY HP: " + str(beet_hp) + "/" + str(beet_maxhp), font=("Arial", 20, "bold"))
 
 def beetattack():
     global shaq_attacks, shaq_hp, shaq_speed, shaq_power, shaq_ult, beet_hp, beet_attacks, beet_speed, beet_power
