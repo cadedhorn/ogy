@@ -111,13 +111,22 @@ button_list = []
 
 global fight_text
 fight_text = "placeholder"
-#--------Functions--------
 
+global current_text
+current_text = 'placeholder'
+#--------Functions--------
 # pain
 def type_fight(fight_text):
+    global current_text
+    current_text = fight_text
     commentator.clear()
     commentator.write(fight_text, font=("Arial", 20, "bold"))
     time.sleep(.5)
+    
+def save_text():
+    commentator.clear()
+    if (menu_status == 'home'):
+        commentator.write(current_text, font=("Arial", 20, "bold"))
 
 #updates the currency of the game, and displays it in the bottom left part of the screen
 def update_bobux():
@@ -227,6 +236,7 @@ def make_home():
         ultimate_text.write("DUNK CITY", font=("Arial", 20, "bold"))
         enemy_hp.write("ENEMY HP", font=("Arial", 20, "bold"))
         menu_status = 'home'
+        save_text()
         update_bobux()
         wn.tracer(True)
 
@@ -258,6 +268,7 @@ def make_shop():
         drawer.goto(350,-200)
         drawer.goto(350,-400)
         menu_status = 'shop'
+        save_text()
         update_bobux()
         wn.tracer(True)
     
