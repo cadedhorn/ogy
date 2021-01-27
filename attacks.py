@@ -1,6 +1,6 @@
 import turtle as trtl
 import random
-import render
+from render import *
 import time
 #Stats declaration (in the future read a stats.txt)
 shaq_hp = 200
@@ -15,18 +15,11 @@ shaq_choice = 0
 global shaq_constant
 shaq_constant = 0
 # LOL FART
-commentator = trtl.Turtle()
-commentator.hideturtle()
-commentator.pu()
-commentator.goto(-100,-100)
 
 
 #functions
 #types the ACTION
-def type_fight(fight_text):
-    commentator.clear()
-    commentator.write(fight_text, font=("Arial", 20, "bold"))
-    time.sleep(.5)
+
     
 def shaqchoose():
     global shaq_constant
@@ -36,28 +29,28 @@ def shaqchoose():
         
 def choice_one():
     global shaq_constant
-    if (render.menu_status == "home"):
+    if (menu_status == "home"):
         shaq_choice = "Free Throw"
         speedcheck()
         hpcheck()
         shaq_constant = 0
 def choice_two():
     global shaq_constant
-    if (render.menu_status == "home"):
+    if (menu_status == "home"):
         shaq_choice = "Drink Up"
         speedcheck()
         hpcheck()
         shaq_constant = 0
 def choice_three():
     global shaq_constant
-    if (render.menu_status == "home"):
+    if (menu_status == "home"):
         shaq_choice = "Shmoney Dance"
         speedcheck()
         hpcheck()
         shaq_constant = 0
 def choice_four():
     global shaq_constant
-    if (render.menu_status == "home"):
+    if (menu_status == "home"):
         shaq_choice = "Final Dunk"
         speedcheck()
         hpcheck()

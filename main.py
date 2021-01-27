@@ -1,5 +1,4 @@
-# PUT THE ACTUAL CODE HERE
+import turtle as jake
+statefarm = jake.Screen()
 from attacks import *
-while True:
-    j = "LOL"
-    type_fight(j)
+statefarm.mainloop()

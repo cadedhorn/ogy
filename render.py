@@ -1,5 +1,6 @@
 import turtle as trtl
 import random
+import time
 #--------Setup--------
 
 wn = trtl.Screen()
@@ -33,6 +34,7 @@ fancyshaq.hideturtle()
 fancyshaq.pu()
 fancyshaq.shape('fancyshaq.gif')
 fancyshaq.goto(0,195)
+
 
 box_1 = trtl.Turtle()
 box_2 = trtl.Turtle()
@@ -84,6 +86,11 @@ bobux_counter.pu()
 bobux_counter.hideturtle()
 bobux_counter.goto(-700,-475)
 
+commentator = trtl.Turtle()
+commentator.hideturtle()
+commentator.pu()
+commentator.goto(-690,-140)
+
 wn.tracer(True)
 
 #sets up global variables that are used throughout the game
@@ -99,8 +106,15 @@ global button_list
 button_list = []
 
 global fight_text
-fight_text = 'placeholder'
+fight_text = "placeholder"
 #--------Functions--------
+
+# pain
+def type_fight(fight_text):
+    commentator.clear()
+    commentator.write(fight_text, font=("Arial", 20, "bold"))
+    wn.update()
+    time.sleep(.5)
 
 #updates the currency of the game, and displays it in the bottom left part of the screen
 def update_bobux():
@@ -246,9 +260,7 @@ def make_shop():
     
 #--------loop--------
 make_home()
-
 wn.onkeypress(make_home, 'a')
 wn.onkeypress(make_shop, 'b')
-
+#type_fight("Funny fart")
 wn.listen()
-wn.mainloop()
