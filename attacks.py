@@ -36,7 +36,7 @@ def shaqchoose():
 def choice_one():
     global shaq_constant
     global shaq_choice
-    if (menu_status == "home"):
+    if (menu_status == "home") and ((beet_hp > 0) and (shaq_hp > 0)):
         shaq_choice = 1
         speedcheck()
         hpcheck()
@@ -44,7 +44,7 @@ def choice_one():
 def choice_two():
     global shaq_constant
     global shaq_choice
-    if (menu_status == "home"):
+    if (menu_status == "home") and ((beet_hp > 0) and (shaq_hp > 0)):
         shaq_choice = 2
         speedcheck()
         hpcheck()
@@ -52,7 +52,7 @@ def choice_two():
 def choice_three():
     global shaq_constant
     global shaq_choice
-    if (menu_status == "home"):
+    if (menu_status == "home") and ((beet_hp > 0) and (shaq_hp > 0)):
         shaq_choice = 3
         speedcheck()
         hpcheck()
@@ -60,7 +60,7 @@ def choice_three():
 def choice_four():
     global shaq_constant
     global shaq_choice
-    if (menu_status == "home"):
+    if (menu_status == "home") and ((beet_hp > 0) and (shaq_hp > 0)):
         shaq_choice = 4
         speedcheck()
         hpcheck()
