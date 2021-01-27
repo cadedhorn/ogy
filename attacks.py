@@ -4,9 +4,11 @@ from render import *
 import time
 #Stats declaration (in the future read a stats.txt)
 shaq_hp = 200
+shaq_maxhp = shaq_hp
 shaq_speed = 100
 shaq_power = 50
 beet_hp = 200
+beet_maxhp = beet_hp
 beet_speed = 200
 beet_power = 50
 shaq_attacks = ["","Free Throw", "Drink Up", "Shmoney Dance", "Final Dunk"]
@@ -22,11 +24,13 @@ def shaqchoose():
     global shaq_constant
     if (menu_status == "home") and ((beet_hp > 0) and (shaq_hp > 0)):
         if(shaq_constant == 0):
+            hp_update()
             type_fight("WTF ATTACK YOU WANNA DO HOMIE: ")
             wn.onkey(choice_one,"1")
             wn.onkey(choice_two,"2")
             wn.onkey(choice_three,"3")
             wn.onkey(choice_four,"4")
+            wn.onkey(hp_hold,"a")
             wn.listen()
             shaq_constant = 1   
         else:
@@ -102,6 +106,18 @@ def hpcheck():
         beet_hp = 0
     elif beet_hp <= 0:
         type_fight("Beet fainted!")
+
+def hp_update():
+    global shaq_hp, beet_hp
+    shaq_hptxt.clear()
+    enemy_hptxt.clear()
+    shaq_hptxt.write("HP: " + str(shaq_hp) + "/" + str(shaq_maxhp), font=("Arial", 20, "bold"))
+    enemy_hptxt.write("ENEMY HP: " + str(beet_hp) + "/" + str(beet_maxhp), font=("Arial", 20, "bold"))
+
+def hp_hold():
+    if (menu_status == 'home'):
+        shaq_hptxt.write("HP: " + str(shaq_hp) + "/" + str(shaq_maxhp), font=("Arial", 20, "bold"))
+        enemy_hptxt.write("ENEMY HP: " + str(beet_hp) + "/" + str(beet_maxhp), font=("Arial", 20, "bold"))
 
 def beetattack():
     global shaq_attacks, shaq_hp, shaq_speed, shaq_power, beet_hp, beet_attacks, beet_speed, beet_power

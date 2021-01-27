@@ -56,30 +56,30 @@ box_2.hideturtle()
 box_3.hideturtle()
 box_4.hideturtle()
 
-shaq_hp = trtl.Turtle()
+shaq_hptxt = trtl.Turtle()
 gatorade_text = trtl.Turtle()
 ultimate_text = trtl.Turtle()
-enemy_hp = trtl.Turtle()
+enemy_hptxt = trtl.Turtle()
 
-shaq_hp.hideturtle()
+shaq_hptxt.hideturtle()
 gatorade_text.hideturtle()
 ultimate_text.hideturtle()
-enemy_hp.hideturtle()
+enemy_hptxt.hideturtle()
 
-shaq_hp.pu()
+shaq_hptxt.pu()
 gatorade_text.pu()
 ultimate_text.pu()
-enemy_hp.pu()
+enemy_hptxt.pu()
 
-shaq_hp.speed(0)
+shaq_hptxt.speed(0)
 gatorade_text.speed(0)
 ultimate_text.speed(0)
-enemy_hp.speed(0)
+enemy_hptxt.speed(0)
 
-shaq_hp.goto(-700,200)
+shaq_hptxt.goto(-700,200)
 gatorade_text.goto(-700,100)
 ultimate_text.goto(-700,0)
-enemy_hp.goto(-250,0)
+enemy_hptxt.goto(-250,0)
 
 bobux_counter = trtl.Turtle()
 bobux_counter.pu()
@@ -114,7 +114,7 @@ fight_text = "placeholder"
 
 global current_text
 current_text = 'placeholder'
-#--------Functions--------
+#--------Functions--------    
 # pain
 def type_fight(fight_text):
     global current_text
@@ -167,10 +167,10 @@ def bottom_text():
     box_2.clear()
     box_3.clear()
     box_4.clear()
-    shaq_hp.clear()
+    shaq_hptxt.clear()
     gatorade_text.clear()
     ultimate_text.clear()
-    enemy_hp.clear()
+    enemy_hptxt.clear()
     box_1.write(button_list[0], font=("Arial", 40, "bold"))
     box_2.write(button_list[1], font=("Arial", 40, "bold"))
     box_3.write(button_list[2], font=("Arial", 40, "bold"))
@@ -231,10 +231,10 @@ def make_home():
         box_3.goto(10,-330)
         box_4.goto(360,-330)
         bottom_text()
-        shaq_hp.write("HP", font=("Arial", 20, "bold"))
+        shaq_hptxt.write("HP", font=("Arial", 20, "bold"))
         gatorade_text.write("GATORADE", font=("Arial", 20, "bold"))
         ultimate_text.write("DUNK CITY", font=("Arial", 20, "bold"))
-        enemy_hp.write("ENEMY HP", font=("Arial", 20, "bold"))
+        enemy_hptxt.write("ENEMY HP", font=("Arial", 20, "bold"))
         menu_status = 'home'
         save_text()
         update_bobux()
