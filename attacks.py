@@ -8,6 +8,7 @@ shaq_hp = 200
 shaq_maxhp = shaq_hp
 shaq_speed = 100
 shaq_power = 50
+shaq_ult = 0
 beet_hp = 400
 beet_maxhp = beet_hp
 beet_speed = 200
@@ -72,7 +73,7 @@ def choice_four():
         shaq_constant = 0
 
 def shaqattack():
-    global shaq_choice, shaq_attacks, shaq_hp, shaq_speed, shaq_power, beet_hp, beet_attacks, beet_speed, beet_power
+    global shaq_choice, shaq_attacks, shaq_hp, shaq_speed, shaq_power, shaq_ult, beet_hp, beet_attacks, beet_speed, beet_power
     tempshaq = shaq_attacks[shaq_choice]
     if tempshaq == "Free Throw":
         type_fight("Shaq shot a free throw!")
@@ -82,6 +83,7 @@ def shaqattack():
             temppower = shaq_power
             type_fight("Shaq landed the shot!")
             tempmsg = str("Beet took " + tempd + " damage!")
+            shaq_ult += 10
             shaq_power = temppower
             type_fight(tempmsg)
             beet_hp = beet_hp - shaq_power
@@ -111,10 +113,14 @@ def shaqattack():
         type_fight("Shaq's speed doubled from the shmoney dance!")
         shaq_speed = 2 * shaq_speed
     elif tempshaq == "Final Dunk":
-        type_fight("Shaq leaps into the air!")
-        type_fight("Shaq slam dunked on Beet!")
-        beet_hp = 0
-        hp_update()
+        if shaq_ult > 99:
+            type_fight("Shaq leaps into the air!")
+            type_fight("Shaq slam dunked on Beet!")
+            beet_hp = 0
+            hp_update()
+        else:
+            type_fight("Shaq tried to do a final dunk...")
+            type_fight("But it failed! (Ult meter too low)")
 
 def hpcheck():
     global shaq_hp, beet_hp
@@ -139,7 +145,7 @@ def hp_hold():
         enemy_hptxt.write("ENEMY HP: " + str(beet_hp) + "/" + str(beet_maxhp), font=("Arial", 20, "bold"))
 
 def beetattack():
-    global shaq_attacks, shaq_hp, shaq_speed, shaq_power, beet_hp, beet_attacks, beet_speed, beet_power
+    global shaq_attacks, shaq_hp, shaq_speed, shaq_power, shaq_ult, beet_hp, beet_attacks, beet_speed, beet_power
     if beet_hp > 160:
         i_beet = random.randint(0,2)
     else:
@@ -163,6 +169,7 @@ def beetattack():
         tempmsg = str("Shaq lost "+tempd+" hp!")
         type_fight(tempmsg)
         shaq_hp = shaq_hp - beet_power
+        shaq_ult += 10
         hp_update()
     elif j == "Flex":
         type_fight("Beet flexed!")
