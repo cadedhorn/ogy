@@ -91,6 +91,10 @@ commentator.hideturtle()
 commentator.pu()
 commentator.goto(-690,-140)
 
+useless = trtl.Turtle()
+useless.up()
+useless.hideturtle()
+
 wn.tracer(True)
 
 #sets up global variables that are used throughout the game
@@ -113,7 +117,6 @@ fight_text = "placeholder"
 def type_fight(fight_text):
     commentator.clear()
     commentator.write(fight_text, font=("Arial", 20, "bold"))
-    wn.update()
     time.sleep(.5)
 
 #updates the currency of the game, and displays it in the bottom left part of the screen

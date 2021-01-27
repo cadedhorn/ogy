@@ -12,7 +12,6 @@ beet_power = 50
 shaq_attacks = ["","Free Throw", "Drink Up", "Shmoney Dance", "Final Dunk"]
 beet_attacks = ["Nae Nae", "Whip", "Flex", "Heal"]
 shaq_choice = 0
-global shaq_constant
 shaq_constant = 0
 # LOL FART
 
@@ -23,10 +22,12 @@ shaq_constant = 0
     
 def shaqchoose():
     global shaq_constant
-    if shaq_constant == 0:
-        type_fight("WTF ATTACK YOU WANNA DO HOMIE: ")
-        shaq_constant = 1
-        
+    if menu_status == "home":
+        if(shaq_constant == 0):
+            type_fight("WTF ATTACK YOU WANNA DO HOMIE: ")
+            shaq_constant = 1   
+        else:
+            useless.forward(1)
 def choice_one():
     global shaq_constant
     if (menu_status == "home"):
