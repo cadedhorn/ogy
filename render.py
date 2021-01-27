@@ -107,6 +107,7 @@ button_list = []
 global fight_text
 fight_text = 'placeholder'
 #--------Functions--------
+#types the ACTION
 def type_fight(fight_text):
     commentator.clear()
     commentator.write(fight_text, font=("Arial", 20, "bold"))

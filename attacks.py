@@ -11,33 +11,45 @@ beet_power = 50
 shaq_attacks = ["","Free Throw", "Drink Up", "Shmoney Dance", "Final Dunk"]
 beet_attacks = ["Nae Nae", "Whip", "Flex", "Heal"]
 shaq_choice = 0
+global shaq_constant
+shaq_constant = 0
 #random.seed(9812345761982873654786124534647152)
 
 #functions
 def shaqchoose():
-    global shaq_choice, shaq_attacks, shaq_hp, shaq_speed, shaq_power, beet_hp, beet_attacks, beet_speed, beet_power
-    render.type_fight("WTF ATTACK YOU WANNA DO HOMIE: ")
+    global shaq_constant
+    if shaq_constant == 0:
+        render.type_fight("WTF ATTACK YOU WANNA DO HOMIE: ")
+        shaq_constant = 1
         
 def choice_one():
+    global shaq_constant
     if (render.menu_status == "home"):
         shaq_choice = "Free Throw"
         speedcheck()
         hpcheck()
+        shaq_constant = 0
 def choice_two():
+    global shaq_constant
     if (render.menu_status == "home"):
         shaq_choice = "Drink Up"
         speedcheck()
         hpcheck()
+        shaq_constant = 0
 def choice_three():
+    global shaq_constant
     if (render.menu_status == "home"):
         shaq_choice = "Shmoney Dance"
         speedcheck()
         hpcheck()
+        shaq_constant = 0
 def choice_four():
+    global shaq_constant
     if (render.menu_status == "home"):
         shaq_choice = "Final Dunk"
         speedcheck()
         hpcheck()
+        shaq_constant = 0
 
 def shaqattack():
     global shaq_choice, shaq_attacks, shaq_hp, shaq_speed, shaq_power, beet_hp, beet_attacks, beet_speed, beet_power
