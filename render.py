@@ -14,7 +14,7 @@ wn.tracer(False)
 enemy = trtl.Turtle()
 enemy.hideturtle()
 enemy.shape('beetlehand.gif')
-enemy.pu()
+enemy.pu() #LOL FART
 enemy.goto(200,245)
 
 neutralshaq = trtl.Turtle()
