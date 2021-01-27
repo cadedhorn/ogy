@@ -247,8 +247,6 @@ def make_shop():
 #--------loop--------
 make_home()
 
-
-
 wn.onkeypress(make_home, 'a')
 wn.onkeypress(make_shop, 'b')
 

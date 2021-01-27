@@ -97,7 +97,7 @@ def hpcheck():
         type_fight("Shaq fainted!")
         beet_hp = 0
     elif beet_hp <= 0:
-        render.type_fight("Beet fainted!")
+        type_fight("Beet fainted!")
 
 def beetattack():
     global shaq_attacks, shaq_hp, shaq_speed, shaq_power, beet_hp, beet_attacks, beet_speed, beet_power
@@ -111,19 +111,19 @@ def beetattack():
         beet_power *= 2
     j = beet_attacks[i_beet]
     if j == "Heal":
-        render.type_fight("Beet restored a cuppa hp")
+        type_fight("Beet restored a cuppa hp")
         beet_hp = beet_hp + 50
     elif j == "Nae Nae":
-        render.type_fight("Beet nae nae'd on you!")
-        render.type_fight("Your speed dropped by 20!")
+        type_fight("Beet nae nae'd on you!")
+        type_fight("Your speed dropped by 20!")
         shaq_speed = shaq_speed - 20
     elif j == "Whip":
-        render.type_fight("Shaq got whipped!")
-        render.type_fight("Shaq lost", beet_power, "hp!")
+        type_fight("Shaq got whipped!")
+        type_fight("Shaq lost", beet_power, "hp!")
         shaq_hp = shaq_hp - beet_power
     elif j == "Flex":
-        render.type_fight("Beet flexed!")
-        render.type_fight("Beet's attacks do twice as much damage!")
+        type_fight("Beet flexed!")
+        type_fight("Beet's attacks do twice as much damage!")
         beet_power = 2 * beet_power
     if crit == 13:
         beet_power /= 2
