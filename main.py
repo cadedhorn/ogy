@@ -2,6 +2,6 @@
 import turtle as jake
 statefarm = jake.Screen()
 from attacks import *
-while beet_hp > 0:
+while beet_hp > 0 and menu_status == 'home':
     shaqchoose()
 statefarm.mainloop()

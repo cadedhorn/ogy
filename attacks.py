@@ -33,6 +33,7 @@ def shaqchoose():
             wn.onkey(choice_two,"2")
             wn.onkey(choice_three,"3")
             wn.onkey(choice_four,"4")
+            wn.onkey(flag_state_shop,"b")
             wn.listen()
             shaq_constant = 1   
         else:
@@ -43,6 +44,7 @@ def choice_one():
     global shaq_constant
     global shaq_choice
     global menu_status
+    wn.onkey(flag_state_shop,"b")
     if ((menu_status == "home") and ((beet_hp > 0) and (shaq_hp > 0))):
         shaq_choice = 1
         speedcheck()
@@ -54,6 +56,7 @@ def choice_two():
     global shaq_constant
     global shaq_choice
     global menu_status
+    wn.onkey(flag_state_shop,"b")
     if ((menu_status == "home") and ((beet_hp > 0) and (shaq_hp > 0))):
         shaq_choice = 2
         shaqattack()
@@ -66,6 +69,7 @@ def choice_three():
     global shaq_constant
     global shaq_choice
     global menu_status
+    wn.onkey(flag_state_shop,"b")
     if ((menu_status == "home") and ((beet_hp > 0) and (shaq_hp > 0))):
         shaq_choice = 3
         speedcheck()
@@ -77,6 +81,7 @@ def choice_four():
     global shaq_constant
     global shaq_choice
     global menu_status
+    wn.onkey(flag_state_shop,"b")
     if ((menu_status == "home") and ((beet_hp > 0) and (shaq_hp > 0))):
         shaq_choice = 4
         speedcheck()
@@ -87,6 +92,7 @@ def choice_four():
 def shaqattack():
     global shaq_choice, shaq_attacks, shaq_hp, shaq_speed, shaq_power, shaq_ult, beet_hp, beet_attacks, beet_speed, beet_power, menu_status
     tempshaq = shaq_attacks[shaq_choice]
+    wn.onkey(flag_state_shop,"b")
     if menu_status == "home":
         if shaq_hp > 0:
             if tempshaq == "Free Throw":
@@ -219,3 +225,7 @@ def speedcheck():
             shaqattack()
     else:
         useless.forward(1)
+
+def flag_state_shop():
+    global menu_status
+    menu_status = 'shop'

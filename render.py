@@ -139,11 +139,14 @@ def load_screen():
     menu_status = menu_staus_hold
 # pain
 def type_fight(fight_text):
-    global current_text
-    current_text = fight_text
-    commentator.clear()
-    commentator.write(fight_text, font=("Arial", 20, "bold"))
-    time.sleep(1.5)
+    if menu_status == 'home':
+        global current_text
+        current_text = fight_text
+        commentator.clear()
+        commentator.write(fight_text, font=("Arial", 20, "bold"))
+        time.sleep(1.5)
+    else:
+        useless.forward(1)
     
 def save_text():
     commentator.clear()
@@ -270,6 +273,7 @@ def make_shop():
     global button_list
     global bobux
     if (menu_status != 'shop') and (menu_status != 'loading') and (menu_status != 'commentating'):
+        menu_status = 'shop'
         load_screen()
         wn.tracer(False)
         button_list = ["Gatorade", "Basquetbol", "Uni-Forme", "シャキール"]
@@ -293,7 +297,6 @@ def make_shop():
         drawer.goto(350,-200)
         drawer.goto(350,-400)
         loader.clear()
-        menu_status = 'shop'
         save_text()
         update_bobux()
         wn.tracer(True)
