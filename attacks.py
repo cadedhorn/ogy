@@ -79,6 +79,7 @@ def shaqattack():
         tempmsg = str("Beet took " + tempd + " damage!")
         type_fight(tempmsg)
         beet_hp = beet_hp - shaq_power
+        hp_update()
     elif tempshaq == "Drink Up":
         type_fight("You drank dat gatorade!")
         if (shaq_hp == 200):
@@ -91,6 +92,7 @@ def shaqattack():
         elif (shaq_hp + 50) <= 200:
             type_fight("You restored 50 hp!")
             shaq_hp = shaq_hp + 50
+        hp_update()
     elif tempshaq == "Shmoney Dance":
         type_fight("Shaq's speed doubled from the shmoney dance!")
         shaq_speed = 2 * shaq_speed
@@ -98,6 +100,7 @@ def shaqattack():
         type_fight("Shaq leaps into the air!")
         type_fight("Shaq slam dunked on Beet!")
         beet_hp = 0
+        hp_update()
 
 def hpcheck():
     global shaq_hp, beet_hp
@@ -109,10 +112,12 @@ def hpcheck():
 
 def hp_update():
     global shaq_hp, beet_hp
+    wn.tracer(False)
     shaq_hptxt.clear()
     enemy_hptxt.clear()
     shaq_hptxt.write("HP: " + str(shaq_hp) + "/" + str(shaq_maxhp), font=("Arial", 20, "bold"))
     enemy_hptxt.write("ENEMY HP: " + str(beet_hp) + "/" + str(beet_maxhp), font=("Arial", 20, "bold"))
+    wn.tracer(True)
 
 def hp_hold():
     if (menu_status == 'home'):
@@ -133,6 +138,7 @@ def beetattack():
     if j == "Heal":
         type_fight("Beet restored a cuppa hp")
         beet_hp = beet_hp + 50
+        hp_update()
     elif j == "Nae Nae":
         type_fight("Beet nae nae'd on you!")
         type_fight("Your speed dropped by 20!")
@@ -143,6 +149,7 @@ def beetattack():
         tempmsg = str("Shaq lost "+tempd+" hp!")
         type_fight(tempmsg)
         shaq_hp = shaq_hp - beet_power
+        hp_update()
     elif j == "Flex":
         type_fight("Beet flexed!")
         type_fight("Beet's attacks do twice as much damage!")
