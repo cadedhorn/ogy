@@ -268,7 +268,7 @@ def make_shop():
 #--------loop--------
 make_home()
 
-while (beet_hp > 0) and (shaq_hp > 0):
+while (beet_hp > 0):
     attacks.shaqchoose()
 
 wn.onkeypress(make_home, 'a')
