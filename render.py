@@ -5,8 +5,8 @@ import time
 
 wn = trtl.Screen()
 wn.setup(width=1.0, height=1.0)
-wn.addshape('beetlehand.gif')
-wn.addshape('neutralshaq.gif')
+wn.addshape('bogy.gif')
+wn.addshape('ogy.gif')
 wn.addshape('fancyshaq.gif')
 
 wn.tracer(False)
@@ -14,13 +14,13 @@ wn.tracer(False)
 #makes all turtles used in the program
 enemy = trtl.Turtle()
 enemy.hideturtle()
-enemy.shape('beetlehand.gif')
+enemy.shape('bogy.gif')
 enemy.pu() #LOL FART
 enemy.goto(200,245)
 
 neutralshaq = trtl.Turtle()
 neutralshaq.hideturtle()
-neutralshaq.shape('neutralshaq.gif')
+neutralshaq.shape('ogy.gif')
 neutralshaq.pu()
 neutralshaq.goto(-500,375)
 
@@ -159,7 +159,7 @@ def update_bobux():
     global bobux
     bobux_counter.clear()
     if (menu_status == 'home'):
-        bobux_counter.write(str(bobux) + " bobux (press b to go to the shop)", font=("Arial", 40, "bold"))
+        bobux_counter.write(str(bobux) + " bobux", font=("Arial", 40, "bold"))
     elif(menu_status == 'shop'):
         bobux_counter.write(str(bobux) + " bobux (press a to go to the main screen)", font=("Arial", 40, "bold"))
 
