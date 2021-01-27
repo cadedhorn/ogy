@@ -2,12 +2,13 @@ import turtle as trtl
 import random
 from render import *
 import time
+import math
 #Stats declaration (in the future read a stats.txt)
 shaq_hp = 200
 shaq_maxhp = shaq_hp
 shaq_speed = 100
 shaq_power = 50
-beet_hp = 200
+beet_hp = 400
 beet_maxhp = beet_hp
 beet_speed = 200
 beet_power = 50
@@ -25,7 +26,7 @@ def shaqchoose():
     if (menu_status == "home") and ((beet_hp > 0) and (shaq_hp > 0)):
         if(shaq_constant == 0):
             hp_update()
-            type_fight("Select Your Attack: ")
+            type_fight("Select Shaq's Attack: ")
             wn.onkey(choice_one,"1")
             wn.onkey(choice_two,"2")
             wn.onkey(choice_three,"3")
@@ -74,23 +75,36 @@ def shaqattack():
     global shaq_choice, shaq_attacks, shaq_hp, shaq_speed, shaq_power, beet_hp, beet_attacks, beet_speed, beet_power
     tempshaq = shaq_attacks[shaq_choice]
     if tempshaq == "Free Throw":
-        type_fight("You shot a free throw!")
+        type_fight("Shaq shot a free throw!")
+        tempn = random.randint(1,1000)
         tempd = str(shaq_power)
-        tempmsg = str("Beet took " + tempd + " damage!")
-        type_fight(tempmsg)
-        beet_hp = beet_hp - shaq_power
+        if tempn in range(1,528):
+            temppower = shaq_power
+            type_fight("Shaq landed the shot!")
+            tempmsg = str("Beet took " + tempd + " damage!")
+            shaq_power = temppower
+            type_fight(tempmsg)
+            beet_hp = beet_hp - shaq_power
+        elif tempn in range (527,1001):
+            temppower = shaq_power
+            type_fight("Shaq missed the shot!")
+            tempmsg = str("Beet took 0 damage!")
+            shaq_power = 0
+            type_fight(tempmsg)
+            beet_hp = beet_hp - shaq_power
+            shaq_power = temppower
         hp_update()
     elif tempshaq == "Drink Up":
-        type_fight("You drank dat gatorade!")
+        type_fight("Shaq drank dat gatorade!")
         if (shaq_hp == 200):
             type_fight("But it failed!")
         elif (shaq_hp + 50) > 200:
             tempj = str(200 - shaq_hp)
-            tempmsg = str("You restored "+tempj+" hp!")
+            tempmsg = str("Shaq restored "+tempj+" hp!")
             type_fight(tempmsg)
             shaq_hp = 200
         elif (shaq_hp + 50) <= 200:
-            type_fight("You restored 50 hp!")
+            type_fight("Shaq restored 50 hp!")
             shaq_hp = shaq_hp + 50
         hp_update()
     elif tempshaq == "Shmoney Dance":
@@ -152,8 +166,8 @@ def beetattack():
         hp_update()
     elif j == "Flex":
         type_fight("Beet flexed!")
-        type_fight("Beet's attacks do twice as much damage!")
-        beet_power = 2 * beet_power
+        type_fight("Beet's attacks do 1.5x damage!")
+        beet_power = math.floor(1.5 * beet_power)
     if crit == 13:
         beet_power /= 2
 
