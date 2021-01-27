@@ -31,7 +31,7 @@ def type_fight(fight_text):
 def shaqchoose():
     global shaq_constant
     if shaq_constant == 0:
-        render.type_fight("WTF ATTACK YOU WANNA DO HOMIE: ")
+        type_fight("WTF ATTACK YOU WANNA DO HOMIE: ")
         shaq_constant = 1
         
 def choice_one():
@@ -68,25 +68,25 @@ def shaqattack():
     tempshaq = shaq_attacks[shaq_choice]
     crit = random.randint(0,100)
     if tempshaq == "Free Throw":
-        render.type_fight("You shot a free throw!")
-        render.type_fight("Beet took", shaq_power, "damage!")
+        type_fight("You shot a free throw!")
+        type_fight("Beet took", shaq_power, "damage!")
         beet_hp = beet_hp - shaq_power
     elif tempshaq == "Drink Up":
-        render.type_fight("You drank dat gatorade!")
+        type_fight("You drank dat gatorade!")
         if (shaq_hp == 200):
-            render.type_fight("But it failed!")
+            type_fight("But it failed!")
         elif (shaq_hp + 50) > 200:
-            render.type_fight("You restored", 200 - shaq_hp, "hp!")
+            type_fight("You restored", 200 - shaq_hp, "hp!")
             shaq_hp = 200
         elif (shaq_hp + 50) <= 200:
-            render.type_fight("You restored 50 hp!")
+            type_fight("You restored 50 hp!")
             shaq_hp = shaq_hp + 50
     elif tempshaq == "Shmoney Dance":
-        render.type_fight("Shaq's speed doubled from the shmoney dance!")
+        type_fight("Shaq's speed doubled from the shmoney dance!")
         shaq_speed = 2 * shaq_speed
     elif tempshaq == "Final Dunk":
-        render.type_fight("Shaq leaps into the air!")
-        render.type_fight("Shaq slam dunked on beet!")
+        type_fight("Shaq leaps into the air!")
+        type_fight("Shaq slam dunked on beet!")
         beet_hp = 0
     if crit == 87:
         shaq_power /= 2
@@ -94,7 +94,7 @@ def shaqattack():
 def hpcheck():
     global shaq_hp, beet_hp
     if shaq_hp <= 0:
-        render.type_fight("Shaq fainted!")
+        type_fight("Shaq fainted!")
         beet_hp = 0
     elif beet_hp <= 0:
         render.type_fight("Beet fainted!")
