@@ -18,7 +18,7 @@ shaq_constant = 0
 commentator = trtl.Turtle()
 commentator.hideturtle()
 commentator.pu()
-commentator.goto(-690,-142)
+commentator.goto(-100,-100)
 
 
 #functions
