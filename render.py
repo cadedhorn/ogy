@@ -204,7 +204,7 @@ def make_home():
     global menu_status
     global button_list
     global bobux
-    if (menu_status != 'home') and (menu_status != 'loading'):
+    if (menu_status != 'home') and (menu_status != 'loading') and (menu_status != 'commentating'):
         load_screen()
         wn.tracer(False)
         button_list = ["Free Throw", "Drink Up", "Dance", "Final Dunk"]
@@ -269,7 +269,7 @@ def make_shop():
     global menu_status
     global button_list
     global bobux
-    if (menu_status != 'shop') and (menu_status != 'loading'):
+    if (menu_status != 'shop') and (menu_status != 'loading') and (menu_status != 'commentating'):
         load_screen()
         wn.tracer(False)
         button_list = ["Gatorade", "Basquetbol", "Uni-Forme", "シャキール"]

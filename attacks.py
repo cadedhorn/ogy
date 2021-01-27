@@ -41,36 +41,47 @@ def shaqchoose():
 def choice_one():
     global shaq_constant
     global shaq_choice
-    if (menu_status == "home") and ((beet_hp > 0) and (shaq_hp > 0)):
+    global menu_status
+    if ((menu_status == "home") and (menu_status != 'commentating')) and ((beet_hp > 0) and (shaq_hp > 0)):
+        menu_status = 'commentating'
         shaq_choice = 1
         speedcheck()
         hpcheck()
         shaq_constant = 0
+        menu_status = 'home'
 def choice_two():
     global shaq_constant
     global shaq_choice
-    if (menu_status == "home") and ((beet_hp > 0) and (shaq_hp > 0)):
+    global menu_status
+    if ((menu_status == "home") and (menu_status != 'commentating')) and ((beet_hp > 0) and (shaq_hp > 0)):
+        menu_status = 'commentating'
         shaq_choice = 2
         speedcheck()
         hpcheck()
         shaq_constant = 0
+        menu_status = 'home'
 def choice_three():
     global shaq_constant
     global shaq_choice
-    if (menu_status == "home") and ((beet_hp > 0) and (shaq_hp > 0)):
+    global menu_status
+    if ((menu_status == "home") and (menu_status != 'commentating')) and ((beet_hp > 0) and (shaq_hp > 0)):
+        menu_status = 'commentating'
         shaq_choice = 3
         speedcheck()
         hpcheck()
         shaq_constant = 0
+        menu_status = 'home'
 def choice_four():
     global shaq_constant
     global shaq_choice
-    if (menu_status == "home") and ((beet_hp > 0) and (shaq_hp > 0)):
+    global menu_status
+    if ((menu_status == "home") and (menu_status != 'commentating')) and ((beet_hp > 0) and (shaq_hp > 0)):
+        menu_status = 'commentating'
         shaq_choice = 4
         speedcheck()
         hpcheck()
         shaq_constant = 0
-
+        menu_status = 'home'
 def shaqattack():
     global shaq_choice, shaq_attacks, shaq_hp, shaq_speed, shaq_power, shaq_ult, beet_hp, beet_attacks, beet_speed, beet_power
     tempshaq = shaq_attacks[shaq_choice]
