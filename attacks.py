@@ -71,14 +71,17 @@ def shaqattack():
     tempshaq = shaq_attacks[shaq_choice]
     if tempshaq == "Free Throw":
         type_fight("You shot a free throw!")
-        type_fight("Beet took", shaq_power, "damage!")
+        tempd = str(shaq_power)
+        tempmsg = str("Beet took " + tempd + " damage!")
+        type_fight(tempmsg)
         beet_hp = beet_hp - shaq_power
     elif tempshaq == "Drink Up":
         type_fight("You drank dat gatorade!")
         if (shaq_hp == 200):
             type_fight("But it failed!")
         elif (shaq_hp + 50) > 200:
-            type_fight("You restored", 200 - shaq_hp, "hp!")
+            tempj = str(200 - shaq_hp)
+            type_fight("You restored", tempj, "hp!")
             shaq_hp = 200
         elif (shaq_hp + 50) <= 200:
             type_fight("You restored 50 hp!")
