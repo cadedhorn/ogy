@@ -18,11 +18,9 @@ shaq_constant = 0
 
 #functions
 #types the ACTION
-
-    
 def shaqchoose():
     global shaq_constant
-    if menu_status == "home":
+    if (menu_status == "home") and ((beet_hp > 0) and (shaq_hp > 0)):
         if(shaq_constant == 0):
             type_fight("WTF ATTACK YOU WANNA DO HOMIE: ")
             wn.onkey(choice_one,"q")
@@ -33,6 +31,8 @@ def shaqchoose():
             shaq_constant = 1   
         else:
             useless.forward(1)
+    else:
+        useless.forward(1)
 def choice_one():
     global shaq_constant
     global shaq_choice
