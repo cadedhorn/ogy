@@ -57,7 +57,8 @@ def choice_two():
     if ((menu_status == "home") and (menu_status != 'commentating')) and ((beet_hp > 0) and (shaq_hp > 0)):
         menu_status = 'commentating'
         shaq_choice = 2
-        speedcheck()
+        shaqattack()
+        beetattack()
         hpcheck()
         shaq_constant = 0
         menu_status = 'home'
@@ -86,53 +87,49 @@ def choice_four():
 def shaqattack():
     global shaq_choice, shaq_attacks, shaq_hp, shaq_speed, shaq_power, shaq_ult, beet_hp, beet_attacks, beet_speed, beet_power
     tempshaq = shaq_attacks[shaq_choice]
-    if tempshaq == "Free Throw":
-        type_fight("Shaq shot a free throw!")
-        tempn = random.randint(1,1000)
-        tempd = str(shaq_power)
-        if tempn in range(1,528):
-            temppower = shaq_power
-            type_fight("Shaq landed the shot!")
-            tempmsg = str("Beet took " + tempd + " damage!")
-            shaq_ult += 10
-            shaq_power = temppower
-            type_fight(tempmsg)
-            beet_hp = beet_hp - shaq_power
-        elif tempn in range (527,1001):
-            temppower = shaq_power
-            type_fight("Shaq missed the shot!")
-            tempmsg = str("Beet took 0 damage!")
-            shaq_power = 0
-            type_fight(tempmsg)
-            beet_hp = beet_hp - shaq_power
-            shaq_power = temppower
-        hp_update()
-    elif tempshaq == "Drink Up":
-        type_fight("Shaq drank dat gatorade!")
-        if (shaq_hp == 200):
-            type_fight("But it failed!")
-        elif (shaq_hp + 50) > 200:
-            tempj = str(200 - shaq_hp)
-            tempmsg = str("Shaq restored "+tempj+" hp!")
-            type_fight(tempmsg)
-            shaq_hp = 200
-        elif (shaq_hp + 50) <= 200:
-            type_fight("Shaq restored 50 hp!")
-            shaq_hp = shaq_hp + 50
-        hp_update()
-    elif tempshaq == "Shmoney Dance":
-        type_fight("Shaq's speed doubled from the shmoney dance!")
-        shaq_speed = 2 * shaq_speed
-    elif tempshaq == "Final Dunk":
-        if shaq_ult > 99:
-            type_fight("Shaq tried to do a final dunk...")
-            type_fight("Shaq leaps into the air!")
-            type_fight("Shaq slam dunked on Beet!")
-            beet_hp = 0
+    if shaq_hp > 0:
+        if tempshaq == "Free Throw":
+            type_fight("Shaq shot a free throw!")
+            tempn = random.randint(1,1000)
+            tempd = str(shaq_power)
+            if tempn in range(1,528):
+                temppower = shaq_power
+                type_fight("Shaq landed the shot!")
+                tempmsg = str("Beet took " + tempd + " damage!")
+                shaq_ult += 10
+                shaq_power = temppower
+                type_fight(tempmsg)
+                beet_hp = beet_hp - shaq_power
+            elif tempn in range (527,1001):
+                temppower = shaq_power
+                type_fight("Shaq missed the shot!")
+                tempmsg = str("Beet took 0 damage!")
+                shaq_power = 0
+                type_fight(tempmsg)
+                beet_hp = beet_hp - shaq_power
+                shaq_power = temppower
             hp_update()
-        else:
-            type_fight("Shaq tried to do a final dunk...")
-            type_fight("But it failed! (Ult meter too low)")
+        elif tempshaq == "Drink Up":
+            type_fight("Shaq drank dat gatorade!")
+            if (shaq_hp == 200):
+                type_fight("But it failed!")
+            elif (shaq_hp < 200):
+                type_fight("Shaq restored to full hp!")
+                shaq_hp = 200
+            hp_update()
+        elif tempshaq == "Shmoney Dance":
+            type_fight("Shaq's speed doubled from the shmoney dance!")
+            shaq_speed = 2 * shaq_speed
+        elif tempshaq == "Final Dunk":
+            if shaq_ult > 99:
+                type_fight("Shaq tried to do a final dunk...")
+                type_fight("Shaq leaps into the air!")
+                type_fight("Shaq slam dunked on Beet!")
+                beet_hp = 0
+                hp_update()
+            else:
+                type_fight("Shaq tried to do a final dunk...")
+                type_fight("But it failed! (Ult meter too low)")
 
 def hpcheck():
     global shaq_hp, beet_hp
