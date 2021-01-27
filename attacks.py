@@ -93,7 +93,6 @@ def choice_four():
 def shaqattack():
     global shaq_choice, shaq_attacks, shaq_hp, shaq_speed, shaq_power, shaq_ult, beet_hp, beet_attacks, beet_speed, beet_power, menu_status
     tempshaq = shaq_attacks[shaq_choice]
-    wn.onkey(flag_state_shop,"b")
     if menu_status == "home":
         if shaq_hp > 0:
             if tempshaq == "Free Throw":
