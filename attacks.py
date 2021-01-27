@@ -14,9 +14,10 @@ beet_maxhp = beet_hp
 beet_speed = 200
 beet_power = 50
 shaq_attacks = ["","Free Throw", "Drink Up", "Shmoney Dance", "Final Dunk"]
-beet_attacks = ["Nae Nae", "Whip", "Flex", "Heal"]
+beet_attacks = ["Nae Nae", "Flex", "Whip", "Heal"]
 shaq_choice = 0
 shaq_constant = 0
+
 # LOL FART
 
 # LOL POOP
@@ -153,13 +154,14 @@ def hp_update():
 
 def beetattack():
     global shaq_attacks, shaq_hp, shaq_speed, shaq_power, shaq_ult, beet_hp, beet_attacks, beet_speed, beet_power
+    flex_count = 0
     if beet_hp > 160:
         i_beet = random.randint(0,2)
     else:
         i_beet = random.randint(0,3)
     crit = random.randint(0,100)
     if crit == 13:
-        print("A critical hit!")
+        type_fight("A critical hit!")
         beet_power *= 2
     j = beet_attacks[i_beet]
     if j == "Heal":
@@ -179,9 +181,19 @@ def beetattack():
         shaq_ult += 10
         hp_update()
     elif j == "Flex":
-        type_fight("Beet flexed!")
-        type_fight("Beet's attacks do 1.5x damage!")
-        beet_power = math.floor(1.5 * beet_power)
+        flex_count += 1
+        if flex_count > 3:
+            type_fight("Shaq got whipped!")
+            tempd = str(beet_power)
+            tempmsg = str("Shaq lost "+tempd+" hp!")
+            type_fight(tempmsg)
+            shaq_hp = shaq_hp - beet_power
+            shaq_ult += 10
+            hp_update()
+        else:
+            type_fight("Beet flexed!")
+            type_fight("Beet's attacks do 1.1x damage!")
+            beet_power = math.floor(1.1 * beet_power)
     if crit == 13:
         beet_power /= 2
 
