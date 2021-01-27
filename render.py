@@ -156,7 +156,7 @@ def update_bobux():
     global bobux
     bobux_counter.clear()
     if (menu_status == 'home'):
-        bobux_counter.write(str(bobux) + " bobux (press b to go to the shop)", font=("Arial", 40, "bold"))
+        bobux_counter.write(str(bobux) + " bobux", font=("Arial", 40, "bold"))
     elif(menu_status == 'shop'):
         bobux_counter.write(str(bobux) + " bobux (press a to go to the main screen)", font=("Arial", 40, "bold"))
 
