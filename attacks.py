@@ -102,10 +102,10 @@ def shaqattack():
 def hpcheck():
     global shaq_hp, beet_hp
     if shaq_hp <= 0:
-        type_fight("Shaq fainted!")
+        type_fight("Shaq fainted! Game Over!")
         beet_hp = 0
     elif beet_hp <= 0:
-        type_fight("Beet fainted!")
+        type_fight("Beet fainted! You Won!")
 
 def hp_update():
     global shaq_hp, beet_hp
