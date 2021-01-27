@@ -23,10 +23,10 @@ def shaqchoose():
     if (menu_status == "home") and ((beet_hp > 0) and (shaq_hp > 0)):
         if(shaq_constant == 0):
             type_fight("WTF ATTACK YOU WANNA DO HOMIE: ")
-            wn.onkey(choice_one,"q")
-            wn.onkey(choice_two,"w")
-            wn.onkey(choice_three,"e")
-            wn.onkey(choice_four,"r")
+            wn.onkey(choice_one,"1")
+            wn.onkey(choice_two,"2")
+            wn.onkey(choice_three,"3")
+            wn.onkey(choice_four,"4")
             wn.listen()
             shaq_constant = 1   
         else:
@@ -81,7 +81,8 @@ def shaqattack():
             type_fight("But it failed!")
         elif (shaq_hp + 50) > 200:
             tempj = str(200 - shaq_hp)
-            type_fight("You restored", tempj, "hp!")
+            tempmsg = str("You restored "+tempj+" hp!")
+            type_fight(tempmsg)
             shaq_hp = 200
         elif (shaq_hp + 50) <= 200:
             type_fight("You restored 50 hp!")
@@ -91,7 +92,7 @@ def shaqattack():
         shaq_speed = 2 * shaq_speed
     elif tempshaq == "Final Dunk":
         type_fight("Shaq leaps into the air!")
-        type_fight("Shaq slam dunked on beet!")
+        type_fight("Shaq slam dunked on Beet!")
         beet_hp = 0
 
 def hpcheck():
@@ -122,7 +123,9 @@ def beetattack():
         shaq_speed = shaq_speed - 20
     elif j == "Whip":
         type_fight("Shaq got whipped!")
-        type_fight("Shaq lost", beet_power, "hp!")
+        tempd = str(beet_power)
+        tempmsg = str("Shaq lost "+tempd+" hp!")
+        type_fight(tempmsg)
         shaq_hp = shaq_hp - beet_power
     elif j == "Flex":
         type_fight("Beet flexed!")
