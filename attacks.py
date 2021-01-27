@@ -129,6 +129,7 @@ def shaqattack():
         shaq_speed = 2 * shaq_speed
     elif tempshaq == "Final Dunk":
         if shaq_ult > 99:
+            type_fight("Shaq tried to do a final dunk...")
             type_fight("Shaq leaps into the air!")
             type_fight("Shaq slam dunked on Beet!")
             beet_hp = 0
