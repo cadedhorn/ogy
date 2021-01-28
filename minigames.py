@@ -1,2 +1,4 @@
-list = range(1,4)
-print(list)
+import linecache
+fp = open('stats.txt')
+
+name = str(linecache.getline('stats.txt',2))

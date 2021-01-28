@@ -1,0 +1,4 @@
+Demoname # This is where character name goes
+Demohp # This is where character hp goes
+Demospe # This is where character speed goes
+Demopwr # This is where character power goes
