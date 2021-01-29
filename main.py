@@ -6,7 +6,9 @@ from attacks import *
 setenemyfile('ogre.txt')
 setplayerfile('wizardogy.txt')
 playsound('battle.mp3',block=False);
-battle = True
+def battlestate(x):
+    global battle
+    battle = x
 while battle == True:
     playerchoose()
 type_fight("lol funny fart :)))")

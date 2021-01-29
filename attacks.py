@@ -93,20 +93,25 @@ def setplayerfile(x):
     player_maxhp = player_hp
 
 def playerchoose():
-    global player_constant, menu_status
-    if (menu_status == "home") and ((enemy_hp > 0) and (player_hp > 0)):
-        if(player_constant == 0):
-            hp_update()
-            type_fight("Select "+ player_name+"'s Attack: ")
-            wn.onkey(choice_one,"1")
-            wn.onkey(choice_two,"2")
-            wn.onkey(choice_three,"3")
-            wn.onkey(choice_four,"4")
-            wn.onkey(flag_state_shop,"b")
-            wn.listen()
-            player_constant = 1   
+    global player_constant, menu_status, battle
+    if (menu_status == "home"):
+        if ((enemy_hp > 0) and (player_hp > 0)):
+            if(player_constant == 0):
+                hp_update()
+                type_fight("Select "+ player_name+"'s Attack: ")
+                wn.onkey(choice_one,"1")
+                wn.onkey(choice_two,"2")
+                wn.onkey(choice_three,"3")
+                wn.onkey(choice_four,"4")
+                wn.onkey(flag_state_shop,"b")
+                wn.listen()
+                player_constant = 1   
+            else:
+                useless.forward(1)
         else:
-            useless.forward(1)
+            uselesslol()
+            commentator.clear
+            battle = False
     else:
         wn.onkey(flag_state_home, "a")
         useless.forward(1)
@@ -236,11 +241,9 @@ def playerattack():
 def hpcheck():
     global player_hp, enemy_hp, battle
     if player_hp <= 0:
-        battle = False
         type_fight(player_name+" fainted! Game Over!")
 
     elif enemy_hp <= 0:
-        battle = False
         type_fight(enemy_name +" fainted! You Won!")
 
 def potionbar_update():
