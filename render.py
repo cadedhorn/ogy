@@ -19,11 +19,11 @@ enemy.shape('ogre.gif')
 enemy.pu() #LOL FART
 enemy.goto(200,245)
 
-neutralshaq = trtl.Turtle()
-neutralshaq.hideturtle()
-neutralshaq.shape('wizardogy.gif')
-neutralshaq.pu()
-neutralshaq.goto(-500,375)
+neutralplayer = trtl.Turtle()
+neutralplayer.hideturtle()
+neutralplayer.shape('wizardogy.gif')
+neutralplayer.pu()
+neutralplayer.goto(-500,375)
 
 drawer = trtl.Turtle()
 drawer.pensize(5)
@@ -57,27 +57,27 @@ box_2.hideturtle()
 box_3.hideturtle()
 box_4.hideturtle()
 
-shaq_hptxt = trtl.Turtle()
+player_hptxt = trtl.Turtle()
 gatorade_text = trtl.Turtle()
 ultimate_text = trtl.Turtle()
 enemy_hptxt = trtl.Turtle()
 
-shaq_hptxt.hideturtle()
+player_hptxt.hideturtle()
 gatorade_text.hideturtle()
 ultimate_text.hideturtle()
 enemy_hptxt.hideturtle()
 
-shaq_hptxt.pu()
+player_hptxt.pu()
 gatorade_text.pu()
 ultimate_text.pu()
 enemy_hptxt.pu()
 
-shaq_hptxt.speed(0)
+player_hptxt.speed(0)
 gatorade_text.speed(0)
 ultimate_text.speed(0)
 enemy_hptxt.speed(0)
 
-shaq_hptxt.goto(-700,200)
+player_hptxt.goto(-700,200)
 gatorade_text.goto(-700,100)
 ultimate_text.goto(-700,0)
 enemy_hptxt.goto(-250,0)
@@ -160,9 +160,9 @@ def update_bobux():
     global bobux
     bobux_counter.clear()
     if (menu_status == 'home'):
-        bobux_counter.write(str(bobux) + " bobux", font=("Impact", 40, "bold"))
+        bobux_counter.write(str(bobux) + " Schmekles (press b to go to the shop)", font=("Impact", 40, "bold"))
     elif(menu_status == 'shop'):
-        bobux_counter.write(str(bobux) + " bobux (press a to go to the main screen)", font=("Impact", 40, "bold"))
+        bobux_counter.write(str(bobux) + " Schmekles (press a to go to the main screen)", font=("Impact", 40, "bold"))
 
 #adds a number in each box to show the user what buttons correspond to what actions
 def label_number():
@@ -193,7 +193,7 @@ def bottom_text():
     box_2.clear()
     box_3.clear()
     box_4.clear()
-    shaq_hptxt.clear()
+    player_hptxt.clear()
     gatorade_text.clear()
     ultimate_text.clear()
     enemy_hptxt.clear()
@@ -211,10 +211,10 @@ def make_home():
     if (menu_status != 'home') and (menu_status != 'loading') and (menu_status != 'commentating'):
         load_screen()
         wn.tracer(False)
-        button_list = ["Free Throw", "Drink Up", "Dance", "Final Dunk"]
+        button_list = ["Fire Ball", "Heal", "Power Up", "Final Strike"]
         drawer.clear()
         fancyshaq.hideturtle()
-        neutralshaq.showturtle()
+        neutralplayer.showturtle()
         enemy.showturtle()
         drawer.pu()
         drawer.goto(-700,-200)
@@ -258,7 +258,7 @@ def make_home():
         box_3.goto(10,-330)
         box_4.goto(360,-330)
         bottom_text()
-        shaq_hptxt.write("HP", font=("Impact", 20, "bold"))
+        player_hptxt.write("HP", font=("Impact", 20, "bold"))
         gatorade_text.write("GATORADE", font=("Impact", 20, "bold"))
         ultimate_text.write("DUNK CITY", font=("Impact", 20, "bold"))
         enemy_hptxt.write("ENEMY HP", font=("Impact", 20, "bold"))
@@ -281,7 +281,7 @@ def make_shop():
         drawer.clear()
         bottom_text()
         enemy.hideturtle()
-        neutralshaq.hideturtle()
+        neutralplayer.hideturtle()
         fancyshaq.showturtle()
         drawer.clear()
         drawer.pu()

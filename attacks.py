@@ -4,163 +4,163 @@ from render import *
 import time
 import math
 #Stats declaration (in the future read a stats.txt)
-shaq_hp = 200
-shaq_maxhp = shaq_hp
-shaq_speed = 100
-shaq_power = 50
-shaq_ult = 0
+player_hp = 200
+player_maxhp = player_hp
+player_speed = 100
+player_power = 50
+player_ult = 0
 beet_hp = 400
 beet_maxhp = beet_hp
 beet_speed = 200
 beet_power = 50
-shaq_attacks = ["","Free Throw", "Drink Up", "Shmoney Dance", "Final Dunk"]
+player_attacks = ["","Free Throw", "Drink Up", "Shmoney Dance", "Final Dunk"]
 beet_attacks = ["Nae Nae", "Flex", "Whip", "Heal"]
-shaq_choice = 0
-shaq_constant = 0
+player_choice = 0
+player_constant = 0
 
 # LOL FART
 
 # LOL POOP
 #functions
 #types the ACTION
-def shaqchoose():
-    global shaq_constant, menu_status
-    if (menu_status == "home") and ((beet_hp > 0) and (shaq_hp > 0)):
-        if(shaq_constant == 0):
+def playerchoose():
+    global player_constant, menu_status
+    if (menu_status == "home") and ((beet_hp > 0) and (player_hp > 0)):
+        if(player_constant == 0):
             hp_update()
-            type_fight("Select Shaq's Attack: ")
+            type_fight("Select player's Attack: ")
             wn.onkey(choice_one,"1")
             wn.onkey(choice_two,"2")
             wn.onkey(choice_three,"3")
             wn.onkey(choice_four,"4")
             wn.onkey(flag_state_shop,"b")
             wn.listen()
-            shaq_constant = 1   
+            player_constant = 1   
         else:
             useless.forward(1)
     else:
         wn.onkey(flag_state_home, "a")
         useless.forward(1)
 def choice_one():
-    global shaq_constant
-    global shaq_choice
+    global player_constant
+    global player_choice
     global menu_status
     wn.onkey(flag_state_shop,"b")
-    if ((menu_status == "home") and ((beet_hp > 0) and (shaq_hp > 0))):
-        shaq_choice = 1
+    if ((menu_status == "home") and ((beet_hp > 0) and (player_hp > 0))):
+        player_choice = 1
         speedcheck()
         hpcheck()
-        shaq_constant = 0
+        player_constant = 0
     else:
         useless.forward(1)
 def choice_two():
-    global shaq_constant
-    global shaq_choice
+    global player_constant
+    global player_choice
     global menu_status
     wn.onkey(flag_state_shop,"b")
-    if ((menu_status == "home") and ((beet_hp > 0) and (shaq_hp > 0))):
-        shaq_choice = 2
-        shaqattack()
+    if ((menu_status == "home") and ((beet_hp > 0) and (player_hp > 0))):
+        player_choice = 2
+        playerattack()
         beetattack()
         hpcheck()
-        shaq_constant = 0
+        player_constant = 0
     else:
         useless.forward(1)
 def choice_three():
-    global shaq_constant
-    global shaq_choice
+    global player_constant
+    global player_choice
     global menu_status
     wn.onkey(flag_state_shop,"b")
-    if ((menu_status == "home") and ((beet_hp > 0) and (shaq_hp > 0))):
-        shaq_choice = 3
+    if ((menu_status == "home") and ((beet_hp > 0) and (player_hp > 0))):
+        player_choice = 3
         speedcheck()
         hpcheck()
-        shaq_constant = 0
+        player_constant = 0
     else:
         useless.forward(1)
 def choice_four():
-    global shaq_constant
-    global shaq_choice
+    global player_constant
+    global player_choice
     global menu_status
     wn.onkey(flag_state_shop,"b")
-    if ((menu_status == "home") and ((beet_hp > 0) and (shaq_hp > 0))):
-        shaq_choice = 4
+    if ((menu_status == "home") and ((beet_hp > 0) and (player_hp > 0))):
+        player_choice = 4
         speedcheck()
         hpcheck()
-        shaq_constant = 0
+        player_constant = 0
     else:
         useless.forward(1)
-def shaqattack():
-    global shaq_choice, shaq_attacks, shaq_hp, shaq_speed, shaq_power, shaq_ult, beet_hp, beet_attacks, beet_speed, beet_power, menu_status
-    tempshaq = shaq_attacks[shaq_choice]
+def playerattack():
+    global player_choice, player_attacks, player_hp, player_speed, player_power, player_ult, beet_hp, beet_attacks, beet_speed, beet_power, menu_status
+    tempplayer = player_attacks[player_choice]
     if menu_status == "home":
-        if shaq_hp > 0:
-            if tempshaq == "Free Throw":
-                type_fight("Shaq shot a free throw!")
+        if player_hp > 0:
+            if tempplayer == "Free Throw":
+                type_fight("You shot a fireball!")
                 tempn = random.randint(1,1000)
-                tempd = str(shaq_power)
+                tempd = str(player_power)
                 if tempn in range(1,528):
-                    temppower = shaq_power
-                    type_fight("Shaq landed the shot!")
+                    temppower = player_power
+                    type_fight("you hit the enemy!")
                     tempmsg = str("Beet took " + tempd + " damage!")
-                    shaq_ult += 10
-                    shaq_power = temppower
+                    player_ult += 10
+                    player_power = temppower
                     type_fight(tempmsg)
-                    beet_hp = beet_hp - shaq_power
+                    beet_hp = beet_hp - player_power
                 elif tempn in range (527,1001):
-                    temppower = shaq_power
-                    type_fight("Shaq missed the shot!")
+                    temppower = player_power
+                    type_fight("you missed the enemy!")
                     tempmsg = str("Beet took 0 damage!")
-                    shaq_power = 0
+                    player_power = 0
                     type_fight(tempmsg)
-                    beet_hp = beet_hp - shaq_power
-                    shaq_power = temppower
+                    beet_hp = beet_hp - player_power
+                    player_power = temppower
                 hp_update()
-            elif tempshaq == "Drink Up":
-                type_fight("Shaq drank dat gatorade!")
-                if (shaq_hp == 200):
+            elif tempplayer == "Drink Up":
+                type_fight("you drank a gatorade!")
+                if (player_hp == 200):
                     type_fight("But it failed!")
-                elif (shaq_hp < 200):
-                    type_fight("Shaq restored to full hp!")
-                    shaq_hp = 200
+                elif (player_hp < 200):
+                    type_fight("you restored to full hp!")
+                    player_hp = 200
                 hp_update()
-            elif tempshaq == "Shmoney Dance":
-                type_fight("Shaq's speed doubled from the shmoney dance!")
-                shaq_speed = 2 * shaq_speed
-            elif tempshaq == "Final Dunk":
-                if shaq_ult > 99:
-                    type_fight("Shaq tried to do a final dunk...")
-                    type_fight("Shaq leaps into the air!")
-                    type_fight("Shaq slam dunked on Beet!")
+            elif tempplayer == "Shmoney Dance":
+                type_fight("your speed doubled from power up!")
+                player_speed = 2 * player_speed
+            elif tempplayer == "Final Dunk":
+                if player_ult > 99:
+                    type_fight("you tried to do a final strike...")
+                    type_fight("you charged up energy!")
+                    type_fight("you demolished the enemy!")
                     beet_hp = 0
                     hp_update()
                 else:
-                    type_fight("Shaq tried to do a final dunk...")
+                    type_fight("you tried to do a final strike...")
                     type_fight("But it failed! (Ult meter too low)")
     else:
         useless.forward(1)
 
 def hpcheck():
-    global shaq_hp, beet_hp
-    if shaq_hp <= 0:
-        type_fight("Shaq fainted! Game Over!")
+    global player_hp, beet_hp
+    if player_hp <= 0:
+        type_fight("you fainted! Game Over!")
         beet_hp = 0
     elif beet_hp <= 0:
         type_fight("Beet fainted! You Won!")
 
 def hp_update():
-    global shaq_hp, beet_hp, shaq_ult
+    global player_hp, beet_hp, player_ult
     wn.tracer(False)
-    shaq_hptxt.clear()
+    player_hptxt.clear()
     enemy_hptxt.clear()
     ultimate_text.clear()
-    shaq_hptxt.write("HP: " + str(shaq_hp) + "/" + str(shaq_maxhp), font=("Impact", 20, "bold"))
+    player_hptxt.write("HP: " + str(player_hp) + "/" + str(player_maxhp), font=("Impact", 20, "bold"))
     enemy_hptxt.write("ENEMY HP: " + str(beet_hp) + "/" + str(beet_maxhp), font=("Impact", 20, "bold"))
-    ultimate_text.write("DUNK CITY: " + str(shaq_ult) + "/100", font=("Impact", 20, "bold"))
+    ultimate_text.write("FINAL STRIKE: " + str(player_ult) + "/100", font=("Impact", 20, "bold"))
     wn.tracer(True)
 
 def beetattack():
-    global shaq_attacks, shaq_hp, shaq_speed, shaq_power, shaq_ult, beet_hp, beet_attacks, beet_speed, beet_power
+    global player_attacks, player_hp, player_speed, player_power, player_ult, beet_hp, beet_attacks, beet_speed, beet_power
     flex_count = 0
     if beet_hp > 160:
         i_beet = random.randint(0,2)
@@ -178,24 +178,24 @@ def beetattack():
     elif j == "Nae Nae":
         type_fight("Beet nae nae'd on you!")
         type_fight("Your speed dropped by 20!")
-        shaq_speed = shaq_speed - 20
+        player_speed = player_speed - 20
     elif j == "Whip":
-        type_fight("Shaq got whipped!")
+        type_fight("you got whipped!")
         tempd = str(beet_power)
-        tempmsg = str("Shaq lost "+tempd+" hp!")
+        tempmsg = str("you lost "+tempd+" HP!")
         type_fight(tempmsg)
-        shaq_hp = shaq_hp - beet_power
-        shaq_ult += 10
+        player_hp = player_hp - beet_power
+        player_ult += 10
         hp_update()
     elif j == "Flex":
         flex_count += 1
         if flex_count > 3:
-            type_fight("Shaq got whipped!")
+            type_fight("you got whipped!")
             tempd = str(beet_power)
-            tempmsg = str("Shaq lost "+tempd+" hp!")
+            tempmsg = str("you lost "+tempd+" HP!")
             type_fight(tempmsg)
-            shaq_hp = shaq_hp - beet_power
-            shaq_ult += 10
+            player_hp = player_hp - beet_power
+            player_ult += 10
             hp_update()
         else:
             type_fight("Beet flexed!")
@@ -205,24 +205,24 @@ def beetattack():
         beet_power /= 2
 
 def speedcheck():
-    global shaq_speed
+    global player_speed
     global beet_speed
     global menu_status
     if menu_status == "home":
-        if (shaq_speed - beet_speed) == 0:
+        if (player_speed - beet_speed) == 0:
             tempr = random.randint(0,1)
             if tempr == 1:
-                shaqattack()
+                playerattack()
                 beetattack()
             elif tempr == 0:
                 beetattack()
-                shaqattack()
-        elif (shaq_speed - beet_speed) > 0:
-            shaqattack()
+                playerattack()
+        elif (player_speed - beet_speed) > 0:
+            playerattack()
             beetattack()
-        elif (shaq_speed - beet_speed) < 0:
+        elif (player_speed - beet_speed) < 0:
             beetattack()
-            shaqattack()
+            playerattack()
     else:
         useless.forward(1)
 

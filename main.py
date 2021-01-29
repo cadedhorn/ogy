@@ -5,5 +5,5 @@ statefarm = jake.Screen()
 from attacks import *
 playsound('souljaboy.mp3',block=False);
 while beet_hp > 0 and menu_status == 'home':
-    shaqchoose()
+    playerchoose()
 statefarm.mainloop()
