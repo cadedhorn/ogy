@@ -5,7 +5,7 @@ import time
 
 wn = trtl.Screen()
 wn.setup(width=1.0, height=1.0)
-wn.addshape('bogy.gif')
+wn.addshape('ogre.gif')
 wn.addshape('wizardogy.gif')
 wn.addshape('fancyshaq.gif')
 wn.bgpic("paperbackground.gif")
@@ -15,7 +15,7 @@ wn.tracer(False)
 #makes all turtles used in the program
 enemy = trtl.Turtle()
 enemy.hideturtle()
-enemy.shape('bogy.gif')
+enemy.shape('ogre.gif')
 enemy.pu() #LOL FART
 enemy.goto(200,245)
 
