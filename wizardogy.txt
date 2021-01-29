@@ -3,19 +3,3 @@ Wizard Ogy
 100
 50
 wizardogy.gif
-
-attack
-Fireball
-50
-
-heal
-Restore
-100
-
-buff_speed
-Channel
-100
-
-attack_ult
-Final Strike
-20000
