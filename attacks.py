@@ -57,7 +57,7 @@ def playerchoose():
     if (menu_status == "home") and ((enemy_hp > 0) and (player_hp > 0)):
         if(player_constant == 0):
             hp_update()
-            type_fight("Select player's Attack: ")
+            type_fight("Select "+ player_name+"'s Attack: ")
             wn.onkey(choice_one,"1")
             wn.onkey(choice_two,"2")
             wn.onkey(choice_three,"3")
@@ -141,13 +141,13 @@ def playerattack():
     if menu_status == "home":
         if player_hp > 0:
             if tempplayer == "Free Throw":
-                type_fight("You shot a fireball!")
+                type_fight(player_name+" shot a fireball!")
                 tempn = random.randint(1,1000)
                 tempd = str(player_power)
                 if tempn in range(1,801):
                     temppower = player_power
                     fireball_animation()
-                    type_fight("You hit the enemy!")
+                    type_fight(player_name+" hit the enemy!")
                     tempmsg = str(enemy_name+" took " + tempd + " damage!")
                     if player_ult < 100:
                         player_ult += 10
@@ -156,32 +156,32 @@ def playerattack():
                     enemy_hp = enemy_hp - player_power
                 elif tempn in range (800,1001):
                     fireball_animation_fail()
-                    type_fight("You missed the enemy!")
+                    type_fight(player_name+" missed the enemy!")
                 hp_update()
             elif tempplayer == "Drink Up":
                 if potion_count > 0:
-                    type_fight("You drank a potion!")
+                    type_fight(player_name+" drank a potion!")
                     if (player_hp == 200):
                         type_fight("But it failed!")
                     elif (player_hp < 200):
-                        type_fight("You restored to full hp!")
+                        type_fight(player_name+" restored to full hp!")
                         player_hp = 200
                     potion_count -= 1
                 if potion_count == 0:
                     type_fight("No potions left!")
                 hp_update()
             elif tempplayer == "Shmoney Dance":
-                type_fight("your speed doubled from power up!")
+                type_fight(player_name+"'s speed doubled from power up!")
                 player_speed = 2 * player_speed
             elif tempplayer == "Final Dunk":
                 if player_ult > 99:
-                    type_fight("You tried to do a final strike...")
-                    type_fight("You charged up energy!")
-                    type_fight("You demolished the enemy!")
+                    type_fight(player_name+" tried to do a final strike...")
+                    type_fight(player_name+" charged up energy!")
+                    type_fight(player_name+" demolished the enemy!")
                     enemy_hp = 0
                     hp_update()
                 else:
-                    type_fight("You tried to do a final strike...")
+                    type_fight(player_name+" tried to do a final strike...")
                     type_fight("But it failed! (Ult meter too low)")
     else:
         useless.forward(1)
@@ -189,7 +189,7 @@ def playerattack():
 def hpcheck():
     global player_hp, enemy_hp
     if player_hp <= 0:
-        type_fight("You fainted! Game Over!")
+        type_fight(player_name+" fainted! Game Over!")
         enemy_hp = 0
     elif enemy_hp <= 0:
         type_fight(enemy_name +" fainted! You Won!")
@@ -257,14 +257,14 @@ def enemyattack():
         enemy_hp = enemy_hp + 50
         hp_update()
     elif j == "Nae Nae":
-        type_fight(enemy_name + " growled at you!")
-        type_fight("Your speed dropped by 20!")
+        type_fight(enemy_name + " growled at "+player_name+"!")
+        type_fight(player_name+"'s speed dropped by 20!")
         player_speed = player_speed - 20
     elif j == "Whip":
-        type_fight("You got clubbed!")
+        type_fight(player_name+" got clubbed!")
         tempd = str(enemy_power)
         slash_animation()
-        tempmsg = str("You lost "+tempd+" HP!")
+        tempmsg = str(player_name+" lost "+tempd+" HP!")
         type_fight(tempmsg)
         player_hp = player_hp - enemy_power
         if player_ult < 100:
@@ -273,10 +273,10 @@ def enemyattack():
     elif j == "Flex":
         flex_count += 1
         if flex_count > 3:
-            type_fight("You got clubbed!")
+            type_fight(player_name+" got clubbed!")
             tempd = str(enemy_power)
             slash_animation()
-            tempmsg = str("You lost "+tempd+" HP!")
+            tempmsg = str(player_name+" lost "+tempd+" HP!")
             type_fight(tempmsg)
             player_hp = player_hp - enemy_power
             if player_ult < 100:
