@@ -280,6 +280,42 @@ def ultbar_update():
     else:
         ultbar.hideturtle()
 
+def enemybar_update():
+    global enemy_hp, enemy_maxhp
+    temphealth = enemy_hp/enemy_maxhp
+    if (temphealth >= 1):
+        enemyhealthbar.showturtle()
+        enemyhealthbar.shape('enemyhealthbar1.gif')
+    elif (temphealth < 1) and (temphealth >= .9):
+        enemyhealthbar.showturtle()
+        enemyhealthbar.shape('enemyhealthbar2.gif')
+    elif (temphealth < .9) and (temphealth >= .8):
+        enemyhealthbar.showturtle()
+        enemyhealthbar.shape('enemyhealthbar3.gif')
+    elif (temphealth < .8) and (temphealth >= .7):
+        enemyhealthbar.showturtle()
+        enemyhealthbar.shape('enemyhealthbar4.gif')
+    elif (temphealth < .7) and (temphealth >= .6):
+        enemyhealthbar.showturtle()
+        enemyhealthbar.shape('enemyhealthbar5.gif')
+    elif (temphealth < .6) and (temphealth >= .5):
+        enemyhealthbar.showturtle()
+        enemyhealthbar.shape('enemyhealthbar6.gif')
+    elif (temphealth < .5) and (temphealth >= .4):
+        enemyhealthbar.showturtle()
+        enemyhealthbar.shape('enemyhealthbar7.gif')
+    elif (temphealth < .4) and (temphealth >= .3):
+        enemyhealthbar.showturtle()
+        enemyhealthbar.shape('enemyhealthbar8.gif')
+    elif (temphealth < .3) and (temphealth >= .2):
+        enemyhealthbar.showturtle()
+        enemyhealthbar.shape('enemyhealthbar9.gif')
+    elif (temphealth < .2) and (temphealth > 0):
+        enemyhealthbar.showturtle()
+        enemyhealthbar.shape('enemyhealthbar10.gif')
+    else:
+        enemyhealthbar.hideturtle()
+
 def hp_update():
     global player_hp, enemy_hp, player_ult, player_maxhp
     wn.tracer(False)
@@ -291,6 +327,7 @@ def hp_update():
     ultimate_text.write("FINAL STRIKE: " + str(player_ult) + "/100", font=("Impact", 20, "bold"))
     healthbar_update()
     ultbar_update()
+    enemybar_update()
     wn.tracer(True)
 
 def enemyattack():
