@@ -10,12 +10,12 @@ k = 90
 steps = 0
 gamemap.up()
 gamemap.seth(k)
-wn.addshape('gipe.gif')
-wn.addshape('aaberg.gif')
-wn.addshape('wizardogy.gif')
+wn.addshape('stick.gif')
+wn.addshape('stickleft1.gif')
+wn.addshape('stickleft2.gif')
 wn.addshape('testbg.gif')
 gamemap.shape('testbg.gif')
-fun = 'wizardogy.gif'
+fun = 'stick.gif'
 jonas.shape(fun)
 wn.tracer(True)
 def uselesslol():
@@ -25,12 +25,12 @@ def lol():
 def goforward():
     global k, steps, fun
     if steps % 8 in range(0,5):
-        if fun != 'aaberg.gif':
-            fun = 'aaberg.gif'
+        if fun != 'stickleft1.gif':
+            fun = 'stickleft1.gif'
             jonas.shape(fun)
     elif steps % 8 in range(4,9):
-        if fun != 'gipe.gif':
-            fun = 'gipe.gif'
+        if fun != 'stickleft2.gif':
+            fun = 'stickleft2.gif'
             jonas.shape(fun)
     if k != 90:
         k = 90
@@ -41,12 +41,12 @@ def goforward():
 def goback():
     global k, steps, fun
     if steps % 8 in range(0,5):
-        if fun != 'aaberg.gif':
-            fun = 'aaberg.gif'
+        if fun != 'stickleft1.gif':
+            fun = 'stickleft1.gif'
             jonas.shape(fun)
     elif steps % 8 in range(4,9):
-        if fun != 'gipe.gif':
-            fun = 'gipe.gif'
+        if fun != 'stickleft2.gif':
+            fun = 'stickleft2.gif'
             jonas.shape(fun)
     if k != 270:
         k = 270
@@ -57,12 +57,12 @@ def goback():
 def goright():
     global k, steps, fun
     if steps % 8 in range(0,5):
-        if fun != 'aaberg.gif':
-            fun = 'aaberg.gif'
+        if fun != 'stickleft1.gif':
+            fun = 'stickleft1.gif'
             jonas.shape(fun)
     elif steps % 8 in range(4,9):
-        if fun != 'gipe.gif':
-            fun = 'gipe.gif'
+        if fun != 'stickleft2.gif':
+            fun = 'stickleft2.gif'
             jonas.shape(fun)
     if k != 0:
         k = 0
@@ -73,12 +73,12 @@ def goright():
 def goleft():
     global k, steps, fun
     if steps % 8 in range(0,5):
-        if fun != 'aaberg.gif':
-            fun = 'aaberg.gif'
+        if fun != 'stickleft1.gif':
+            fun = 'stickleft1.gif'
             jonas.shape(fun)
     elif steps % 8 in range(4,9):
-        if fun != 'gipe.gif':
-            fun = 'gipe.gif'
+        if fun != 'stickleft2.gif':
+            fun = 'stickleft2.gif'
             jonas.shape(fun)
     if k != 180:
         k = 180
@@ -87,7 +87,7 @@ def goleft():
         lol()
         steps += 1
 def resetimage():
-    jonas.shape('wizardogy.gif')
+    jonas.shape('stick.gif')
     steps = 0
 wn.onkeypress(goforward,"w")
 wn.onkeypress(goleft,"a")

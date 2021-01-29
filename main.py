@@ -8,4 +8,8 @@ setplayerfile('wizardogy.txt')
 playsound('battle.mp3',block=False);
 while enemy_hp > 0 and menu_status == 'home':
     playerchoose()
+setenemyfile('wizardogy.txt')
+setplayerfile('aaberg.txt')
+while enemy_hp > 0 and menu_status == 'home':
+    playerchoose()
 statefarm.mainloop()

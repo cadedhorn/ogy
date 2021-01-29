@@ -1,1 +1,1 @@
-funny.forward(10)
+funny.forward(100)
