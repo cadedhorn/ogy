@@ -149,7 +149,8 @@ def playerattack():
                     fireball_animation()
                     type_fight("You hit the enemy!")
                     tempmsg = str(enemy_name+" took " + tempd + " damage!")
-                    player_ult += 10
+                    if player_ult < 100:
+                        player_ult += 10
                     player_power = temppower
                     type_fight(tempmsg)
                     enemy_hp = enemy_hp - player_power
@@ -266,7 +267,8 @@ def enemyattack():
         tempmsg = str("You lost "+tempd+" HP!")
         type_fight(tempmsg)
         player_hp = player_hp - enemy_power
-        player_ult += 10
+        if player_ult < 100:
+            player_ult += 10
         hp_update()
     elif j == "Flex":
         flex_count += 1
@@ -277,7 +279,8 @@ def enemyattack():
             tempmsg = str("You lost "+tempd+" HP!")
             type_fight(tempmsg)
             player_hp = player_hp - enemy_power
-            player_ult += 10
+            if player_ult < 100:
+                player_ult += 10
             hp_update()
         else:
             type_fight(enemy_name + " flexed!")
