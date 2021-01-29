@@ -16,5 +16,5 @@ print(enemy_name + ' appeared!')
 print('HP: ' + str(enemy_hp))
 print('SPEED: ' + str(enemy_spe))
 print('POWER: ' + str(enemy_pwr))
-playsound('freeze.mp3')
+playsound('souljaboy.mp3')
     
