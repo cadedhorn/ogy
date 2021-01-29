@@ -21,7 +21,6 @@ enemy_attacks = ["Nae Nae", "Flex", "Whip", "Heal"]
 potion_count = 4
 player_choice = 0
 player_constant = 0
-battle = ""
 
 # LOL FART
 
@@ -236,12 +235,13 @@ def playerattack():
 def hpcheck():
     global player_hp, enemy_hp, battle
     if player_hp <= 0:
+        battle = False
         type_fight(player_name+" fainted! Game Over!")
-        enemy_hp = 0
-        battle = False
+
     elif enemy_hp <= 0:
-        type_fight(enemy_name +" fainted! You Won!")
         battle = False
+        type_fight(enemy_name +" fainted! You Won!")
+
 
 def healthbar_update():
     global player_hp, player_maxhp
