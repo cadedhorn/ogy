@@ -25,6 +25,7 @@ wn.addshape('explosion1.gif')
 wn.addshape('explosion2.gif')
 wn.addshape('explosion3.gif')
 wn.addshape('gamefireball.gif')
+wn.addshape('wizardogymouth.gif')
 wn.bgpic("paperbackground.gif")
 
 wn.tracer(False)
@@ -187,6 +188,7 @@ def fireball_animation():
     fireball.shape('gamefireball.gif')
     fireball.showturtle()
     wn.tracer(True)
+    player.shape('wizardogymouth.gif')
     fireball.goto(200,245)
     fireball.shape('explosion1.gif')
     time.sleep(.05)
@@ -194,6 +196,7 @@ def fireball_animation():
     time.sleep(.05)
     fireball.shape('explosion3.gif')
     time.sleep(.05)
+    player.shape('wizardogy.gif')
     fireball.hideturtle()
 
 def fireball_animation_fail():
@@ -203,6 +206,7 @@ def fireball_animation_fail():
     fireball.shape('gamefireball.gif')
     fireball.showturtle()
     wn.tracer(True)
+    player.shape('wizardogymouth.gif')
     temp = random.randint(200,500)
     fireball.goto(-200,temp)
     fireball.shape('explosion1.gif')
@@ -211,6 +215,7 @@ def fireball_animation_fail():
     time.sleep(.05)
     fireball.shape('explosion3.gif')
     time.sleep(.05)
+    player.shape('wizardogy.gif')
     fireball.hideturtle()
     
 
