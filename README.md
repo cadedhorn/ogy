@@ -1,2 +1,2 @@
-# shaqrpg
-The Official Shaq RPG
+# Ogy
+Home of OGY: The Game
