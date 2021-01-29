@@ -4,15 +4,17 @@ from render import *
 import time
 import math
 #Stats declaration (in the future read a stats.txt)
-player_hp = 200
+player_hp = 1000
 player_maxhp = player_hp
-player_speed = 100
-player_power = 50
+player_speed = 1000
+player_power = 1000
 player_ult = 0
-enemy_hp = 400
+player_name = ''
+enemy_hp = 1000
 enemy_maxhp = enemy_hp
-enemy_speed = 200
-enemy_power = 50
+enemy_speed = 1000
+enemy_power = 1000
+enemy_name = ''
 flex_count = 0
 player_attacks = ["","Free Throw", "Drink Up", "Shmoney Dance", "Final Dunk"]
 enemy_attacks = ["Nae Nae", "Flex", "Whip", "Heal"]
@@ -24,6 +26,29 @@ player_constant = 0
 # LOL POOP
 #functions
 #types the ACTION
+
+def setenemyfile(x):
+    global enemy_name, enemy_hp, enemy_speed, enemy_power, enemy_maxhp
+    with open(x, 'r') as file:
+        stats = file.readlines()
+    enemy_name = str(stats[0]).rstrip('\n')
+    enemy_hp = int(stats[1])
+    enemy_speed = int(stats[2])
+    enemy_power = int(stats[3])
+    enemy.shape(str(stats[4]))
+    enemy_maxhp = enemy_hp
+
+def setplayerfile(x):
+    global player_name, player_hp, player_speed, player_power, player_maxhp
+    with open(x, 'r') as file:
+        stats = file.readlines()
+    player_name = str(stats[0]).rstrip('\n')
+    player_hp = int(stats[1])
+    player_speed = int(stats[2])
+    player_power = int(stats[3])
+    player.shape(str(stats[4]))
+    player_maxhp = player_hp
+
 def playerchoose():
     global player_constant, menu_status
     if (menu_status == "home") and ((enemy_hp > 0) and (player_hp > 0)):
@@ -100,29 +125,23 @@ def playerattack():
                 type_fight("You shot a fireball!")
                 tempn = random.randint(1,1000)
                 tempd = str(player_power)
-                if tempn in range(1,528):
+                if tempn in range(1,801):
                     temppower = player_power
-                    type_fight("you hit the enemy!")
-                    tempmsg = str("enemy took " + tempd + " damage!")
+                    type_fight("You hit the enemy!")
+                    tempmsg = str(enemy_name+" took " + tempd + " damage!")
                     player_ult += 10
                     player_power = temppower
                     type_fight(tempmsg)
                     enemy_hp = enemy_hp - player_power
-                elif tempn in range (527,1001):
-                    temppower = player_power
-                    type_fight("you missed the enemy!")
-                    tempmsg = str("enemy took 0 damage!")
-                    player_power = 0
-                    type_fight(tempmsg)
-                    enemy_hp = enemy_hp - player_power
-                    player_power = temppower
+                elif tempn in range (800,1001):
+                    type_fight("You missed the enemy!")
                 hp_update()
             elif tempplayer == "Drink Up":
-                type_fight("you drank a gatorade!")
+                type_fight("You drank a gatorade!")
                 if (player_hp == 200):
                     type_fight("But it failed!")
                 elif (player_hp < 200):
-                    type_fight("you restored to full hp!")
+                    type_fight("You restored to full hp!")
                     player_hp = 200
                 hp_update()
             elif tempplayer == "Shmoney Dance":
@@ -130,13 +149,13 @@ def playerattack():
                 player_speed = 2 * player_speed
             elif tempplayer == "Final Dunk":
                 if player_ult > 99:
-                    type_fight("you tried to do a final strike...")
-                    type_fight("you charged up energy!")
-                    type_fight("you demolished the enemy!")
+                    type_fight("You tried to do a final strike...")
+                    type_fight("You charged up energy!")
+                    type_fight("You demolished the enemy!")
                     enemy_hp = 0
                     hp_update()
                 else:
-                    type_fight("you tried to do a final strike...")
+                    type_fight("You tried to do a final strike...")
                     type_fight("But it failed! (Ult meter too low)")
     else:
         useless.forward(1)
@@ -144,10 +163,10 @@ def playerattack():
 def hpcheck():
     global player_hp, enemy_hp
     if player_hp <= 0:
-        type_fight("you fainted! Game Over!")
+        type_fight("You fainted! Game Over!")
         enemy_hp = 0
     elif enemy_hp <= 0:
-        type_fight("enemy fainted! You Won!")
+        type_fight(enemy_name +" fainted! You Won!")
 
 def hp_update():
     global player_hp, enemy_hp, player_ult
@@ -172,18 +191,18 @@ def enemyattack():
         enemy_power *= 2
     j = enemy_attacks[i_enemy]
     if j == "Heal":
-        type_fight("enemy restored a cuppa hp")
+        type_fight(enemy_name +" restored 50 hp")
         enemy_hp = enemy_hp + 50
         hp_update()
     elif j == "Nae Nae":
-        type_fight("enemy nae nae'd on you!")
+        type_fight(enemy_name + " nae nae'd on you!")
         type_fight("Your speed dropped by 20!")
         player_speed = player_speed - 20
     elif j == "Whip":
-        type_fight("you got whipped!")
+        type_fight("You got whipped!")
         tempd = str(enemy_power)
         slash_animation()
-        tempmsg = str("you lost "+tempd+" HP!")
+        tempmsg = str("You lost "+tempd+" HP!")
         type_fight(tempmsg)
         player_hp = player_hp - enemy_power
         player_ult += 10
@@ -191,17 +210,17 @@ def enemyattack():
     elif j == "Flex":
         flex_count += 1
         if flex_count > 3:
-            type_fight("you got whipped!")
+            type_fight("You got whipped!")
             tempd = str(enemy_power)
             slash_animation()
-            tempmsg = str("you lost "+tempd+" HP!")
+            tempmsg = str("You lost "+tempd+" HP!")
             type_fight(tempmsg)
             player_hp = player_hp - enemy_power
             player_ult += 10
             hp_update()
         else:
-            type_fight("enemy flexed!")
-            type_fight("enemy's attacks do 1.1x damage!")
+            type_fight(enemy_name + " flexed!")
+            type_fight(enemy_name+"'s attacks do 1.1x damage!")
             enemy_power = math.floor(1.1 * enemy_power)
     if crit == 13:
         enemy_power /= 2
@@ -234,3 +253,4 @@ def flag_state_shop():
 def flag_state_home():
     global menu_status
     menu_status = 'home'
+

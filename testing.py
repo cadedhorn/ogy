@@ -11,7 +11,7 @@ def setenemyfile(x):
     enemy_hp = int(stats[1])
     enemy_spe = int(stats[2])
     enemy_pwr = int(stats[3])
-setenemyfile('player.txt')
+setenemyfile('ogre.txt')
 print(enemy_name + ' appeared!')
 print('HP: ' + str(enemy_hp))
 print('SPEED: ' + str(enemy_spe))
