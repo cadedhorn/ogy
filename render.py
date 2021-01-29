@@ -107,7 +107,7 @@ healthbar.goto(-500,175)
 commentator = trtl.Turtle()
 commentator.hideturtle()
 commentator.pu()
-commentator.goto(-690,-140)
+commentator.goto(-690,-147)
 
 useless = trtl.Turtle() # SUPER BAD NAME THIS IS LITERALLY THE MOST INTEGRAL PART OF THE WHOLE PROGRAM IT DOESNT WORK WITHOUT IT
 useless.up()
@@ -181,7 +181,7 @@ def type_fight(fight_text):
         global current_text
         current_text = fight_text
         commentator.clear()
-        commentator.write(fight_text, font=("Impact", 20, "bold"))
+        commentator.write(fight_text, font=("Impact", 30, "bold"))
         time.sleep(1.5)
     else:
         useless.forward(1)
@@ -189,7 +189,7 @@ def type_fight(fight_text):
 def save_text():
     commentator.clear()
     if (menu_status == 'home'):
-        commentator.write(current_text, font=("Impact", 20, "bold"))
+        commentator.write(current_text, font=("Impact", 30, "bold"))
 
 #updates the currency of the game, and displays it in the bottom left part of the screen
 def update_bobux():
