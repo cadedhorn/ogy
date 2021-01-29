@@ -7,6 +7,10 @@ setenemyfile('ogre.txt')
 setplayerfile('aaberg.txt')
 playsound('battle.mp3',block=False);
 battle = True
+def battlestate(x):
+    global battle
+    battle = x
+funny = 1
 while battle == True:
     playerchoose()
 type_fight("lol funny fart :)))")
