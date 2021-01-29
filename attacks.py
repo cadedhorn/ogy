@@ -39,7 +39,7 @@ def setenemyfile(x):
     enemy_hp = int(stats[1])
     enemy_speed = int(stats[2])
     enemy_power = int(stats[3])
-    enemy.shape(str(stats[4]))
+    enemy.shape(str(stats[4]).rstrip('\n'))
     enemy_maxhp = enemy_hp
 
 def setplayerfile(x):
@@ -50,7 +50,7 @@ def setplayerfile(x):
     player_hp = int(stats[1])
     player_speed = int(stats[2])
     player_power = int(stats[3])
-    player.shape(str(stats[4]))
+    player.shape(str(stats[4]).rstrip('\n'))
     player_maxhp = player_hp
 
 def playerchoose():
