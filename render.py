@@ -96,7 +96,7 @@ bobux_counter.goto(-700,-475)
 
 slash = trtl.Turtle()
 slash.pu()
-slash.hideturtle
+slash.hideturtle()
 slash.goto(-500,375)
 
 commentator = trtl.Turtle()
@@ -137,19 +137,19 @@ current_text = 'placeholder'
 def slash_animation():
     slash.shape('slash1.gif')
     slash.showturtle()
-    time.sleep(.2)
+    time.sleep(.05)
     slash.shape('slash2.gif')
-    time.sleep(.2)
+    time.sleep(.05)
     slash.shape('slash3.gif')
-    time.sleep(.2)
+    time.sleep(.05)
     slash.shape('slash4.gif')
-    time.sleep(.2)
+    time.sleep(.05)
     slash.shape('slash5.gif')
-    time.sleep(.2)
+    time.sleep(.05)
     slash.shape('slash6.gif')
-    time.sleep(.2)
+    time.sleep(.05)
     slash.shape('slash7.gif')
-    time.sleep(.2)
+    time.sleep(.05)
     slash.hideturtle()
 
 def load_screen():
@@ -336,5 +336,6 @@ def make_shop():
 make_home()
 wn.onkeypress(make_home, 'a')
 wn.onkeypress(make_shop, 'b')
+wn.onkeypress(slash_animation, 'j')
 #type_fight("Funny fart")
 wn.listen()
