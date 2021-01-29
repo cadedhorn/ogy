@@ -114,13 +114,14 @@ fireball.goto(-500,375)
 fireball.speed(5)
 
 healthbar = trtl.Turtle()
+healthbar.shape('healthbar1.gif')
 healthbar.pu()
 healthbar.hideturtle()
 healthbar.goto(-500,175)
 
 ultbar = trtl.Turtle()
-ultbar.pu()
 ultbar.hideturtle()
+ultbar.pu()
 ultbar.goto(-500,-25)
 
 commentator = trtl.Turtle()
