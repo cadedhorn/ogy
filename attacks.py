@@ -256,11 +256,11 @@ def enemyattack():
         enemy_hp = enemy_hp + 50
         hp_update()
     elif j == "Nae Nae":
-        type_fight(enemy_name + " nae nae'd on you!")
+        type_fight(enemy_name + " growled at you!")
         type_fight("Your speed dropped by 20!")
         player_speed = player_speed - 20
     elif j == "Whip":
-        type_fight("You got whipped!")
+        type_fight("You got clubbed!")
         tempd = str(enemy_power)
         slash_animation()
         tempmsg = str("You lost "+tempd+" HP!")
@@ -271,7 +271,7 @@ def enemyattack():
     elif j == "Flex":
         flex_count += 1
         if flex_count > 3:
-            type_fight("You got whipped!")
+            type_fight("You got clubbed!")
             tempd = str(enemy_power)
             slash_animation()
             tempmsg = str("You lost "+tempd+" HP!")
