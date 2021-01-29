@@ -115,7 +115,7 @@ global button_list
 button_list = []
 
 global fight_text
-fight_text = "placeholder"
+fight_text = "if you're seeing this, the game broke"
 
 global current_text
 current_text = 'placeholder'

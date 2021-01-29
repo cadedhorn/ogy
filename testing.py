@@ -1,4 +1,4 @@
-
+from playsound import playsound
 
 # now change the 2nd line, note that you have to add a newline
 
@@ -16,4 +16,5 @@ print(enemy_name + ' appeared!')
 print('HP: ' + str(enemy_hp))
 print('SPEED: ' + str(enemy_spe))
 print('POWER: ' + str(enemy_pwr))
+playsound('freeze.mp3')
     
