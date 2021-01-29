@@ -2,8 +2,10 @@
 import turtle as jake
 from playsound import playsound
 statefarm = jake.Screen()
-from attacks import *
+import attacks as atk
 playsound('battle.mp3',block=False);
-while enemy_hp > 0 and menu_status == 'home':
-    playerchoose()
+while atk.enemy_hp > 0 and atk.menu_status == 'home':
+    atk.setenemyfile('ogre.txt')
+    atk.setplayerfile('wizardogy.txt')
+    atk.playerchoose()
 statefarm.mainloop()

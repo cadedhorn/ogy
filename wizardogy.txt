@@ -1,0 +1,5 @@
+Wizard Ogy
+200
+100
+50
+wizardogy.gif
