@@ -5,8 +5,6 @@ import time
 
 wn = trtl.Screen()
 wn.setup(width=1.0, height=1.0)
-wn.addshape('ogre.gif')
-wn.addshape('wizardogy.gif')
 wn.addshape('fancyshaq.gif')
 wn.addshape('slash1.gif')
 wn.addshape('slash2.gif')
@@ -30,13 +28,11 @@ wn.tracer(False)
 #makes all turtles used in the program
 enemy = trtl.Turtle()
 enemy.hideturtle()
-enemy.shape('ogre.gif')
 enemy.pu() #LOL FART
 enemy.goto(200,245)
 
 player = trtl.Turtle()
 player.hideturtle()
-player.shape('wizardogy.gif')
 player.pu()
 player.goto(-500,375)
 
@@ -149,7 +145,7 @@ global fight_text
 fight_text = "if you're seeing this, the game broke"
 
 global current_text
-current_text = 'placeholder'
+current_text = "If you're seeing this, the game broke"
 #--------Functions--------    
 def uselesslol():
     useless.forward(1)

@@ -18,6 +18,7 @@ enemy_name = ''
 flex_count = 0
 player_attacks = ["","Free Throw", "Drink Up", "Shmoney Dance", "Final Dunk"]
 enemy_attacks = ["Nae Nae", "Flex", "Whip", "Heal"]
+potion_count = 4
 player_choice = 0
 player_constant = 0
 
@@ -135,7 +136,7 @@ def choice_four():
     else:
         useless.forward(1)
 def playerattack():
-    global player_choice, player_attacks, player_hp, player_speed, player_power, player_ult, enemy_hp, enemy_attacks, enemy_speed, enemy_power, menu_status
+    global player_choice, player_attacks, player_hp, player_speed, player_power, player_ult, enemy_hp, enemy_attacks, enemy_speed, enemy_power, menu_status, potion_count
     tempplayer = player_attacks[player_choice]
     if menu_status == "home":
         if player_hp > 0:
@@ -155,12 +156,16 @@ def playerattack():
                     type_fight("You missed the enemy!")
                 hp_update()
             elif tempplayer == "Drink Up":
-                type_fight("You drank a gatorade!")
-                if (player_hp == 200):
-                    type_fight("But it failed!")
-                elif (player_hp < 200):
-                    type_fight("You restored to full hp!")
-                    player_hp = 200
+                if potion_count > 0:
+                    type_fight("You drank a potion!")
+                    if (player_hp == 200):
+                        type_fight("But it failed!")
+                    elif (player_hp < 200):
+                        type_fight("You restored to full hp!")
+                        player_hp = 200
+                    potion_count -= 1
+                if potion_count == 0:
+                    type_fight("No potions left!")
                 hp_update()
             elif tempplayer == "Shmoney Dance":
                 type_fight("your speed doubled from power up!")
