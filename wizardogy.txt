@@ -5,7 +5,7 @@ Wizard Ogy
 wizardogy.gif
 
 attack
-Pummel
+Fireball
 50
 
 heal
@@ -17,5 +17,5 @@ Channel
 100
 
 attack_ult
-Smackdown
+Final Strike
 20000
