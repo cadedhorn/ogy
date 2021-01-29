@@ -198,7 +198,7 @@ def healthbar_update():
         healthbar.shape('healthbar2.gif')
     elif ((player_hp/player_maxhp) > 1/4) and ((player_hp/player_maxhp) <= (1/2)):
         healthbar.showturtle()
-        healthbar.shape('healtbar3.gif')
+        healthbar.shape('healthbar3.gif')
     elif(player_hp/player_maxhp) > 0 and ((player_hp/player_maxhp) <= (1/4)):
         healthbar.showturtle()
         healthbar.shape('healthbar4.gif')
