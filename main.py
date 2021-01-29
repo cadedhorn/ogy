@@ -4,8 +4,8 @@ from playsound import playsound
 statefarm = jake.Screen()
 import attacks as atk
 playsound('battle.mp3',block=False);
+atk.setenemyfile('ogre.txt')
+atk.setplayerfile('wizardogy.txt')
 while atk.enemy_hp > 0 and atk.menu_status == 'home':
-    atk.setenemyfile('ogre.txt')
-    atk.setplayerfile('wizardogy.txt')
     atk.playerchoose()
 statefarm.mainloop()
