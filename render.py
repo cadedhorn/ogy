@@ -8,6 +8,7 @@ wn.setup(width=1.0, height=1.0)
 wn.addshape('bogy.gif')
 wn.addshape('wizardogy.gif')
 wn.addshape('fancyshaq.gif')
+wn.bgpic("paperbackground.gif")
 
 wn.tracer(False)
 
@@ -305,6 +306,5 @@ def make_shop():
 make_home()
 wn.onkeypress(make_home, 'a')
 wn.onkeypress(make_shop, 'b')
-wn.bgpic("paperbackground.gif")
 #type_fight("Funny fart")
 wn.listen()
