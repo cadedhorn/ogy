@@ -120,6 +120,7 @@ healthbar.hideturtle()
 healthbar.goto(-500,175)
 
 ultbar = trtl.Turtle()
+ultbar.shape('ultimatebar1.gif')
 ultbar.hideturtle()
 ultbar.pu()
 ultbar.goto(-500,-25)
