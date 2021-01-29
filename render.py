@@ -21,6 +21,10 @@ wn.addshape('ultimatebar1.gif')
 wn.addshape('ultimatebar2.gif')
 wn.addshape('ultimatebar3.gif')
 wn.addshape('ultimatebar4.gif')
+wn.addshape('explosion1.gif')
+wn.addshape('explosion2.gif')
+wn.addshape('explosion3.gif')
+wn.addshape('gamefireball.gif')
 wn.bgpic("paperbackground.gif")
 
 wn.tracer(False)
@@ -103,6 +107,12 @@ slash.pu()
 slash.hideturtle()
 slash.goto(-500,375)
 
+fireball = trtl.Turtle()
+fireball.pu()
+fireball.hideturtle()
+fireball.goto(-500,375)
+fireball.speed(5)
+
 healthbar = trtl.Turtle()
 healthbar.pu()
 healthbar.hideturtle()
@@ -167,6 +177,24 @@ def slash_animation():
     slash.shape('slash7.gif')
     time.sleep(.05)
     slash.hideturtle()
+    
+def fireball_animation():
+    wn.tracer(False)
+    fireball.setheading(0)
+    fireball.goto(-500,375)
+    fireball.shape('gamefireball.gif')
+    fireball.showturtle()
+    wn.tracer(True)
+    fireball.goto(200,245)
+    fireball.shape('explosion1.gif')
+    time.sleep(.05)
+    fireball.shape('explosion2.gif')
+    time.sleep(.05)
+    fireball.shape('explosion3.gif')
+    time.sleep(.05)
+    fireball.hideturtle()
+    
+    
 
 def load_screen():
     wn.tracer(False)
@@ -356,5 +384,6 @@ def make_shop():
 make_home()
 wn.onkeypress(make_home, 'a')
 wn.onkeypress(make_shop, 'b')
+wn.onkeypress(fireball_animation, 'j')
 #type_fight("Funny fart")
 wn.listen()
