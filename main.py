@@ -9,5 +9,4 @@ playsound('battle.mp3',block=False);
 battle = True
 while battle == True:
     playerchoose()
-type_fight("owned")
 statefarm.mainloop()

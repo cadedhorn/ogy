@@ -1,1 +1,1 @@
-funny.forward(100)
+fireball_attack()

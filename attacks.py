@@ -181,6 +181,10 @@ def playerattack():
     tempplayer = player_attacks[player_choice]
     if menu_status == "home":
         if player_hp > 0:
+            crit = random.randint(0,100)
+            if crit == 57:
+                type_fight("A critical hit!")
+                player_power *= 2
             if tempplayer == "Free Throw":
                 type_fight(player_name+" shot a fireball!")
                 tempn = random.randint(1,1000)
@@ -224,6 +228,8 @@ def playerattack():
                 else:
                     type_fight(player_name+" tried to do a final strike...")
                     type_fight("But it failed! (Ult meter too low)")
+            if crit == 57:
+                player_power /= 2
     else:
         useless.forward(1)
 
@@ -285,12 +291,14 @@ def hp_update():
     wn.tracer(True)
 
 def enemyattack():
-    global player_attacks, player_hp, player_speed, player_power, player_ult, enemy_hp, enemy_attacks, enemy_speed, enemy_power, flex_count
+    global player_attacks, player_hp, player_speed, player_power, player_ult, enemy_hp, enemy_attacks, enemy_speed, enemy_power, flex_count, i_enemy
     if enemy_hp > 0:
-        if enemy_hp > 160:
+        if enemy_hp > 200:
             i_enemy = random.randint(0,2)
-        else:
+        elif enemy_hp > 100:
             i_enemy = random.randint(0,3)
+        elif enemy_hp < 100:
+            i_enemy = 0
         crit = random.randint(0,100)
         if crit == 13:
             type_fight("A critical hit!")
