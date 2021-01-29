@@ -138,6 +138,8 @@ fight_text = "if you're seeing this, the game broke"
 global current_text
 current_text = 'placeholder'
 #--------Functions--------    
+def uselesslol():
+    useless.forward(1)
 
 def slash_animation():
     slash.shape('slash1.gif')

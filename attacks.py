@@ -72,6 +72,10 @@ def playerchoose():
         wn.onkey(flag_state_home, "a")
         useless.forward(1)
 def choice_one():
+    wn.onkey(uselesslol,"1")
+    wn.onkey(uselesslol,"2")
+    wn.onkey(uselesslol,"3")
+    wn.onkey(uselesslol,"4")
     global player_constant
     global player_choice
     global menu_status
@@ -84,6 +88,10 @@ def choice_one():
     else:
         useless.forward(1)
 def choice_two():
+    wn.onkey(uselesslol,"1")
+    wn.onkey(uselesslol,"2")
+    wn.onkey(uselesslol,"3")
+    wn.onkey(uselesslol,"4")
     global player_constant
     global player_choice
     global menu_status
@@ -97,6 +105,10 @@ def choice_two():
     else:
         useless.forward(1)
 def choice_three():
+    wn.onkey(uselesslol,"1")
+    wn.onkey(uselesslol,"2")
+    wn.onkey(uselesslol,"3")
+    wn.onkey(uselesslol,"4")
     global player_constant
     global player_choice
     global menu_status
@@ -109,6 +121,10 @@ def choice_three():
     else:
         useless.forward(1)
 def choice_four():
+    wn.onkey(uselesslol,"1")
+    wn.onkey(uselesslol,"2")
+    wn.onkey(uselesslol,"3")
+    wn.onkey(uselesslol,"4")
     global player_constant
     global player_choice
     global menu_status
