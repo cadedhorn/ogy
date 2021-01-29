@@ -4,6 +4,6 @@ from playsound import playsound
 statefarm = jake.Screen()
 from attacks import *
 playsound('souljaboy.mp3',block=False);
-while beet_hp > 0 and menu_status == 'home':
+while enemy_hp > 0 and menu_status == 'home':
     playerchoose()
 statefarm.mainloop()
