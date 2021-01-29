@@ -20,10 +20,6 @@ player_attacks = ["","Free Throw", "Drink Up", "Shmoney Dance", "Final Dunk"]
 enemy_attacks = ["Nae Nae", "Flex", "Whip", "Heal"]
 player_choice = 0
 player_constant = 0
-wn.addshape('healthbar1.gif')
-wn.addshape('healthbar2.gif')
-wn.addshape('healthbar3.gif')
-wn.addshape('healthbar4.gif')
 
 # LOL FART
 
@@ -206,6 +202,23 @@ def healthbar_update():
         healthbar.shape('healthbar4.gif')
     else:
         healthbar.hideturtle()
+        
+def ultbar_update():
+    global player_ult
+    if (player_ult) == 100:
+        ultbar.showturtle()
+        ultbar.shape('ultimatebar1.gif')
+    elif ((player_ult) > 60) and (player_ult) <= 90:
+        ultbar.showturtle()
+        ultbar.shape('ultimatebar2.gif')
+    elif ((player_ult) > 30) and ((player_ult) <= 60):
+        ultbar.showturtle()
+        ultbar.shape('ultimatebar3.gif')
+    elif((player_ult) > 0) and ((player_ult) <= 30):
+        ultbar.showturtle()
+        ultbar.shape('ultimatebar4.gif')
+    else:
+        ultbar.hideturtle()
 
 def hp_update():
     global player_hp, enemy_hp, player_ult, player_maxhp
@@ -217,6 +230,7 @@ def hp_update():
     enemy_hptxt.write("ENEMY HP: " + str(enemy_hp) + "/" + str(enemy_maxhp), font=("Impact", 20, "bold"))
     ultimate_text.write("FINAL STRIKE: " + str(player_ult) + "/100", font=("Impact", 20, "bold"))
     healthbar_update()
+    ultbar_update()
     wn.tracer(True)
 
 def enemyattack():
@@ -293,4 +307,3 @@ def flag_state_shop():
 def flag_state_home():
     global menu_status
     menu_status = 'home'
-
