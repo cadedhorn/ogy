@@ -154,9 +154,9 @@ def hp_update():
     shaq_hptxt.clear()
     enemy_hptxt.clear()
     ultimate_text.clear()
-    shaq_hptxt.write("HP: " + str(shaq_hp) + "/" + str(shaq_maxhp), font=("Arial", 20, "bold"))
-    enemy_hptxt.write("ENEMY HP: " + str(beet_hp) + "/" + str(beet_maxhp), font=("Arial", 20, "bold"))
-    ultimate_text.write("DUNK CITY: " + str(shaq_ult) + "/100", font=("Arial", 20, "bold"))
+    shaq_hptxt.write("HP: " + str(shaq_hp) + "/" + str(shaq_maxhp), font=("Impact", 20, "bold"))
+    enemy_hptxt.write("ENEMY HP: " + str(beet_hp) + "/" + str(beet_maxhp), font=("Impact", 20, "bold"))
+    ultimate_text.write("DUNK CITY: " + str(shaq_ult) + "/100", font=("Impact", 20, "bold"))
     wn.tracer(True)
 
 def beetattack():

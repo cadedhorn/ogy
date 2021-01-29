@@ -143,7 +143,7 @@ def type_fight(fight_text):
         global current_text
         current_text = fight_text
         commentator.clear()
-        commentator.write(fight_text, font=("Arial", 20, "bold"))
+        commentator.write(fight_text, font=("Impact", 20, "bold"))
         time.sleep(1.5)
     else:
         useless.forward(1)
@@ -151,7 +151,7 @@ def type_fight(fight_text):
 def save_text():
     commentator.clear()
     if (menu_status == 'home'):
-        commentator.write(current_text, font=("Arial", 20, "bold"))
+        commentator.write(current_text, font=("Impact", 20, "bold"))
 
 #updates the currency of the game, and displays it in the bottom left part of the screen
 def update_bobux():
@@ -159,9 +159,9 @@ def update_bobux():
     global bobux
     bobux_counter.clear()
     if (menu_status == 'home'):
-        bobux_counter.write(str(bobux) + " bobux", font=("Arial", 40, "bold"))
+        bobux_counter.write(str(bobux) + " bobux", font=("Impact", 40, "bold"))
     elif(menu_status == 'shop'):
-        bobux_counter.write(str(bobux) + " bobux (press a to go to the main screen)", font=("Arial", 40, "bold"))
+        bobux_counter.write(str(bobux) + " bobux (press a to go to the main screen)", font=("Impact", 40, "bold"))
 
 #adds a number in each box to show the user what buttons correspond to what actions
 def label_number():
@@ -177,10 +177,10 @@ def label_number():
     box_2.goto(-340,-390)
     box_3.goto(10,-390)
     box_4.goto(360,-390)
-    box_1.write("1", font=("Arial", 40, "bold"))
-    box_2.write("2", font=("Arial", 40, "bold"))
-    box_3.write("3", font=("Arial", 40, "bold"))
-    box_4.write("4", font=("Arial", 40, "bold"))
+    box_1.write("1", font=("Impact", 40, "bold"))
+    box_2.write("2", font=("Impact", 40, "bold"))
+    box_3.write("3", font=("Impact", 40, "bold"))
+    box_4.write("4", font=("Impact", 40, "bold"))
     box_1.goto(a,b)
     box_2.goto(c,d)
     box_3.goto(e,f)
@@ -196,10 +196,10 @@ def bottom_text():
     gatorade_text.clear()
     ultimate_text.clear()
     enemy_hptxt.clear()
-    box_1.write(button_list[0], font=("Arial", 40, "bold"))
-    box_2.write(button_list[1], font=("Arial", 40, "bold"))
-    box_3.write(button_list[2], font=("Arial", 40, "bold"))
-    box_4.write(button_list[3], font=("Arial", 40, "bold"))
+    box_1.write(button_list[0], font=("Impact", 40, "bold"))
+    box_2.write(button_list[1], font=("Impact", 40, "bold"))
+    box_3.write(button_list[2], font=("Impact", 40, "bold"))
+    box_4.write(button_list[3], font=("Impact", 40, "bold"))
     label_number()
 
 #makes the entire menu screen and can be used to delete/make the menu
@@ -257,10 +257,10 @@ def make_home():
         box_3.goto(10,-330)
         box_4.goto(360,-330)
         bottom_text()
-        shaq_hptxt.write("HP", font=("Arial", 20, "bold"))
-        gatorade_text.write("GATORADE", font=("Arial", 20, "bold"))
-        ultimate_text.write("DUNK CITY", font=("Arial", 20, "bold"))
-        enemy_hptxt.write("ENEMY HP", font=("Arial", 20, "bold"))
+        shaq_hptxt.write("HP", font=("Impact", 20, "bold"))
+        gatorade_text.write("GATORADE", font=("Impact", 20, "bold"))
+        ultimate_text.write("DUNK CITY", font=("Impact", 20, "bold"))
+        enemy_hptxt.write("ENEMY HP", font=("Impact", 20, "bold"))
         loader.clear()
         menu_status = 'home'
         save_text()
