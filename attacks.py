@@ -21,6 +21,7 @@ enemy_attacks = ["Nae Nae", "Flex", "Whip", "Heal"]
 potion_count = 4
 player_choice = 0
 player_constant = 0
+battle = ""
 
 # LOL FART
 
@@ -227,12 +228,14 @@ def playerattack():
         useless.forward(1)
 
 def hpcheck():
-    global player_hp, enemy_hp
+    global player_hp, enemy_hp, battle
     if player_hp <= 0:
         type_fight(player_name+" fainted! Game Over!")
         enemy_hp = 0
+        battle = False
     elif enemy_hp <= 0:
         type_fight(enemy_name +" fainted! You Won!")
+        battle = False
 
 def healthbar_update():
     global player_hp, player_maxhp
@@ -283,36 +286,25 @@ def hp_update():
 
 def enemyattack():
     global player_attacks, player_hp, player_speed, player_power, player_ult, enemy_hp, enemy_attacks, enemy_speed, enemy_power, flex_count
-    if enemy_hp > 160:
-        i_enemy = random.randint(0,2)
-    else:
-        i_enemy = random.randint(0,3)
-    crit = random.randint(0,100)
-    if crit == 13:
-        type_fight("A critical hit!")
-        enemy_power *= 2
-    j = enemy_attacks[i_enemy]
-    if j == "Heal":
-        type_fight(enemy_name +" restored 50 hp")
-        enemy_hp = enemy_hp + 50
-        hp_update()
-    elif j == "Nae Nae":
-        type_fight(enemy_name + " growled at "+player_name+"!")
-        type_fight(player_name+"'s speed dropped by 20!")
-        player_speed = player_speed - 20
-    elif j == "Whip":
-        type_fight(player_name+" got clubbed!")
-        tempd = str(enemy_power)
-        slash_animation()
-        tempmsg = str(player_name+" lost "+tempd+" HP!")
-        type_fight(tempmsg)
-        player_hp = player_hp - enemy_power
-        if player_ult < 100:
-            player_ult += 10
-        hp_update()
-    elif j == "Flex":
-        flex_count += 1
-        if flex_count > 3:
+    if enemy_hp > 0:
+        if enemy_hp > 160:
+            i_enemy = random.randint(0,2)
+        else:
+            i_enemy = random.randint(0,3)
+        crit = random.randint(0,100)
+        if crit == 13:
+            type_fight("A critical hit!")
+            enemy_power *= 2
+        j = enemy_attacks[i_enemy]
+        if j == "Heal":
+            type_fight(enemy_name +" restored 50 hp")
+            enemy_hp = enemy_hp + 50
+            hp_update()
+        elif j == "Nae Nae":
+            type_fight(enemy_name + " growled at "+player_name+"!")
+            type_fight(player_name+"'s speed dropped by 20!")
+            player_speed = player_speed - 20
+        elif j == "Whip":
             type_fight(player_name+" got clubbed!")
             tempd = str(enemy_power)
             slash_animation()
@@ -322,12 +314,24 @@ def enemyattack():
             if player_ult < 100:
                 player_ult += 10
             hp_update()
-        else:
-            type_fight(enemy_name + " flexed!")
-            type_fight(enemy_name+"'s attacks do 1.1x damage!")
-            enemy_power = math.floor(1.1 * enemy_power)
-    if crit == 13:
-        enemy_power /= 2
+        elif j == "Flex":
+            flex_count += 1
+            if flex_count > 3:
+                type_fight(player_name+" got clubbed!")
+                tempd = str(enemy_power)
+                slash_animation()
+                tempmsg = str(player_name+" lost "+tempd+" HP!")
+                type_fight(tempmsg)
+                player_hp = player_hp - enemy_power
+                if player_ult < 100:
+                    player_ult += 10
+                hp_update()
+            else:
+                type_fight(enemy_name + " flexed!")
+                type_fight(enemy_name+"'s attacks do 1.1x damage!")
+                enemy_power = math.floor(1.1 * enemy_power)
+        if crit == 13:
+            enemy_power /= 2
 
 def speedcheck():
     global player_speed

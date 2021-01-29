@@ -6,6 +6,8 @@ from attacks import *
 setenemyfile('ogre.txt')
 setplayerfile('gipe.txt')
 playsound('battle.mp3',block=False);
-while enemy_hp > 0 and menu_status == 'home':
+battle = True
+while battle == True:
     playerchoose()
+type_fight("owned")
 statefarm.mainloop()
