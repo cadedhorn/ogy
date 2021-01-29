@@ -193,7 +193,22 @@ def fireball_animation():
     fireball.shape('explosion3.gif')
     time.sleep(.05)
     fireball.hideturtle()
-    
+
+def fireball_animation_fail():
+    wn.tracer(False)
+    fireball.setheading(0)
+    fireball.goto(-500,375)
+    fireball.shape('gamefireball.gif')
+    fireball.showturtle()
+    wn.tracer(True)
+    fireball.goto(-200,245)
+    fireball.shape('explosion1.gif')
+    time.sleep(.05)
+    fireball.shape('explosion2.gif')
+    time.sleep(.05)
+    fireball.shape('explosion3.gif')
+    time.sleep(.05)
+    fireball.hideturtle()
     
 
 def load_screen():
@@ -384,6 +399,6 @@ def make_shop():
 make_home()
 wn.onkeypress(make_home, 'a')
 wn.onkeypress(make_shop, 'b')
-wn.onkeypress(fireball_animation, 'j')
+wn.onkeypress(fireball_animation_fail, 'j')
 #type_fight("Funny fart")
 wn.listen()

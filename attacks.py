@@ -146,6 +146,7 @@ def playerattack():
                 tempd = str(player_power)
                 if tempn in range(1,801):
                     temppower = player_power
+                    fireball_animation()
                     type_fight("You hit the enemy!")
                     tempmsg = str(enemy_name+" took " + tempd + " damage!")
                     player_ult += 10
@@ -153,6 +154,7 @@ def playerattack():
                     type_fight(tempmsg)
                     enemy_hp = enemy_hp - player_power
                 elif tempn in range (800,1001):
+                    fireball_animation_fail()
                     type_fight("You missed the enemy!")
                 hp_update()
             elif tempplayer == "Drink Up":
