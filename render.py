@@ -181,42 +181,7 @@ def slash_animation():
     time.sleep(.05)
     slash.hideturtle()
     
-def fireball_animation():
-    wn.tracer(False)
-    fireball.setheading(0)
-    fireball.goto(-500,375)
-    fireball.shape('gamefireball.gif')
-    fireball.showturtle()
-    wn.tracer(True)
-    player.shape('wizardogymouth.gif')
-    fireball.goto(200,245)
-    fireball.shape('explosion1.gif')
-    time.sleep(.05)
-    fireball.shape('explosion2.gif')
-    time.sleep(.05)
-    fireball.shape('explosion3.gif')
-    time.sleep(.05)
-    player.shape('wizardogy.gif')
-    fireball.hideturtle()
 
-def fireball_animation_fail():
-    wn.tracer(False)
-    fireball.setheading(0)
-    fireball.goto(-500,375)
-    fireball.shape('gamefireball.gif')
-    fireball.showturtle()
-    wn.tracer(True)
-    player.shape('wizardogymouth.gif')
-    temp = random.randint(200,500)
-    fireball.goto(-200,temp)
-    fireball.shape('explosion1.gif')
-    time.sleep(.05)
-    fireball.shape('explosion2.gif')
-    time.sleep(.05)
-    fireball.shape('explosion3.gif')
-    time.sleep(.05)
-    player.shape('wizardogy.gif')
-    fireball.hideturtle()
     
 
 def load_screen():

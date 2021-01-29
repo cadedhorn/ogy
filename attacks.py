@@ -27,9 +27,47 @@ player_constant = 0
 # LOL POOP
 #functions
 #types the ACTION
+def fireball_animation():
+    tempshape = player_shape
+    wn.tracer(False)
+    fireball.setheading(0)
+    fireball.goto(-500,375)
+    fireball.shape('gamefireball.gif')
+    fireball.showturtle()
+    wn.tracer(True)
+    player.shape('wizardogymouth.gif')
+    fireball.goto(200,245)
+    fireball.shape('explosion1.gif')
+    time.sleep(.05)
+    fireball.shape('explosion2.gif')
+    time.sleep(.05)
+    fireball.shape('explosion3.gif')
+    time.sleep(.05)
+    player.shape(tempshape)
+    fireball.hideturtle()
+
+def fireball_animation_fail():
+    tempshape = player_shape
+    wn.tracer(False)
+    fireball.setheading(0)
+    fireball.goto(-500,375)
+    fireball.shape('gamefireball.gif')
+    fireball.showturtle()
+    wn.tracer(True)
+    player.shape('wizardogymouth.gif')
+    temp = random.randint(200,500)
+    fireball.goto(-200,temp)
+    fireball.shape('explosion1.gif')
+    time.sleep(.05)
+    fireball.shape('explosion2.gif')
+    time.sleep(.05)
+    fireball.shape('explosion3.gif')
+    time.sleep(.05)
+    player.shape(tempshape)
+    fireball.hideturtle()
 
 def setenemyfile(x):
-    global enemy_name, enemy_hp, enemy_speed, enemy_power, enemy_maxhp
+    global enemy_name, enemy_hp, enemy_speed, enemy_power, enemy_maxhp, enemy_shape
     with open(x, 'r') as file:
         stats = file.readlines()
     enemy_name = str(stats[0]).rstrip('\n')
@@ -37,11 +75,12 @@ def setenemyfile(x):
     enemy_speed = int(stats[2])
     enemy_power = int(stats[3])
     wn.addshape(str(stats[4]).rstrip('\n'))
-    enemy.shape(str(stats[4]).rstrip('\n'))
+    enemy_shape = (str(stats[4]).rstrip('\n'))
+    enemy.shape(enemy_shape)
     enemy_maxhp = enemy_hp
 
 def setplayerfile(x):
-    global player_name, player_hp, player_speed, player_power, player_maxhp
+    global player_name, player_hp, player_speed, player_power, player_maxhp, player_shape
     with open(x, 'r') as file:
         stats = file.readlines()
     player_name = str(stats[0]).rstrip('\n')
@@ -49,7 +88,8 @@ def setplayerfile(x):
     player_speed = int(stats[2])
     player_power = int(stats[3])
     wn.addshape(str(stats[4]).rstrip('\n'))
-    player.shape(str(stats[4]).rstrip('\n'))
+    player_shape = (str(stats[4]).rstrip('\n'))
+    player.shape(player_shape)
     player_maxhp = player_hp
 
 def playerchoose():
