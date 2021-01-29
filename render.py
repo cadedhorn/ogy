@@ -8,6 +8,13 @@ wn.setup(width=1.0, height=1.0)
 wn.addshape('ogre.gif')
 wn.addshape('wizardogy.gif')
 wn.addshape('fancyshaq.gif')
+wn.addshape('slash1.gif')
+wn.addshape('slash2.gif')
+wn.addshape('slash3.gif')
+wn.addshape('slash4.gif')
+wn.addshape('slash5.gif')
+wn.addshape('slash6.gif')
+wn.addshape('slash7.gif')
 wn.bgpic("paperbackground.gif")
 
 wn.tracer(False)
@@ -87,6 +94,11 @@ bobux_counter.pu()
 bobux_counter.hideturtle()
 bobux_counter.goto(-700,-475)
 
+slash = trtl.Turtle()
+slash.pu()
+slash.hideturtle
+slash.goto(-500,375)
+
 commentator = trtl.Turtle()
 commentator.hideturtle()
 commentator.pu()
@@ -121,6 +133,24 @@ fight_text = "if you're seeing this, the game broke"
 global current_text
 current_text = 'placeholder'
 #--------Functions--------    
+
+def slash_animation():
+    slash.shape('slash1.gif')
+    slash.showturtle()
+    time.sleep(.2)
+    slash.shape('slash2.gif')
+    time.sleep(.2)
+    slash.shape('slash3.gif')
+    time.sleep(.2)
+    slash.shape('slash4.gif')
+    time.sleep(.2)
+    slash.shape('slash5.gif')
+    time.sleep(.2)
+    slash.shape('slash6.gif')
+    time.sleep(.2)
+    slash.shape('slash7.gif')
+    time.sleep(.2)
+    slash.hideturtle()
 
 def load_screen():
     wn.tracer(False)
