@@ -136,7 +136,7 @@ global fight_text
 fight_text = "if you're seeing this, the game broke"
 
 global current_text
-current_text = 'placeholder'
+current_text = "If you're seeing this, the game broke"
 #--------Functions--------    
 def uselesslol():
     useless.forward(1)
