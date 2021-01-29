@@ -18,7 +18,7 @@ enemy_name = ''
 flex_count = 0
 player_attacks = ["","Free Throw", "Drink Up", "Shmoney Dance", "Final Dunk"]
 enemy_attacks = ["Nae Nae", "Flex", "Whip", "Heal"]
-potion_count = 4
+potion_count = 3
 player_choice = 0
 player_constant = 0
 
@@ -211,6 +211,7 @@ def playerattack():
                         type_fight(player_name+" restored to full hp!")
                         player_hp = 200
                     potion_count -= 1
+                    potionbar_update()
                 if potion_count == 0:
                     type_fight("No potions left!")
                 hp_update()
@@ -242,7 +243,21 @@ def hpcheck():
         battle = False
         type_fight(enemy_name +" fainted! You Won!")
 
-
+def potionbar_update():
+    global potion_count
+    if potion_count == 3:
+        potionbar.showturtle()
+        potionbar.shape('potionbar1.gif')
+    elif potion_count == 2:
+        potionbar.showturtle()
+        potionbar.shape('potionbar2.gif')
+    elif potion_count == 1:
+        potionbar.showturtle()
+        potionbar.shape('potionbar3.gif')
+    elif potion_count == 0:
+        potionbar.hideturtle()
+    
+    
 def healthbar_update():
     global player_hp, player_maxhp
     if (player_hp/player_maxhp) > (3/4):

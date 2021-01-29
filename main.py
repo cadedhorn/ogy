@@ -4,7 +4,7 @@ from playsound import playsound
 statefarm = jake.Screen()
 from attacks import *
 setenemyfile('ogre.txt')
-setplayerfile('aaberg.txt')
+setplayerfile('wizardogy.txt')
 playsound('battle.mp3',block=False);
 battle = True
 while battle == True:
