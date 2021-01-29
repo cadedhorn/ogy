@@ -6,7 +6,7 @@ import time
 wn = trtl.Screen()
 wn.setup(width=1.0, height=1.0)
 wn.addshape('bogy.gif')
-wn.addshape('ogy.gif')
+wn.addshape('wizardogy.gif')
 wn.addshape('fancyshaq.gif')
 
 wn.tracer(False)
@@ -20,7 +20,7 @@ enemy.goto(200,245)
 
 neutralshaq = trtl.Turtle()
 neutralshaq.hideturtle()
-neutralshaq.shape('ogy.gif')
+neutralshaq.shape('wizardogy.gif')
 neutralshaq.pu()
 neutralshaq.goto(-500,375)
 
