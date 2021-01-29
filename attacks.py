@@ -20,6 +20,10 @@ player_attacks = ["","Free Throw", "Drink Up", "Shmoney Dance", "Final Dunk"]
 enemy_attacks = ["Nae Nae", "Flex", "Whip", "Heal"]
 player_choice = 0
 player_constant = 0
+wn.addshape('healthbar1.gif')
+wn.addshape('healthbar2.gif')
+wn.addshape('healthbar3.gif')
+wn.addshape('healthbar4.gif')
 
 # LOL FART
 
@@ -168,8 +172,25 @@ def hpcheck():
     elif enemy_hp <= 0:
         type_fight(enemy_name +" fainted! You Won!")
 
+def healthbar_update():
+    global player_hp, player_maxhp
+    if (player_hp/player_maxhp) > (3/4):
+        healthbar.showturtle()
+        healthbar.shape('healthbar1.gif')
+    elif ((player_hp/player_maxhp) > 1/2) and ((player_hp/player_maxhp) <= (3/4)):
+        healthbar.showturtle()
+        healthbar.shape('healthbar2.gif')
+    elif ((player_hp/player_maxhp) > 1/4) and ((player_hp/player_maxhp) <= (1/2)):
+        healthbar.showturtle()
+        healthbar.shape('healtbar3.gif')
+    elif(player_hp/player_maxhp) > 0 and ((player_hp/player_maxhp) <= (1/4)):
+        healthbar.showturtle()
+        healthbar.shape('healthbar4.gif')
+    else:
+        healthbar.hideturtle()
+
 def hp_update():
-    global player_hp, enemy_hp, player_ult
+    global player_hp, enemy_hp, player_ult, player_maxhp
     wn.tracer(False)
     player_hptxt.clear()
     enemy_hptxt.clear()
@@ -177,6 +198,7 @@ def hp_update():
     player_hptxt.write("HP: " + str(player_hp) + "/" + str(player_maxhp), font=("Impact", 20, "bold"))
     enemy_hptxt.write("ENEMY HP: " + str(enemy_hp) + "/" + str(enemy_maxhp), font=("Impact", 20, "bold"))
     ultimate_text.write("FINAL STRIKE: " + str(player_ult) + "/100", font=("Impact", 20, "bold"))
+    healthbar_update()
     wn.tracer(True)
 
 def enemyattack():

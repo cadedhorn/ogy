@@ -99,6 +99,11 @@ slash.pu()
 slash.hideturtle()
 slash.goto(-500,375)
 
+healthbar = trtl.Turtle()
+healthbar.pu()
+healthbar.hideturtle()
+healthbar.goto(-500,175)
+
 commentator = trtl.Turtle()
 commentator.hideturtle()
 commentator.pu()
