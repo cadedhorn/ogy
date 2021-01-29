@@ -182,6 +182,7 @@ def enemyattack():
     elif j == "Whip":
         type_fight("you got whipped!")
         tempd = str(enemy_power)
+        slash_animation()
         tempmsg = str("you lost "+tempd+" HP!")
         type_fight(tempmsg)
         player_hp = player_hp - enemy_power
@@ -192,6 +193,7 @@ def enemyattack():
         if flex_count > 3:
             type_fight("you got whipped!")
             tempd = str(enemy_power)
+            slash_animation()
             tempmsg = str("you lost "+tempd+" HP!")
             type_fight(tempmsg)
             player_hp = player_hp - enemy_power

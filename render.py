@@ -307,7 +307,7 @@ def make_shop():
         menu_status = 'shop'
         load_screen()
         wn.tracer(False)
-        button_list = ["Gatorade", "Basquetbol", "Uni-Forme", "シャキール"]
+        button_list = ["Gatorade", "Wands", "Robes", "シャキール"]
         drawer.clear()
         bottom_text()
         enemy.hideturtle()
@@ -336,6 +336,5 @@ def make_shop():
 make_home()
 wn.onkeypress(make_home, 'a')
 wn.onkeypress(make_shop, 'b')
-wn.onkeypress(slash_animation, 'j')
 #type_fight("Funny fart")
 wn.listen()
