@@ -307,7 +307,7 @@ def make_home():
         box_4.goto(360,-330)
         bottom_text()
         player_hptxt.write("HP", font=("Impact", 20, "bold"))
-        gatorade_text.write("GATORADE", font=("Impact", 20, "bold"))
+        gatorade_text.write("POTIONS", font=("Impact", 20, "bold"))
         ultimate_text.write("DUNK CITY", font=("Impact", 20, "bold"))
         enemy_hptxt.write("ENEMY HP", font=("Impact", 20, "bold"))
         loader.clear()
