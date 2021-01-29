@@ -341,7 +341,7 @@ def make_shop():
         menu_status = 'shop'
         load_screen()
         wn.tracer(False)
-        button_list = ["Gatorade", "Wands", "Robes", "シャキール"]
+        button_list = ["Potions", "Wands", "Robes", "シャキール"]
         drawer.clear()
         bottom_text()
         enemy.hideturtle()
