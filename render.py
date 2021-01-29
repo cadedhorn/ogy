@@ -305,5 +305,6 @@ def make_shop():
 make_home()
 wn.onkeypress(make_home, 'a')
 wn.onkeypress(make_shop, 'b')
+wn.bgpic("paperbackground.gif")
 #type_fight("Funny fart")
 wn.listen()
