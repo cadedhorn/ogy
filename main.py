@@ -8,10 +8,12 @@ atk.setplayerfile('wizardogy.txt')
 winsound.PlaySound('souljaboy.wav',winsound.SND_ASYNC)
 while atk.menu_status != 'end_fight':
     atk.playerchoose()
-winsound.PlaySound('aaberg.wav'.SND_PURGE)
+winsound.PlaySound(None,winsound.SND_PURGE)
 atk.setenemyfile('aaberg.txt')
+winsound.PlaySound('aaberg.wav'.SND_ASYNC)
 atk.menu_status = 'home'
 while atk.menu_status != 'end_fight':
     atk.playerchoose()
 atk.type_fight("lol funny fart :)))")
+winsound.PlaySound(None,winsound.SND_PURGE)
 statefarm.mainloop()
