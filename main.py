@@ -1,15 +1,15 @@
 # GOD BLESS STATEFARM THANK YOU FOR MAKING THE GAME ACTUALLY WORK. HOLY JESUS CHRIST.
 import turtle as jake
-from playsound import playsound
+import winsound
 statefarm = jake.Screen()
 import attacks as atk
 atk.setenemyfile('ogre.txt')
-atk.setplayerfile('aaberg.txt')
-playsound('aaberg.mp3',block=False);
-
+atk.setplayerfile('wizardogy.txt')
+winsound.PlaySound('souljaboy.wav',winsound.SND_ASYNC)
 while atk.menu_status != 'end_fight':
     atk.playerchoose()
-atk.setenemyfile('wizardogy.txt')
+winsound.PlaySound('aaberg.wav'.SND_PURGE)
+atk.setenemyfile('aaberg.txt')
 atk.menu_status = 'home'
 while atk.menu_status != 'end_fight':
     atk.playerchoose()

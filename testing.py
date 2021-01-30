@@ -1,6 +1,8 @@
 # demo / testbed for new attack framework (old one won't work for more ambitious ideas)
-
+import winsound
+winsound.PlaySound('aaberg.wav', winsound.SND_ASYNC)
 import turtle as trtl
+import time
 fireball = trtl.Turtle()
 wn = trtl.Screen()
 fireball.shape('circle')
@@ -25,4 +27,6 @@ def fireball_attack():
 with open('test.txt','r') as file:
     stats = file.readlines()
 eval(stats[0])
+time.sleep(3)
+winsound.PlaySound(None,winsound.SND_PURGE)
 wn.mainloop()
