@@ -92,9 +92,10 @@ def setplayerfile(x):
     player.shape(player_shape)
     player_maxhp = player_hp
 
+
 def playerchoose():
     global player_constant, menu_status
-    if (menu_status == "home"):
+    if (menu_status == 'home'):
         if ((enemy_hp > 0) or (player_hp > 0)):
             if(player_constant == 0):
                 hp_update()
@@ -108,18 +109,12 @@ def playerchoose():
                 player_constant = 1   
             else:
                 useless.forward(.001)
-                if menu_status == 'end_fight':
-                    type_fight('testa')
         else:
             uselesslol()
             commentator.clear
-            if menu_status == 'end_fight':
-                type_fight('testb')
     else:
         wn.onkey(flag_state_home, "a")
         useless.forward(.001)
-        if menu_status == 'end_fight':
-            type_fight('testc')
 def choice_one():
     wn.onkey(uselesslol,"1")
     wn.onkey(uselesslol,"2")

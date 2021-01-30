@@ -2,13 +2,16 @@
 import turtle as jake
 from playsound import playsound
 statefarm = jake.Screen()
-from attacks import *
-setenemyfile('ogre.txt')
-setplayerfile('aaberg.txt')
+import attacks as atk
+atk.setenemyfile('ogre.txt')
+atk.setplayerfile('aaberg.txt')
 playsound('battle.mp3',block=False);
 
-while menu_status != 'end_fight':
-    playerchoose()
-
-type_fight("lol funny fart :)))")
+while atk.menu_status != 'end_fight':
+    atk.playerchoose()
+atk.setenemyfile('gipe.txt')
+atk.menu_status = 'home'
+while atk.menu_status != 'end_fight':
+    atk.playerchoose()
+atk.type_fight("lol funny fart :)))")
 statefarm.mainloop()
