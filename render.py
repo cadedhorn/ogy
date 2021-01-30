@@ -186,7 +186,7 @@ global current_text
 current_text = "If you're seeing this, the game broke"
 #--------Functions--------    
 def uselesslol():
-    useless.forward(1)
+    useless.forward(.001)
 
 def slash_animation():
     slash.shape('slash1.gif')
@@ -227,14 +227,14 @@ def load_screen():
     menu_status = menu_staus_hold
 # pain
 def type_fight(fight_text):
-    if menu_status == 'home':
+    if menu_status == 'home' or menu_status == 'end_fight':
         global current_text
         current_text = fight_text
         commentator.clear()
         commentator.write(fight_text, font=("Impact", 30, "bold"))
         time.sleep(1.5)
     else:
-        useless.forward(1)
+        useless.forward(.001)
     
 def save_text():
     commentator.clear()

@@ -4,12 +4,11 @@ from playsound import playsound
 statefarm = jake.Screen()
 from attacks import *
 setenemyfile('ogre.txt')
-setplayerfile('wizardogy.txt')
+setplayerfile('aaberg.txt')
 playsound('battle.mp3',block=False);
-def battlestate(x):
-    global battle
-    battle = x
-while battle == True:
+
+while menu_status != 'end_fight':
     playerchoose()
+
 type_fight("lol funny fart :)))")
 statefarm.mainloop()

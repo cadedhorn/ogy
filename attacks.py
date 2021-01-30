@@ -93,9 +93,9 @@ def setplayerfile(x):
     player_maxhp = player_hp
 
 def playerchoose():
-    global player_constant, menu_status, battle
+    global player_constant, menu_status
     if (menu_status == "home"):
-        if ((enemy_hp > 0) and (player_hp > 0)):
+        if ((enemy_hp > 0) or (player_hp > 0)):
             if(player_constant == 0):
                 hp_update()
                 type_fight("Select "+ player_name+"'s Attack: ")
@@ -107,14 +107,17 @@ def playerchoose():
                 wn.listen()
                 player_constant = 1   
             else:
-                useless.forward(1)
+                useless.forward(.001)
+                type_fight('test 1')
         else:
             uselesslol()
+            type_fight('test 2')
             commentator.clear
-            battle = False
+            flag_state_end()
     else:
+        type_fight('test 3')
         wn.onkey(flag_state_home, "a")
-        useless.forward(1)
+        useless.forward(.001)
 def choice_one():
     wn.onkey(uselesslol,"1")
     wn.onkey(uselesslol,"2")
@@ -130,7 +133,7 @@ def choice_one():
         hpcheck()
         player_constant = 0
     else:
-        useless.forward(1)
+        useless.forward(.001)
 def choice_two():
     wn.onkey(uselesslol,"1")
     wn.onkey(uselesslol,"2")
@@ -147,7 +150,7 @@ def choice_two():
         hpcheck()
         player_constant = 0
     else:
-        useless.forward(1)
+        useless.forward(.001)
 def choice_three():
     wn.onkey(uselesslol,"1")
     wn.onkey(uselesslol,"2")
@@ -163,7 +166,7 @@ def choice_three():
         hpcheck()
         player_constant = 0
     else:
-        useless.forward(1)
+        useless.forward(.001)
 def choice_four():
     wn.onkey(uselesslol,"1")
     wn.onkey(uselesslol,"2")
@@ -179,72 +182,70 @@ def choice_four():
         hpcheck()
         player_constant = 0
     else:
-        useless.forward(1)
+        useless.forward(.001)
 def playerattack():
     global player_choice, player_attacks, player_hp, player_speed, player_power, player_ult, enemy_hp, enemy_attacks, enemy_speed, enemy_power, menu_status, potion_count
     tempplayer = player_attacks[player_choice]
-    if menu_status == "home":
-        if player_hp > 0:
-            crit = random.randint(0,100)
-            if crit == 57:
-                type_fight("A critical hit!")
-                player_power *= 2
-            if tempplayer == "Free Throw":
-                type_fight(player_name+" shot a fireball!")
-                tempn = random.randint(1,1000)
-                tempd = str(player_power)
-                if tempn in range(1,801):
-                    temppower = player_power
-                    fireball_animation()
-                    type_fight(player_name+" hit the enemy!")
-                    tempmsg = str(enemy_name+" took " + tempd + " damage!")
-                    if player_ult < 100:
-                        player_ult += 10
-                    player_power = temppower
-                    type_fight(tempmsg)
-                    enemy_hp = enemy_hp - player_power
-                elif tempn in range (800,1001):
-                    fireball_animation_fail()
-                    type_fight(player_name+" missed the enemy!")
+    if player_hp > 0:
+        crit = random.randint(0,100)
+        if crit == 57:
+            type_fight("A critical hit!")
+            player_power *= 2
+        if tempplayer == "Free Throw":
+            type_fight(player_name+" shot a fireball!")
+            tempn = random.randint(1,1000)
+            tempd = str(player_power)
+            if tempn in range(1,801):
+                temppower = player_power
+                fireball_animation()
+                type_fight(player_name+" hit the enemy!")
+                tempmsg = str(enemy_name+" took " + tempd + " damage!")
+                if player_ult < 100:
+                    player_ult += 10
+                player_power = temppower
+                type_fight(tempmsg)
+                enemy_hp = enemy_hp - player_power
+            elif tempn in range (800,1001):
+                fireball_animation_fail()
+                type_fight(player_name+" missed the enemy!")
+            hp_update()
+        elif tempplayer == "Drink Up":
+            if potion_count > 0:
+                type_fight(player_name+" drank a potion!")
+                if (player_hp == 200):
+                    type_fight("But it failed!")
+                elif (player_hp < 200):
+                    type_fight(player_name+" restored to full hp!")
+                    player_hp = 200
+                potion_count -= 1
+                potionbar_update()
+            if potion_count == 0:
+                type_fight("No potions left!")
+            hp_update()
+        elif tempplayer == "Shmoney Dance":
+            type_fight(player_name+"'s speed doubled from power up!")
+            player_speed = 2 * player_speed
+        elif tempplayer == "Final Dunk":
+            if player_ult > 99:
+                type_fight(player_name+" tried to do a final strike...")
+                type_fight(player_name+" charged up energy!")
+                type_fight(player_name+" demolished the enemy!")
+                enemy_hp = 0
                 hp_update()
-            elif tempplayer == "Drink Up":
-                if potion_count > 0:
-                    type_fight(player_name+" drank a potion!")
-                    if (player_hp == 200):
-                        type_fight("But it failed!")
-                    elif (player_hp < 200):
-                        type_fight(player_name+" restored to full hp!")
-                        player_hp = 200
-                    potion_count -= 1
-                    potionbar_update()
-                if potion_count == 0:
-                    type_fight("No potions left!")
-                hp_update()
-            elif tempplayer == "Shmoney Dance":
-                type_fight(player_name+"'s speed doubled from power up!")
-                player_speed = 2 * player_speed
-            elif tempplayer == "Final Dunk":
-                if player_ult > 99:
-                    type_fight(player_name+" tried to do a final strike...")
-                    type_fight(player_name+" charged up energy!")
-                    type_fight(player_name+" demolished the enemy!")
-                    enemy_hp = 0
-                    hp_update()
-                else:
-                    type_fight(player_name+" tried to do a final strike...")
-                    type_fight("But it failed! (Ult meter too low)")
-            if crit == 57:
-                player_power /= 2
-    else:
-        useless.forward(1)
+            else:
+                type_fight(player_name+" tried to do a final strike...")
+                type_fight("But it failed! (Ult meter too low)")
+        if crit == 57:
+            player_power /= 2
 
 def hpcheck():
-    global player_hp, enemy_hp, battle
+    global player_hp, enemy_hp, menu_status
     if player_hp <= 0:
         type_fight(player_name+" fainted! Game Over!")
-
+        flag_state_end()
     elif enemy_hp <= 0:
         type_fight(enemy_name +" fainted! You Won!")
+        flag_state_end()
 
 def potionbar_update():
     global potion_count
@@ -416,7 +417,7 @@ def speedcheck():
             enemyattack()
             playerattack()
     else:
-        useless.forward(1)
+        useless.forward(.001)
 
 def flag_state_shop():
     global menu_status
@@ -424,3 +425,6 @@ def flag_state_shop():
 def flag_state_home():
     global menu_status
     menu_status = 'home'
+def flag_state_end():
+    global menu_status
+    menu_status = 'end_fight'
