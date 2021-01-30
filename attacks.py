@@ -108,16 +108,18 @@ def playerchoose():
                 player_constant = 1   
             else:
                 useless.forward(.001)
-                type_fight('test 1')
+                if menu_status == 'end_fight':
+                    type_fight('testa')
         else:
             uselesslol()
-            type_fight('test 2')
             commentator.clear
-            flag_state_end()
+            if menu_status == 'end_fight':
+                type_fight('testb')
     else:
-        type_fight('test 3')
         wn.onkey(flag_state_home, "a")
         useless.forward(.001)
+        if menu_status == 'end_fight':
+            type_fight('testc')
 def choice_one():
     wn.onkey(uselesslol,"1")
     wn.onkey(uselesslol,"2")
