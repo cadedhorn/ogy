@@ -39,6 +39,14 @@ wn.addshape('enemyhealthbar10.gif')
 wn.addshape('potionbar1.gif')
 wn.addshape('potionbar2.gif')
 wn.addshape('potionbar3.gif')
+wn.addshape('ultimate_animation1.gif')
+wn.addshape('ultimate_animation2.gif')
+wn.addshape('ultimate_animation3.gif')
+wn.addshape('ultimate_animation4.gif')
+wn.addshape('ultimate_animation5.gif')
+wn.addshape('ultimate_animation6.gif')
+wn.addshape('ultimate_animation7.gif')
+wn.addshape('ultimate_animation8.gif')
 wn.bgpic("paperbackground.gif")
 
 wn.tracer(False)
@@ -127,6 +135,11 @@ fireball.hideturtle()
 fireball.goto(-500,375)
 fireball.speed(5)
 
+ultimate = trtl.Turtle()
+ultimate.pu()
+ultimate.hideturtle()
+ultimate.goto(200,245)
+
 healthbar = trtl.Turtle()
 healthbar.shape('healthbar1.gif')
 healthbar.pu()
@@ -206,7 +219,26 @@ def slash_animation():
     time.sleep(.05)
     slash.hideturtle()
     
-
+def ultimate_animation():
+    ultimate.shape('ultimate_animation1.gif')
+    ultimate.showturtle()
+    time.sleep(.05)
+    ultimate.shape('ultimate_animation2.gif')
+    time.sleep(.05)
+    ultimate.shape('ultimate_animation3.gif')
+    time.sleep(.05)
+    for i in range(5):
+        ultimate.shape('ultimate_animation4.gif')
+        time.sleep(.05)
+        ultimate.shape('ultimate_animation5.gif')
+        time.sleep(.05)
+    ultimate.shape('ultimate_animation6.gif')
+    time.sleep(.05)
+    ultimate.shape('ultimate_animation7.gif')
+    time.sleep(.05)
+    ultimate.shape('ultimate_animation8.gif')
+    time.sleep(.05)
+    ultimate.hideturtle()
     
 
 def load_screen():

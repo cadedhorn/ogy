@@ -226,6 +226,7 @@ def playerattack():
             if player_ult > 99:
                 type_fight(player_name+" tried to do a final strike...")
                 type_fight(player_name+" charged up energy!")
+                ultimate_animation()
                 type_fight(player_name+" demolished the enemy!")
                 enemy_hp = 0
                 hp_update()
