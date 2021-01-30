@@ -5,11 +5,11 @@ statefarm = jake.Screen()
 import attacks as atk
 atk.setenemyfile('ogre.txt')
 atk.setplayerfile('aaberg.txt')
-playsound('battle.mp3',block=False);
+playsound('aaberg.mp3',block=False);
 
 while atk.menu_status != 'end_fight':
     atk.playerchoose()
-atk.setenemyfile('gipe.txt')
+atk.setenemyfile('wizardogy.txt')
 atk.menu_status = 'home'
 while atk.menu_status != 'end_fight':
     atk.playerchoose()
