@@ -10,7 +10,7 @@ while atk.menu_status != 'end_fight':
     atk.playerchoose()
 winsound.PlaySound(None,winsound.SND_PURGE)
 atk.setenemyfile('aaberg.txt')
-winsound.PlaySound('aaberg.wav'.SND_ASYNC)
+winsound.PlaySound('aaberg.wav',winsound.SND_ASYNC)
 atk.menu_status = 'home'
 while atk.menu_status != 'end_fight':
     atk.playerchoose()
