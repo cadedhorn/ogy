@@ -51,6 +51,7 @@ wn.bgpic("paperbackground.gif")
 
 wn.tracer(False)
 
+player_attacks = ['','','','']
 #makes all turtles used in the program
 enemy = trtl.Turtle()
 enemy.hideturtle()
@@ -330,7 +331,7 @@ def make_home():
     if (menu_status != 'home') and (menu_status != 'loading') and (menu_status != 'commentating'):
         load_screen()
         wn.tracer(False)
-        button_list = ["Fire Ball", "Heal", "Power Up", "Final Strike"]
+        button_list = player_attacks
         drawer.clear()
         fancyshaq.hideturtle()
         player.showturtle()
@@ -430,7 +431,6 @@ def make_shop():
         wn.tracer(True)
     
 #--------loop--------
-make_home()
 wn.onkeypress(make_home, 'a')
 wn.onkeypress(make_shop, 'b')
 #type_fight("Funny fart")

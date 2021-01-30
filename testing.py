@@ -26,7 +26,7 @@ def fireball_attack():
 
 with open('test.txt','r') as file:
     stats = file.readlines()
-eval(stats[0])
+#eval(stats[0])
 time.sleep(3)
 winsound.PlaySound(None,winsound.SND_PURGE)
 wn.mainloop()

@@ -1,1 +1,20 @@
-fireball_attack()
+Sticky
+200
+300
+100
+stick.gif
+
+~ Attacks ~
+
+Stick Beat
+stickbeat()
+
+Stick Potion
+stickpotion()
+
+Stick Dance
+stickdance()
+
+Stick Ult
+stickult()
+

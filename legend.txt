@@ -2,3 +2,18 @@ Demoname # This is where character name goes
 Demohp # This is where character hp goes
 Demospe # This is where character speed goes
 Demopwr # This is where character power goes
+Demopic.gif # This is where character image goes
+Theme.wav # This is where character song goes
+~ Attacks ~
+
+Attack1_Name
+attack1_function()
+
+Attack2_Name
+attack2_function()
+
+Attack3_Name
+attack3_function()
+
+Attack4_Name
+attack4_function()
