@@ -199,9 +199,10 @@ fight_text = "if you're seeing this, the game broke"
 global current_text
 current_text = "If you're seeing this, the game broke"
 #--------Functions--------    
+#BEAUTIFUL
 def uselesslol():
     useless.forward(.001)
-
+#makes animation
 def slash_animation():
     slash.shape('slash1.gif')
     slash.showturtle()
@@ -219,7 +220,7 @@ def slash_animation():
     slash.shape('slash7.gif')
     time.sleep(.05)
     slash.hideturtle()
-    
+#makes animation
 def ultimate_animation():
     ultimate.shape('ultimate_animation1.gif')
     ultimate.showturtle()
@@ -241,7 +242,7 @@ def ultimate_animation():
     time.sleep(.05)
     ultimate.hideturtle()
     
-
+#gives a loading screen effect for transitions
 def load_screen():
     wn.tracer(False)
     global menu_status
@@ -268,7 +269,7 @@ def type_fight(fight_text):
         time.sleep(1.5)
     else:
         useless.forward(.001)
-    
+#saves the text going from home to shop
 def save_text():
     commentator.clear()
     if (menu_status == 'home'):
