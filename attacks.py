@@ -95,6 +95,7 @@ def setplayerfile(x):
 
 def playerchoose():
     global player_constant, menu_status
+    hpcheck()
     if (menu_status == 'home'):
         if ((enemy_hp > 0) or (player_hp > 0)):
             if(player_constant == 0):
