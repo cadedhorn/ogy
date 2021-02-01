@@ -3,7 +3,7 @@ import random
 from render import *
 import time
 import math
-#Stats declaration (in the future read a stats.txt)
+#Stats declaration (prevents stuff from breaking in dumb ways)
 player_hp = 1000
 player_maxhp = player_hp
 player_speed = 1000
@@ -27,7 +27,7 @@ player_constant = 0
 # LOL POOP
 #functions
 #types the ACTION
-def fireball_animation():
+def fireball_animation(): # animation for the fireball hitting
     tempshape = player_shape
     wn.tracer(False)
     fireball.setheading(0)
@@ -46,7 +46,7 @@ def fireball_animation():
     player.shape(tempshape)
     fireball.hideturtle()
 
-def fireball_animation_fail():
+def fireball_animation_fail(): # animation for the fireball missing
     tempshape = player_shape
     wn.tracer(False)
     fireball.setheading(0)
@@ -66,7 +66,7 @@ def fireball_animation_fail():
     player.shape(tempshape)
     fireball.hideturtle()
 
-def setenemyfile(x):
+def setenemyfile(x): # See below, this is just the enemy equivalent
     global enemy_name, enemy_hp, enemy_speed, enemy_power, enemy_maxhp, enemy_shape
     with open(x, 'r') as file:
         stats = file.readlines()
@@ -79,7 +79,7 @@ def setenemyfile(x):
     enemy.shape(enemy_shape)
     enemy_maxhp = enemy_hp
 
-def setplayerfile(x):
+def setplayerfile(x): # Probably yhe best part of the whole program. Reads player stats and image from a txt file (was originally also going to read attacks)
     global player_name, player_hp, player_speed, player_power, player_maxhp, player_shape
     with open(x, 'r') as file:
         stats = file.readlines()
@@ -93,7 +93,7 @@ def setplayerfile(x):
     player_maxhp = player_hp
 
 
-def playerchoose():
+def playerchoose(): # A function that allows for user input to select attacks.
     global player_constant, menu_status
     hpcheck()
     if (menu_status == 'home'):
@@ -116,7 +116,7 @@ def playerchoose():
     else:
         wn.onkey(flag_state_home, "a")
         useless.forward(.001)
-def choice_one():
+def choice_one(): # Every choice command functions the same, they just set the player choice and prevent further input
     wn.onkey(uselesslol,"1")
     wn.onkey(uselesslol,"2")
     wn.onkey(uselesslol,"3")
@@ -181,7 +181,7 @@ def choice_four():
         player_constant = 0
     else:
         useless.forward(.001)
-def playerattack():
+def playerattack(): # a giant mess of if statements to check player input
     global player_choice, player_attacks, player_hp, player_speed, player_power, player_ult, enemy_hp, enemy_attacks, enemy_speed, enemy_power, menu_status, potion_count
     tempplayer = player_attacks[player_choice]
     if player_hp > 0:
@@ -237,7 +237,7 @@ def playerattack():
         if crit == 57:
             player_power /= 2
 
-def hpcheck():
+def hpcheck(): # Checks to make sure pplayer and enemy hp isn't 0 or negative, prints "x fainted!" if one of the characters has no hp
     global player_hp, enemy_hp, menu_status
     if player_hp <= 0:
         type_fight(player_name+" fainted! Game Over!")
@@ -246,7 +246,7 @@ def hpcheck():
         type_fight(enemy_name +" fainted! You Won!")
         flag_state_end()
 
-def potionbar_update():
+def potionbar_update(): # Updates the player potion bar
     global potion_count
     if potion_count == 3:
         potionbar.showturtle()
@@ -261,7 +261,7 @@ def potionbar_update():
         potionbar.hideturtle()
     
     
-def healthbar_update():
+def healthbar_update(): # Updates the player health bar
     global player_hp, player_maxhp
     if (player_hp/player_maxhp) > (3/4):
         healthbar.showturtle()
@@ -278,7 +278,7 @@ def healthbar_update():
     else:
         healthbar.hideturtle()
         
-def ultbar_update():
+def ultbar_update(): # Updates the ultimate bar
     global player_ult
     if (player_ult) == 100:
         ultbar.showturtle()
@@ -295,7 +295,7 @@ def ultbar_update():
     else:
         ultbar.hideturtle()
 
-def enemybar_update():
+def enemybar_update(): # Updates the enemy health bar
     global enemy_hp, enemy_maxhp
     temphealth = enemy_hp/enemy_maxhp
     if (temphealth >= 1):
@@ -331,7 +331,7 @@ def enemybar_update():
     else:
         enemyhealthbar.hideturtle()
 
-def hp_update():
+def hp_update(): #Updates the hp text and all bars on screen.
     global player_hp, enemy_hp, player_ult, player_maxhp
     wn.tracer(False)
     player_hptxt.clear()
@@ -345,7 +345,7 @@ def hp_update():
     enemybar_update()
     wn.tracer(True)
 
-def enemyattack():
+def enemyattack(): # Giant check that selects the enemy's attack with a really bad randomizer to select the attacks.
     global player_attacks, player_hp, player_speed, player_power, player_ult, enemy_hp, enemy_attacks, enemy_speed, enemy_power, flex_count, i_enemy
     if enemy_hp > 0:
         if enemy_hp > 200:
@@ -396,7 +396,7 @@ def enemyattack():
         if crit == 13:
             enemy_power /= 2
 
-def speedcheck():
+def speedcheck(): # Compares player speed to enemy speed, decides who goes first.
     global player_speed
     global enemy_speed
     global menu_status
