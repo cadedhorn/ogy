@@ -3,16 +3,15 @@ import turtle as jake
 import winsound
 statefarm = jake.Screen()
 import attacks as atk
-atk.setenemyfile('gipe.txt')
+atk.setenemyfile('ogre.txt')
 atk.setplayerfile('wizardogy.txt')
-winsound.PlaySound('souljaboy.wav',winsound.SND_ASYNC)
+winsound.PlaySound('aaberg.wav',winsound.SND_ASYNC)
 while atk.menu_status != 'end_fight':
     atk.playerchoose()
 winsound.PlaySound(None,winsound.SND_PURGE)
 atk.menu_status = 'home'
-atk.hpcheck()
 
-if atk.menu_status != 'end_fight':
+if (atk.player_hp > 0):
     atk.setenemyfile('aaberg.txt')
     winsound.PlaySound('aaberg.wav',winsound.SND_ASYNC)
 
