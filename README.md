@@ -1,2 +1,2 @@
 # Ogy
-Home of OGY: The Game
+Clone the repo (zip) and extract and run main.py to play
